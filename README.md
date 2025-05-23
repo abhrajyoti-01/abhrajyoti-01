@@ -1,19 +1,17 @@
 <div align="center">
 
-<!-- Animated Header -->
 <img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=180&section=header&text=ABHRAJYOTI&fontSize=42&fontColor=fff&animation=twinkling&fontAlignY=32&desc=Student%20%7C%20Developer%20%7C%20Innovator&descAlignY=51&descAlign=50"/>
 
-<!-- Fixed Typing Animation - One line at a time -->
 <img src="https://readme-typing-svg.herokuapp.com?font=JetBrains+Mono&weight=600&size=28&duration=4000&pause=1000&color=00E5FF&center=true&vCenter=true&width=600&lines=Knowledge+%3C%3C%3C+Experience;%F0%9F%9A%80+Building+the+Future+%F0%9F%9A%80;%F0%9F%92%BB+One+Line+at+a+Time+%F0%9F%92%BB" alt="Typing SVG" />
 
-<!-- Profile Views & Badges -->
+
 <p>
   <img src="https://komarev.com/ghpvc/?username=abhrajyoti-01&label=Profile%20Views&color=blueviolet&style=for-the-badge" alt="Profile views"/>
   <img src="https://img.shields.io/github/followers/abhrajyoti-01?label=Followers&style=for-the-badge&color=orange" alt="followers"/>
   <img src="https://img.shields.io/github/stars/abhrajyoti-01?label=Stars&style=for-the-badge&color=yellow" alt="stars"/>
 </p>
 
-<!-- Portfolio Button -->
+
 <a href="https://abhra.me" target="_blank">
   <img src="https://img.shields.io/badge/🌐_Visit_My_Portfolio-abhra.me-FF6B6B?style=for-the-badge&logo=Google-Chrome&logoColor=white&labelColor=FF6B6B&color=4ECDC4" alt="Portfolio"/>
 </a>
@@ -22,7 +20,7 @@
 
 ---
 
-<!-- About Section with Cool Design -->
+
 <img align="right" alt="Coding GIF" width="300" src="https://media.giphy.com/media/SWoSkN6DxTszqIKEqv/giphy.gif">
 
 ### 🚀 About Me
@@ -44,7 +42,6 @@ coffee_addiction: extreme ☕
 
 ---
 
-<!-- Skills Section with Animated Icons -->
 <h2 align="center">🛠️ Tech Arsenal</h2>
 
 <div align="center">
@@ -68,7 +65,6 @@ coffee_addiction: extreme ☕
 
 ---
 
-<!-- Featured Project with Enhanced Design -->
 <h2 align="center">✨ Featured Project Spotlight</h2>
 
 <div align="center">
@@ -83,7 +79,6 @@ coffee_addiction: extreme ☕
 
 ---
 
-<!-- GitHub Stats with Multiple Themes -->
 <h2 align="center">📊 GitHub Analytics</h2>
 
 <div align="center">
@@ -95,14 +90,13 @@ coffee_addiction: extreme ☕
   <img src="https://github-readme-streak-stats.herokuapp.com/?user=abhrajyoti-01&theme=synthwave&border_radius=15&border=00E5FF" alt="GitHub Streak"/>
 </div>
 
-<!-- Contribution Graph -->
 <div align="center">
   <img src="https://github-readme-activity-graph.vercel.app/graph?username=abhrajyoti-01&theme=react-dark&bg_color=1a1b27&color=00E5FF&line=00E5FF&point=FFFFFF&area=true&hide_border=true" alt="Contribution Graph"/>
 </div>
 
 ---
 
-<!-- Life Beyond Code -->
+
 <h2 align="center">🌍 Life Beyond Code</h2>
 
 <div align="center">
@@ -149,7 +143,6 @@ graph LR
 
 ---
 
-<!-- Connect Section -->
 <h2 align="center">🤝 Let's Connect & Collaborate</h2>
 
 <div align="center">
@@ -171,7 +164,6 @@ graph LR
 
 ---
 
-<!-- Fun Terminal Section -->
 <h2 align="center">💻 Terminal Output</h2>
 
 ```bash
@@ -195,7 +187,6 @@ Estimated time remaining: ∞ (Always learning!)
 
 ---
 
-<!-- Footer -->
 <img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=120&section=footer"/>
 
 <div align="center">
