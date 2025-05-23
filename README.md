@@ -1,20 +1,203 @@
-<h1 align="center">Hi 👋, I'm Abhrajyoti Nath</h1>
-<h3 align="center">I am currently pursuing BCA.</h3>
+<div align="center">
 
-<p align="left"> <img src="https://komarev.com/ghpvc/?username=abhrajyoti-01&label=Profile%20views&color=0e75b6&style=flat" alt="abhrajyoti-01" /> </p>
+<!-- Animated Header -->
+<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=180&section=header&text=ABHRAJYOTI&fontSize=42&fontColor=fff&animation=twinkling&fontAlignY=32&desc=Student%20%7C%20Developer%20%7C%20Innovator&descAlignY=51&descAlign=50"/>
 
-<p align="left"> <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=abhrajyoti-01" alt="abhrajyoti-01" /></a> </p>
+<!-- Typing Animation -->
+<img src="https://readme-typing-svg.herokuapp.com?font=JetBrains+Mono&weight=600&size=28&duration=3000&pause=500&color=00E5FF&center=true&vCenter=true&multiline=true&width=600&height=100&lines=Knowledge+%3C%3C%3C+Experience;%F0%9F%9A%80+Building+the+Future+%F0%9F%9A%80;%F0%9F%92%BB+One+Line+at+a+Time+%F0%9F%92%BB" alt="Typing SVG" />
 
-- 🔭 I’m currently working on **web chatting application**
-
-- 📫 How to reach me **abhraayan@gmail.com**
-
-<h3 align="left">Connect with me:</h3>
-<p align="left">
-<a href="https://instagram.com/ayan_abhra" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/instagram.svg" alt="ayan_abhra" height="30" width="40" /></a>
+<!-- Profile Views & Badges -->
+<p>
+  <img src="https://komarev.com/ghpvc/?username=abhrajyoti-01&label=Profile%20Views&color=blueviolet&style=for-the-badge" alt="Profile views"/>
+  <img src="https://img.shields.io/github/followers/abhrajyoti-01?label=Followers&style=for-the-badge&color=orange" alt="followers"/>
+  <img src="https://img.shields.io/github/stars/abhrajyoti-01?label=Stars&style=for-the-badge&color=yellow" alt="stars"/>
 </p>
 
-<h3 align="left">Languages and Tools:</h3>
-<p align="left"> <a href="https://aws.amazon.com" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" alt="aws" width="40" height="40"/> </a> <a href="https://azure.microsoft.com/en-in/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/microsoft_azure/microsoft_azure-icon.svg" alt="azure" width="40" height="40"/> </a> <a href="https://www.gnu.org/software/bash/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/gnu_bash/gnu_bash-icon.svg" alt="bash" width="40" height="40"/> </a> <a href="https://getbootstrap.com" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/bootstrap/bootstrap-plain-wordmark.svg" alt="bootstrap" width="40" height="40"/> </a> <a href="https://www.cprogramming.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/c/c-original.svg" alt="c" width="40" height="40"/> </a> <a href="https://www.w3schools.com/css/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" alt="css3" width="40" height="40"/> </a> <a href="https://git-scm.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="git" width="40" height="40"/> </a> <a href="https://heroku.com" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/heroku/heroku-icon.svg" alt="heroku" width="40" height="40"/> </a> <a href="https://www.w3.org/html/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" alt="html5" width="40" height="40"/> </a> <a href="https://www.java.com" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg" alt="java" width="40" height="40"/> </a> <a href="https://www.linux.org/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/linux/linux-original.svg" alt="linux" width="40" height="40"/> </a> <a href="https://www.mongodb.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original-wordmark.svg" alt="mongodb" width="40" height="40"/> </a> <a href="https://www.mysql.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original-wordmark.svg" alt="mysql" width="40" height="40"/> </a> <a href="https://nodejs.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original-wordmark.svg" alt="nodejs" width="40" height="40"/> </a> <a href="https://opencv.org/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/opencv/opencv-icon.svg" alt="opencv" width="40" height="40"/> </a> <a href="https://www.oracle.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/oracle/oracle-original.svg" alt="oracle" width="40" height="40"/> </a> <a href="https://www.php.net" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/php/php-original.svg" alt="php" width="40" height="40"/> </a> <a href="https://github.com/puppeteer/puppeteer" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/pptrdev/pptrdev-official.svg" alt="puppeteer" width="40" height="40"/> </a> <a href="https://www.python.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="python" width="40" height="40"/> </a> <a href="https://www.selenium.dev" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/detain/svg-logos/780f25886640cef088af994181646db2f6b1a3f8/svg/selenium-logo.svg" alt="selenium" width="40" height="40"/> </a> </p>
+<!-- Portfolio Button -->
+<a href="https://abhra.me" target="_blank">
+  <img src="https://img.shields.io/badge/🌐_Visit_My_Portfolio-abhra.me-FF6B6B?style=for-the-badge&logo=Google-Chrome&logoColor=white&labelColor=FF6B6B&color=4ECDC4" alt="Portfolio"/>
+</a>
 
-<p><img align="center" src="https://github-readme-stats.vercel.app/api/top-langs?username=abhrajyoti-01&show_icons=true&locale=en&layout=compact" alt="abhrajyoti-01" /></p>
+</div>
+
+---
+
+<!-- About Section with Cool Design -->
+<img align="right" alt="Coding GIF" width="300" src="https://media.giphy.com/media/SWoSkN6DxTszqIKEqv/giphy.gif">
+
+### 🚀 About Me
+
+```yaml
+name: "Abhrajyoti"
+role: "Student & Aspiring Developer"
+motto: "Knowledge <<< Experience"
+location: "India 🇮🇳"
+learning_mode: true
+coffee_addiction: extreme ☕
+```
+
+- 🎓 **Student** passionate about transforming ideas into reality
+- 💡 I believe in **learning by doing** rather than just theoretical knowledge
+- 🌱 Currently exploring **Advanced JavaScript**, **Cloud Technologies**, and **AI/ML**
+- 🎯 Goal: Build impactful projects that solve real-world problems
+- ⚡ Fun fact: I debug with `console.log()` and I'm not ashamed! 😄
+
+---
+
+<!-- Skills Section with Animated Icons -->
+<h2 align="center">🛠️ Tech Arsenal</h2>
+
+<div align="center">
+
+### 🎨 Frontend Magic
+<p>
+  <img src="https://skillicons.dev/icons?i=html,css,js,react,tailwind" alt="Frontend Skills"/>
+</p>
+
+### ⚙️ Backend Power
+<p>
+  <img src="https://skillicons.dev/icons?i=nodejs,python,java,c" alt="Backend Skills"/>
+</p>
+
+### 🔧 Tools & Platforms
+<p>
+  <img src="https://skillicons.dev/icons?i=git,github,vscode,linux,figma" alt="Tools"/>
+</p>
+
+</div>
+
+---
+
+<!-- Featured Project with Enhanced Design -->
+<h2 align="center">✨ Featured Project Spotlight</h2>
+
+<div align="center">
+  <a href="https://github.com/abhrajyoti-01/typing-master">
+    <img src="https://github-readme-stats.vercel.app/api/pin/?username=abhrajyoti-01&repo=typing-master&theme=synthwave&border_radius=15&border_color=00E5FF" alt="Typing Master"/>
+  </a>
+  
+  **🎯 Typing Master** - Master your keyboard skills with this interactive typing practice tool!
+  
+  `JavaScript` `HTML5` `CSS3` `Interactive UI` `Real-time Stats`
+</div>
+
+---
+
+<!-- GitHub Stats with Multiple Themes -->
+<h2 align="center">📊 GitHub Analytics</h2>
+
+<div align="center">
+  <img height="180em" src="https://github-readme-stats.vercel.app/api?username=abhrajyoti-01&show_icons=true&theme=synthwave&include_all_commits=true&count_private=true&border_radius=15&border_color=00E5FF"/>
+  <img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=abhrajyoti-01&layout=compact&langs_count=8&theme=synthwave&border_radius=15&border_color=00E5FF"/>
+</div>
+
+<div align="center">
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=abhrajyoti-01&theme=synthwave&border_radius=15&border=00E5FF" alt="GitHub Streak"/>
+</div>
+
+<!-- Contribution Graph -->
+<div align="center">
+  <img src="https://github-readme-activity-graph.vercel.app/graph?username=abhrajyoti-01&theme=react-dark&bg_color=1a1b27&color=00E5FF&line=00E5FF&point=FFFFFF&area=true&hide_border=true" alt="Contribution Graph"/>
+</div>
+
+---
+
+<!-- Life Beyond Code -->
+<h2 align="center">🌍 Life Beyond Code</h2>
+
+<div align="center">
+
+```mermaid
+graph LR
+    A[👨‍💻 Coding] --> B[🎮 Gaming]
+    B --> C[✈️ Traveling]
+    C --> D[⚽ Sports]
+    D --> A
+    
+    style A fill:#ff6b6b,stroke:#333,stroke-width:2px,color:#fff
+    style B fill:#4ecdc4,stroke:#333,stroke-width:2px,color:#fff
+    style C fill:#45b7d1,stroke:#333,stroke-width:2px,color:#fff
+    style D fill:#f9ca24,stroke:#333,stroke-width:2px,color:#fff
+```
+
+</div>
+
+<table align="center">
+<tr>
+<td align="center" width="200">
+🎮<br/>
+<b>Gaming</b><br/>
+<sub>Conquering virtual worlds</sub>
+</td>
+<td align="center" width="200">
+✈️<br/>
+<b>Traveling</b><br/>
+<sub>Exploring new horizons</sub>
+</td>
+<td align="center" width="200">
+⚽<br/>
+<b>Sports</b><br/>
+<sub>Staying active & competitive</sub>
+</td>
+<td align="center" width="200">
+💻<br/>
+<b>Coding</b><br/>
+<sub>Building cool stuff 24/7</sub>
+</td>
+</tr>
+</table>
+
+---
+
+<!-- Connect Section -->
+<h2 align="center">🤝 Let's Connect & Collaborate</h2>
+
+<div align="center">
+
+### 💬 Always excited to discuss:
+`New Technologies` • `Project Ideas` • `Career Opportunities` • `Gaming` • `Travel Stories`
+
+<p>
+  <a href="https://abhra.me" target="_blank">
+    <img src="https://img.shields.io/badge/🌐_Portfolio-abhra.me-FF6B6B?style=for-the-badge&logo=Google-Chrome&logoColor=white&labelColor=FF6B6B&color=4ECDC4" alt="Website"/>
+  </a>
+  <br><br>
+  <!-- Add more social links as needed -->
+  <img src="https://img.shields.io/badge/Open_to-Collaborations-brightgreen?style=for-the-badge&logo=handshake&logoColor=white" alt="Open to collaborations"/>
+  <img src="https://img.shields.io/badge/Available_for-Freelance-blue?style=for-the-badge&logo=upwork&logoColor=white" alt="Available for freelance"/>
+</p>
+
+</div>
+
+---
+
+<!-- Fun Terminal Section -->
+<h2 align="center">💻 Terminal Output</h2>
+
+```bash
+$ whoami
+abhrajyoti-01
+
+$ ls skills/
+advanced_googling.exe    coffee_to_code_converter.py    infinite_curiosity.js
+bug_hunter.java         stackoverflow_navigator.html   dream_to_reality.cpp
+
+$ cat current_status.txt
+🔥 Building awesome projects
+📚 Learning new technologies
+🎯 Seeking opportunities to grow
+☕ Powered by coffee and determination
+
+$ sudo make me_a_developer
+[████████████████████] 78% Complete
+Estimated time remaining: ∞ (Always learning!)
+```
+
+---
+
+<!-- Footer -->
+<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=120&section=footer"/>
+
+<div align="center">
+  <img src="https://readme-typing-svg.herokuapp.com?font=JetBrains+Mono&weight=600&size=20&duration=2000&pause=1000&color=00E5FF&center=true&vCenter=true&lines=Thanks+for+visiting!+%E2%9C%A8;Let's+build+something+amazing+together!+%F0%9F%9A%80;Keep+coding%2C+keep+growing!+%F0%9F%8C%B1" alt="Footer Typing SVG" />
+</div>
