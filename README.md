@@ -3,8 +3,8 @@
 <!-- Animated Header -->
 <img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=180&section=header&text=ABHRAJYOTI&fontSize=42&fontColor=fff&animation=twinkling&fontAlignY=32&desc=Student%20%7C%20Developer%20%7C%20Innovator&descAlignY=51&descAlign=50"/>
 
-<!-- Typing Animation -->
-<img src="https://readme-typing-svg.herokuapp.com?font=JetBrains+Mono&weight=600&size=28&duration=3000&pause=500&color=00E5FF&center=true&vCenter=true&multiline=true&width=600&height=100&lines=Knowledge+%3C%3C%3C+Experience;%F0%9F%9A%80+Building+the+Future+%F0%9F%9A%80;%F0%9F%92%BB+One+Line+at+a+Time+%F0%9F%92%BB" alt="Typing SVG" />
+<!-- Fixed Typing Animation - One line at a time -->
+<img src="https://readme-typing-svg.herokuapp.com?font=JetBrains+Mono&weight=600&size=28&duration=4000&pause=1000&color=00E5FF&center=true&vCenter=true&width=600&lines=Knowledge+%3C%3C%3C+Experience;%F0%9F%9A%80+Building+the+Future+%F0%9F%9A%80;%F0%9F%92%BB+One+Line+at+a+Time+%F0%9F%92%BB" alt="Typing SVG" />
 
 <!-- Profile Views & Badges -->
 <p>
@@ -199,5 +199,5 @@ Estimated time remaining: ∞ (Always learning!)
 <img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=120&section=footer"/>
 
 <div align="center">
-  <img src="https://readme-typing-svg.herokuapp.com?font=JetBrains+Mono&weight=600&size=20&duration=2000&pause=1000&color=00E5FF&center=true&vCenter=true&lines=Thanks+for+visiting!+%E2%9C%A8;Let's+build+something+amazing+together!+%F0%9F%9A%80;Keep+coding%2C+keep+growing!+%F0%9F%8C%B1" alt="Footer Typing SVG" />
+  <img src="https://readme-typing-svg.herokuapp.com?font=JetBrains+Mono&weight=600&size=20&duration=3000&pause=800&color=00E5FF&center=true&vCenter=true&lines=Thanks+for+visiting!+%E2%9C%A8;Let's+build+something+amazing+together!+%F0%9F%9A%80;Keep+coding%2C+keep+growing!+%F0%9F%8C%B1" alt="Footer Typing SVG" />
 </div>
