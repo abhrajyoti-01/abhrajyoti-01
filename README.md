@@ -505,9 +505,9 @@ current_focus:
   side_project: "Python Data Structures"
   
 progress:
-  react_advanced: 65%
-  nodejs_apis: 45%
-  python_ds: 30%
+  react_advanced: 45%
+  nodejs_apis: 55%
+  python_ds: 70%
   
 next_up:
   - "Docker & Containerization"
