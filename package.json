@@ -1,0 +1,12 @@
+{
+  "name": "abhrajyoti-readme-updater",
+  "version": "1.0.0",
+  "description": "Daily motivation updater for GitHub profile README",
+  "main": ".github/scripts/update-motivation.js",
+  "scripts": {
+    "update-motivation": "node .github/scripts/update-motivation.js"
+  },
+  "keywords": ["github", "readme", "automation", "motivation"],
+  "author": "Abhrajyoti",
+  "license": "MIT"
+}
