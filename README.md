@@ -334,11 +334,6 @@ console.log(`"${motivation.quote} - ${motivation.author}"`);
 
 <!-- GitHub Analytics -->
 <h2 align="center">📊 GitHub Analytics</h2>
-
-<div align="center">
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=abhrajyoti-01&theme=synthwave&border_radius=15&border=00E5FF" alt="GitHub Streak"/>
-</div>
-
 <!-- Activity Graph -->
 <div align="center">
   <img src="https://github-readme-activity-graph.vercel.app/graph?username=abhrajyoti-01&theme=react-dark&bg_color=1a1b27&color=00E5FF&line=00E5FF&point=FFFFFF&area=true&hide_border=true" alt="Contribution Graph"/>
