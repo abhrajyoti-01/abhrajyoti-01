@@ -105,7 +105,7 @@ const motivation = {
 };
 
 console.log(\`\${motivation.quote} - \${motivation.author}\`);
-// Output: Ready to change the world, one commit at a time! 🌍
+// Output: "${selectedQuote.quote} - ${selectedQuote.author}"
 \`\`\``;
     
     content = content.replace(motivationRegex, newMotivation);

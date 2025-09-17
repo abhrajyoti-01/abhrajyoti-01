@@ -137,16 +137,19 @@ fun_fact: "I think in code and dream in algorithms"
 <div align="center">
 
 ### 🎨 Frontend Magic
+
 <p>
   <img src="https://skillicons.dev/icons?i=html,css,js,react,tailwind" alt="Frontend Skills"/>
 </p>
 
 ### ⚙️ Backend Power
+
 <p>
   <img src="https://skillicons.dev/icons?i=nodejs,python,java,c" alt="Backend Skills"/>
 </p>
 
 ### 🔧 Tools & Platforms
+
 <p>
   <img src="https://skillicons.dev/icons?i=git,github,vscode,linux,figma" alt="Tools"/>
 </p>
@@ -156,13 +159,13 @@ fun_fact: "I think in code and dream in algorithms"
 <!-- Skill Progress Bars -->
 <div align="center">
 
-| Technology | Proficiency | Usage |
-|:----------:|:-----------:|:-----:|
-| JavaScript | ![](https://geps.dev/progress/75) | Daily |
-| Python | ![](https://geps.dev/progress/70) | Weekly |
-| React | ![](https://geps.dev/progress/65) | Daily |
-| Node.js | ![](https://geps.dev/progress/60) | Weekly |
-| Java | ![](https://geps.dev/progress/55) | Yearly |
+| Technology |            Proficiency            | Usage  |
+| :--------: | :-------------------------------: | :----: |
+| JavaScript | ![](https://geps.dev/progress/75) | Daily  |
+|   Python   | ![](https://geps.dev/progress/70) | Weekly |
+|   React    | ![](https://geps.dev/progress/65) | Daily  |
+|  Node.js   | ![](https://geps.dev/progress/60) | Weekly |
+|    Java    | ![](https://geps.dev/progress/55) | Yearly |
 
 </div>
 
@@ -274,7 +277,7 @@ pie title Weekly Coding Activities
   <img src="https://img.shields.io/badge/🔟-Guess-blue?style=for-the-badge" alt="10"/>
 </a>
 
-*Hint: It's my lucky number! 🍀*
+_Hint: It's my lucky number! 🍀_
 
 </div>
 
@@ -307,20 +310,20 @@ pie title Weekly Coding Activities
 <div align="center">
 
 ```javascript
-// Today's Motivation - Updated: 2025-09-16 09:41:46 UTC
+// Today's Motivation - Updated: 2025-09-17 14:58:40 UTC
 const motivation = {
-    date: "2025-09-16",
-    time: "09:41:46 UTC",
-    quote: "The best error message is the one that never shows up.",
-    author: "Thomas Fuchs",
-    mood: "🚀 Ready",
-    energy: "☕☕☕☕ High",
-    goal: "Code the future!",
-    status: "🚀 Ready to code!"
+    date: "2025-09-17",
+    time: "14:58:40 UTC",
+    quote: "Debugging is twice as hard as writing the code in the first place.",
+    author: "Brian Kernighan",
+    mood: "💪 Determined",
+    energy: "☕☕☕ Good",
+    goal: "Make an impact through technology!",
+    status: "💻 In the zone!"
 };
 
-console.log(`${motivation.quote} - ${motivation.author}`);
-// Output: Ready to change the world, one commit at a time! 🌍
+console.log(`"${motivation.quote} - ${motivation.author}"`);
+// Output: "Debugging is twice as hard as writing the code in the first place. - Brian Kernighan"
 ```
 
 <img src="https://quotes-github-readme.vercel.app/api?type=horizontal&theme=radical" alt="Programming Quote"/>
@@ -385,7 +388,7 @@ console.log(`${motivation.quote} - ${motivation.author}`);
   <img src="https://img.shields.io/badge/😐_Okay-50%25-yellow?style=for-the-badge" alt="Okay"/>
 </a>
 
-*Current Mood: 😄 Fantastic - Ready to code the world!*
+_Current Mood: 😄 Fantastic - Ready to code the world!_
 
 </div>
 
@@ -402,7 +405,7 @@ graph LR
     B --> C[✈️ Traveling]
     C --> D[⚽ Sports]
     D --> A
-    
+
     style A fill:#ff6b6b,stroke:#333,stroke-width:2px,color:#fff
     style B fill:#4ecdc4,stroke:#333,stroke-width:2px,color:#fff
     style C fill:#45b7d1,stroke:#333,stroke-width:2px,color:#fff
@@ -503,19 +506,19 @@ current_focus:
   primary: "Advanced React Patterns"
   secondary: "Node.js Microservices"
   side_project: "Python Data Structures"
-  
+
 progress:
   react_advanced: 45%
   nodejs_apis: 55%
   python_ds: 70%
-  
+
 next_up:
   - "Docker & Containerization"
   - "GraphQL APIs"
   - "TypeScript Deep Dive"
-  
+
 learning_method: "Build while learning 🔨"
-last_updated: "2025-09-16 09:41:46 UTC"
+last_updated: "2025-09-17 14:58:40 UTC"
 ```
 
 <table align="center">
@@ -551,6 +554,7 @@ last_updated: "2025-09-16 09:41:46 UTC"
 <div align="center">
 
 ### 💬 Always excited to discuss:
+
 `New Technologies` • `Project Ideas` • `Career Opportunities` • `Gaming` • `Travel Stories` • `Cricket`
 
 <p>
@@ -585,7 +589,7 @@ Thu May 23 18:39:44 UTC 2025
 
 abhrajyoti@karimpur:~$ ls skills/
 advanced_googling.exe       ⭐⭐⭐⭐⭐
-coffee_to_code_converter.py ⭐⭐⭐⭐⭐  
+coffee_to_code_converter.py ⭐⭐⭐⭐⭐
 infinite_curiosity.js       ⭐⭐⭐⭐⭐
 bug_hunter.java            ⭐⭐⭐⭐⭐
 stackoverflow_navigator.html ⭐⭐⭐⭐⭐
@@ -593,7 +597,7 @@ dream_to_reality.cpp       ⭐⭐⭐⭐⭐
 
 abhrajyoti@karimpur:~$ cat current_status.txt
 🔥 Building awesome projects
-📚 Learning new technologies  
+📚 Learning new technologies
 🎯 Seeking opportunities to grow
 ☕ Powered by coffee and determination
 🚀 Ready for the next challenge!
@@ -616,7 +620,7 @@ abhrajyoti@karimpur:~$ uptime
  18:39:44 up 143 days, 12:30, 1 user, load average: 0.42, 0.37, 0.25
 
 abhrajyoti@karimpur:~$ git log --oneline -5
-a1b2c3d Fixed typing animation URL encoding issues  
+a1b2c3d Fixed typing animation URL encoding issues
 e4f5g6h Added mermaid life cycle graph
 i7j8k9l Improved skill progress tracking
 m1n2o3p Enhanced GitHub analytics display
@@ -629,33 +633,17 @@ q4r5s6t Fixed responsive design issues
 <img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=120&section=footer"/>
 
 <div align="center">
-  <img src="https://readme-typing-svg.herokuapp.com?font=JetBrains+Mono&weight=600&size=20&duration=3000&pause=800&color=00E5FF&center=true&vCenter=true&lines=Thanks+for+visiting!+%E2%9C%A8;Let%27s+build+something+amazing+together!+%F0%9F%9A%80;Keep+coding,+keep+growing!+%F0%9F%8C%B1;May+the+code+be+with+you!+%F0%9F%91%A8%E2%80%8D%F0%9F%92%BB;From+Karimpur+with+%E2%9D%A4%EF%B8%8F" alt="Footer Typing SVG" />
+  <img src="https://readme-typing-svg.herokuapp.com?font=JetBrains+Mono&weight=600&size=20&duration=3000&pause=800&color=00E5FF&center=true&vCenter=true&lines=Thanks+for+visiting!+%E2%9C%A8;Let%27s+build+something+amazing;Keep+coding%2C+keep+growing!+%F0%9F%8C%B1;May+the+code+be+with+you!+%F0%9F%91%A8%E2%80%8D%F0%9F%92%BB;From+Karimpur+with+%E2%9D%A4%EF%B8%8F" alt="Footer Typing SVG" />
   
   <br>
   
-  **Made with ❤️ and ☕ in Karimpur, West Bengal**
+  Made with ❤️ and ☕ in Karimpur, West Bengal
   
-  <img src="https://img.shields.io/badge/Made_with-❤️_and_☕-red?style=for-the-badge&logo=heart" alt="Made with love and coffee"/>
-  <br/>
-  <img src="https://img.shields.io/badge/Last_Updated-2025--09--16_09:41:46_UTC-blue?style=flat&logo=clock" alt="Last Updated"/>
+  <div>
+    <img src="https://img.shields.io/badge/MADE_WITH-gray?style=for-the-badge" alt="MADE WITH"/>
+    <img src="https://img.shields.io/badge/❤️_AND_☕-blue?style=for-the-badge" alt="LOVE AND COFFEE"/>
+  </div>
+  <br>
+  <img src="https://img.shields.io/badge/Last_Updated-2025--09--17_14:58:40_UTC-blue?style=flat&logo=clock" alt="Last Updated"/>
 </div>
 
-<!-- Hidden Easter Egg -->
-<!-- 
-🎉 EASTER EGG FOUND! 🎉
-If you're reading this in the source code, you're awesome! 
-Here's a secret: My favorite debugging technique is actually rubber duck debugging! 🦆
-
-🤖 AUTOMATION MAGIC:
-This README automatically updates daily at 6:30 PM UTC with:
-- New motivational programming quotes
-- Fresh mood and energy levels  
-- Updated timestamps throughout
-- Randomized goals and status messages
-
-The automation runs via GitHub Actions (.github/workflows/update-readme.yml)
-and a Node.js script (.github/scripts/update-motivation.js).
-
-Current time when this was last updated: 2025-09-16 09:40:37 UTC
-Want to know more secrets? Check out my repositories! 
--->

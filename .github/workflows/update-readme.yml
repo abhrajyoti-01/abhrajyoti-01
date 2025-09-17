@@ -15,29 +15,54 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
         
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '18'
+          cache: 'npm'
+      
+      - name: Install dependencies
+        run: npm ci
+        continue-on-error: false
           
       - name: Update README with new motivation
-        run: node .github/scripts/update-motivation.js
+        id: update-readme
+        run: |
+          echo "::group::Updating README.md with new motivation"
+          node .github/scripts/update-motivation.js
+          echo "::endgroup::"
+        continue-on-error: false
         
       - name: Check for changes
         id: check-changes
         run: |
-          if git diff --quiet; then
+          if git diff --quiet README.md; then
+            echo "No changes detected in README.md"
             echo "changed=false" >> $GITHUB_OUTPUT
           else
+            echo "Changes detected in README.md"
             echo "changed=true" >> $GITHUB_OUTPUT
+            git diff --color README.md | cat
           fi
           
       - name: Commit and push changes
         if: steps.check-changes.outputs.changed == 'true'
         run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
           git add README.md
-          git commit -m "🌟 Daily motivation update - $(date '+%Y-%m-%d %H:%M:%S UTC')"
+          timestamp=$(date '+%Y-%m-%d %H:%M:%S UTC')
+          git commit -m "🌟 Daily motivation update - ${timestamp}"
           git push
+          echo "README.md updated successfully at ${timestamp}"
+          
+      - name: Log workflow completion
+        run: |
+          if [[ "${{ steps.check-changes.outputs.changed }}" == "true" ]]; then
+            echo "✅ README.md updated and changes pushed to repository"
+          else
+            echo "ℹ️ No changes needed for README.md"
+          fi
