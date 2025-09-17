@@ -336,11 +336,6 @@ console.log(`"${motivation.quote} - ${motivation.author}"`);
 <h2 align="center">📊 GitHub Analytics</h2>
 
 <div align="center">
-  <img height="180em" src="https://github-readme-stats.vercel.app/api?username=abhrajyoti-01&show_icons=true&theme=synthwave&include_all_commits=true&count_private=true&border_radius=15&border_color=00E5FF"/>
-  <img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=abhrajyoti-01&layout=compact&langs_count=8&theme=synthwave&border_radius=15&border_color=00E5FF"/>
-</div>
-
-<div align="center">
   <img src="https://github-readme-streak-stats.herokuapp.com/?user=abhrajyoti-01&theme=synthwave&border_radius=15&border=00E5FF" alt="GitHub Streak"/>
 </div>
 
