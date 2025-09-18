@@ -310,20 +310,20 @@ _Hint: It's my lucky number! 🍀_
 <div align="center">
 
 ```javascript
-// Today's Motivation - Updated: 2025-09-17 14:58:40 UTC
+// Today's Motivation - Updated: 2025-09-18 15:58:18 UTC
 const motivation = {
-    date: "2025-09-17",
-    time: "14:58:40 UTC",
-    quote: "Debugging is twice as hard as writing the code in the first place.",
-    author: "Brian Kernighan",
-    mood: "💪 Determined",
-    energy: "☕☕☕ Good",
-    goal: "Make an impact through technology!",
-    status: "💻 In the zone!"
+    date: "2025-09-18",
+    time: "15:58:18 UTC",
+    quote: "The most important property of a program is whether it accomplishes the intention of its user.",
+    author: "C.A.R. Hoare",
+    mood: "🚀 Ready",
+    energy: "☕☕☕☕ High",
+    goal: "Create something beautiful!",
+    status: "🚀 Ready to code!"
 };
 
 console.log(`"${motivation.quote} - ${motivation.author}"`);
-// Output: "Debugging is twice as hard as writing the code in the first place. - Brian Kernighan"
+// Output: "The most important property of a program is whether it accomplishes the intention of its user. - C.A.R. Hoare"
 ```
 
 <img src="https://quotes-github-readme.vercel.app/api?type=horizontal&theme=radical" alt="Programming Quote"/>
@@ -334,16 +334,6 @@ console.log(`"${motivation.quote} - ${motivation.author}"`);
 
 <!-- GitHub Analytics -->
 <h2 align="center">📊 GitHub Analytics</h2>
-
-<div align="center">
-  <img height="180em" src="https://github-readme-stats.vercel.app/api?username=abhrajyoti-01&show_icons=true&theme=synthwave&include_all_commits=true&count_private=true&border_radius=15&border_color=00E5FF"/>
-  <img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=abhrajyoti-01&layout=compact&langs_count=8&theme=synthwave&border_radius=15&border_color=00E5FF"/>
-</div>
-
-<div align="center">
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=abhrajyoti-01&theme=synthwave&border_radius=15&border=00E5FF" alt="GitHub Streak"/>
-</div>
-
 <!-- Activity Graph -->
 <div align="center">
   <img src="https://github-readme-activity-graph.vercel.app/graph?username=abhrajyoti-01&theme=react-dark&bg_color=1a1b27&color=00E5FF&line=00E5FF&point=FFFFFF&area=true&hide_border=true" alt="Contribution Graph"/>
@@ -518,7 +508,7 @@ next_up:
   - "TypeScript Deep Dive"
 
 learning_method: "Build while learning 🔨"
-last_updated: "2025-09-17 14:58:40 UTC"
+last_updated: "2025-09-18 15:58:18 UTC"
 ```
 
 <table align="center">
@@ -644,6 +634,5 @@ q4r5s6t Fixed responsive design issues
     <img src="https://img.shields.io/badge/❤️_AND_☕-blue?style=for-the-badge" alt="LOVE AND COFFEE"/>
   </div>
   <br>
-  <img src="https://img.shields.io/badge/Last_Updated-2025--09--17_14:58:40_UTC-blue?style=flat&logo=clock" alt="Last Updated"/>
+  <img src="https://img.shields.io/badge/Last_Updated-2025--09--18_15%3A58%3A18_UTC-blue?style=flat&logo=clock" alt="Last Updated"/>
 </div>
-

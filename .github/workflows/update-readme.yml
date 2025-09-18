@@ -22,18 +22,15 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '18'
-      
-      - name: Install dependencies
-        run: npm install
-        continue-on-error: false
           
       - name: Update README with new motivation
         id: update-readme
         run: |
           echo "::group::Updating README.md with new motivation"
+          echo "Current working directory: $(pwd)"
+          echo "README.md exists: $(test -f README.md && echo 'Yes' || echo 'No')"
           node .github/scripts/update-motivation.js
           echo "::endgroup::"
-        continue-on-error: false
         
       - name: Check for changes
         id: check-changes
@@ -53,9 +50,9 @@ jobs:
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           git add README.md
-          timestamp=$(date '+%Y-%m-%d %H:%M:%S UTC')
+          timestamp=$(date -u '+%Y-%m-%d %H:%M:%S UTC')
           git commit -m "🌟 Daily motivation update - ${timestamp}"
-          git push
+          git push origin main
           echo "README.md updated successfully at ${timestamp}"
           
       - name: Log workflow completion
