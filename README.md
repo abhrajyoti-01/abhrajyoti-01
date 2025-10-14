@@ -310,20 +310,20 @@ _Hint: It's my lucky number! 🍀_
 <div align="center">
 
 ```javascript
-// Today's Motivation - Updated: 2025-10-13 18:44:34 UTC
+// Today's Motivation - Updated: 2025-10-14 18:45:24 UTC
 const motivation = {
-    date: "2025-10-13",
-    time: "18:44:34 UTC",
-    quote: "The best code is no code at all.",
-    author: "Jeff Atwood",
-    mood: "💪 Determined",
-    energy: "☕☕☕☕☕ Maximum",
-    goal: "Turn ideas into reality!",
-    status: "🔥 On fire!"
+    date: "2025-10-14",
+    time: "18:45:24 UTC",
+    quote: "The only way to learn a new programming language is by writing programs in it.",
+    author: "Dennis Ritchie",
+    mood: "🧠 Thoughtful",
+    energy: "☕☕☕☕⚡ Supercharged",
+    goal: "Debug the world, one line at a time!",
+    status: "🚀 Ready to code!"
 };
 
 console.log(`"${motivation.quote} - ${motivation.author}"`);
-// Output: "The best code is no code at all. - Jeff Atwood"
+// Output: "The only way to learn a new programming language is by writing programs in it. - Dennis Ritchie"
 ```
 
 <img src="https://quotes-github-readme.vercel.app/api?type=horizontal&theme=radical" alt="Programming Quote"/>
@@ -508,7 +508,7 @@ next_up:
   - "TypeScript Deep Dive"
 
 learning_method: "Build while learning 🔨"
-last_updated: "2025-10-13 18:44:34 UTC"
+last_updated: "2025-10-14 18:45:24 UTC"
 ```
 
 <table align="center">
@@ -634,5 +634,5 @@ q4r5s6t Fixed responsive design issues
     <img src="https://img.shields.io/badge/❤️_AND_☕-blue?style=for-the-badge" alt="LOVE AND COFFEE"/>
   </div>
   <br>
-  <img src="https://img.shields.io/badge/Last_Updated-2025--10--13_18%3A44%3A34_UTC-blue?style=flat&logo=clock" alt="Last Updated"/>
+  <img src="https://img.shields.io/badge/Last_Updated-2025--10--14_18%3A45%3A24_UTC-blue?style=flat&logo=clock" alt="Last Updated"/>
 </div>
