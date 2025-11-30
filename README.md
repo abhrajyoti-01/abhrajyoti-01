@@ -310,20 +310,20 @@ _Hint: It's my lucky number! 🍀_
 <div align="center">
 
 ```javascript
-// Today's Motivation - Updated: 2025-11-29 18:45:13 UTC
+// Today's Motivation - Updated: 2025-11-30 18:45:06 UTC
 const motivation = {
-    date: "2025-11-29",
-    time: "18:45:13 UTC",
-    quote: "Programming today is a race between software engineers striving to build bigger and better idiot-proof programs, and the Universe trying to produce bigger and better idiots.",
-    author: "Rick Cook",
-    mood: "🚀 Ready",
-    energy: "☕☕☕ Good",
-    goal: "Build bridges with technology!",
-    status: "💫 Making magic happen!"
+    date: "2025-11-30",
+    time: "18:45:06 UTC",
+    quote: "A good programmer is someone who always looks both ways before crossing a one-way street.",
+    author: "Doug Linder",
+    mood: "🔥 Motivated",
+    energy: "☕☕☕☕⚡ Supercharged",
+    goal: "Debug the world, one line at a time!",
+    status: "🚀 Ready to code!"
 };
 
 console.log(`"${motivation.quote} - ${motivation.author}"`);
-// Output: "Programming today is a race between software engineers striving to build bigger and better idiot-proof programs, and the Universe trying to produce bigger and better idiots. - Rick Cook"
+// Output: "A good programmer is someone who always looks both ways before crossing a one-way street. - Doug Linder"
 ```
 
 <img src="https://quotes-github-readme.vercel.app/api?type=horizontal&theme=radical" alt="Programming Quote"/>
@@ -508,7 +508,7 @@ next_up:
   - "TypeScript Deep Dive"
 
 learning_method: "Build while learning 🔨"
-last_updated: "2025-11-29 18:45:13 UTC"
+last_updated: "2025-11-30 18:45:06 UTC"
 ```
 
 <table align="center">
@@ -634,5 +634,5 @@ q4r5s6t Fixed responsive design issues
     <img src="https://img.shields.io/badge/❤️_AND_☕-blue?style=for-the-badge" alt="LOVE AND COFFEE"/>
   </div>
   <br>
-  <img src="https://img.shields.io/badge/Last_Updated-2025--11--29_18%3A45%3A13_UTC-blue?style=flat&logo=clock" alt="Last Updated"/>
+  <img src="https://img.shields.io/badge/Last_Updated-2025--11--30_18%3A45%3A06_UTC-blue?style=flat&logo=clock" alt="Last Updated"/>
 </div>
