@@ -310,20 +310,20 @@ _Hint: It's my lucky number! 🍀_
 <div align="center">
 
 ```javascript
-// Today's Motivation - Updated: 2025-12-04 18:52:21 UTC
+// Today's Motivation - Updated: 2025-12-05 18:46:57 UTC
 const motivation = {
-    date: "2025-12-04",
-    time: "18:52:21 UTC",
-    quote: "Clean code always looks like it was written by someone who cares.",
-    author: "Michael Feathers",
-    mood: "💪 Determined",
-    energy: "☕☕☕☕⚡ Supercharged",
-    goal: "Push the boundaries of possibility!",
-    status: "🧙‍♂️ Code wizard mode!"
+    date: "2025-12-05",
+    time: "18:46:57 UTC",
+    quote: "Debugging is twice as hard as writing the code in the first place.",
+    author: "Brian Kernighan",
+    mood: "😎 Confident",
+    energy: "☕☕ Moderate",
+    goal: "Build bridges with technology!",
+    status: "✨ Feeling creative!"
 };
 
 console.log(`"${motivation.quote} - ${motivation.author}"`);
-// Output: "Clean code always looks like it was written by someone who cares. - Michael Feathers"
+// Output: "Debugging is twice as hard as writing the code in the first place. - Brian Kernighan"
 ```
 
 <img src="https://quotes-github-readme.vercel.app/api?type=horizontal&theme=radical" alt="Programming Quote"/>
@@ -508,7 +508,7 @@ next_up:
   - "TypeScript Deep Dive"
 
 learning_method: "Build while learning 🔨"
-last_updated: "2025-12-04 18:52:21 UTC"
+last_updated: "2025-12-05 18:46:57 UTC"
 ```
 
 <table align="center">
@@ -634,5 +634,5 @@ q4r5s6t Fixed responsive design issues
     <img src="https://img.shields.io/badge/❤️_AND_☕-blue?style=for-the-badge" alt="LOVE AND COFFEE"/>
   </div>
   <br>
-  <img src="https://img.shields.io/badge/Last_Updated-2025--12--04_18%3A52%3A21_UTC-blue?style=flat&logo=clock" alt="Last Updated"/>
+  <img src="https://img.shields.io/badge/Last_Updated-2025--12--05_18%3A46%3A57_UTC-blue?style=flat&logo=clock" alt="Last Updated"/>
 </div>
