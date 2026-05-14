@@ -310,20 +310,20 @@ _Hint: It's my lucky number! 🍀_
 <div align="center">
 
 ```javascript
-// Today's Motivation - Updated: 2026-05-13 20:15:34 UTC
+// Today's Motivation - Updated: 2026-05-14 20:10:49 UTC
 const motivation = {
-    date: "2026-05-13",
-    time: "20:15:34 UTC",
-    quote: "Programming today is a race between software engineers striving to build bigger and better idiot-proof programs, and the Universe trying to produce bigger and better idiots.",
-    author: "Rick Cook",
-    mood: "💡 Creative",
-    energy: "☕☕☕☕⚡ Supercharged",
+    date: "2026-05-14",
+    time: "20:10:49 UTC",
+    quote: "There are only two hard things in Computer Science: cache invalidation and naming things.",
+    author: "Phil Karlton",
+    mood: "🧠 Thoughtful",
+    energy: "☕☕ Moderate",
     goal: "Write code that changes lives!",
-    status: "🧙‍♂️ Code wizard mode!"
+    status: "✨ Feeling creative!"
 };
 
 console.log(`"${motivation.quote} - ${motivation.author}"`);
-// Output: "Programming today is a race between software engineers striving to build bigger and better idiot-proof programs, and the Universe trying to produce bigger and better idiots. - Rick Cook"
+// Output: "There are only two hard things in Computer Science: cache invalidation and naming things. - Phil Karlton"
 ```
 
 <img src="https://quotes-github-readme.vercel.app/api?type=horizontal&theme=radical" alt="Programming Quote"/>
@@ -508,7 +508,7 @@ next_up:
   - "TypeScript Deep Dive"
 
 learning_method: "Build while learning 🔨"
-last_updated: "2026-05-13 20:15:34 UTC"
+last_updated: "2026-05-14 20:10:49 UTC"
 ```
 
 <table align="center">
@@ -634,5 +634,5 @@ q4r5s6t Fixed responsive design issues
     <img src="https://img.shields.io/badge/❤️_AND_☕-blue?style=for-the-badge" alt="LOVE AND COFFEE"/>
   </div>
   <br>
-  <img src="https://img.shields.io/badge/Last_Updated-2026--05--13_20%3A15%3A34_UTC-blue?style=flat&logo=clock" alt="Last Updated"/>
+  <img src="https://img.shields.io/badge/Last_Updated-2026--05--14_20%3A10%3A49_UTC-blue?style=flat&logo=clock" alt="Last Updated"/>
 </div>
