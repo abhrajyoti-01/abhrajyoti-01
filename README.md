@@ -310,20 +310,20 @@ _Hint: It's my lucky number! 🍀_
 <div align="center">
 
 ```javascript
-// Today's Motivation - Updated: 2026-06-04 20:29:14 UTC
+// Today's Motivation - Updated: 2026-06-05 20:20:38 UTC
 const motivation = {
-    date: "2026-06-04",
-    time: "20:29:14 UTC",
-    quote: "The most important property of a program is whether it accomplishes the intention of its user.",
-    author: "C.A.R. Hoare",
-    mood: "💡 Creative",
+    date: "2026-06-05",
+    time: "20:20:38 UTC",
+    quote: "Talk is cheap. Show me the code.",
+    author: "Linus Torvalds",
+    mood: "🔥 Motivated",
     energy: "☕☕☕ Good",
-    goal: "Transform coffee into code!",
-    status: "🔥 On fire!"
+    goal: "Make an impact through technology!",
+    status: "🎯 Laser focused!"
 };
 
 console.log(`"${motivation.quote} - ${motivation.author}"`);
-// Output: "The most important property of a program is whether it accomplishes the intention of its user. - C.A.R. Hoare"
+// Output: "Talk is cheap. Show me the code. - Linus Torvalds"
 ```
 
 <img src="https://quotes-github-readme.vercel.app/api?type=horizontal&theme=radical" alt="Programming Quote"/>
@@ -508,7 +508,7 @@ next_up:
   - "TypeScript Deep Dive"
 
 learning_method: "Build while learning 🔨"
-last_updated: "2026-06-04 20:29:14 UTC"
+last_updated: "2026-06-05 20:20:38 UTC"
 ```
 
 <table align="center">
@@ -634,5 +634,5 @@ q4r5s6t Fixed responsive design issues
     <img src="https://img.shields.io/badge/❤️_AND_☕-blue?style=for-the-badge" alt="LOVE AND COFFEE"/>
   </div>
   <br>
-  <img src="https://img.shields.io/badge/Last_Updated-2026--06--04_20%3A29%3A14_UTC-blue?style=flat&logo=clock" alt="Last Updated"/>
+  <img src="https://img.shields.io/badge/Last_Updated-2026--06--05_20%3A20%3A38_UTC-blue?style=flat&logo=clock" alt="Last Updated"/>
 </div>
