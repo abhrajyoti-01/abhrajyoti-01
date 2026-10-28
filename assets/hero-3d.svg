@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 380" role="img" aria-labelledby="title desc">
+  <title id="title">Abhrajyoti - student, Python developer, exploring generative AI</title>
+  <desc id="desc">A dark profile banner for a student Python developer exploring generative AI, with a three-dimensional cube labelled Python and Gen AI.</desc>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#080d16"/>
+      <stop offset="0.58" stop-color="#101a2a"/>
+      <stop offset="1" stop-color="#172e35"/>
+    </linearGradient>
+    <linearGradient id="surface" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#24384a"/>
+      <stop offset="0.52" stop-color="#142332"/>
+      <stop offset="1" stop-color="#0c151f"/>
+    </linearGradient>
+    <linearGradient id="cyan" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#b8f6ff"/>
+      <stop offset="0.45" stop-color="#67e8f9"/>
+      <stop offset="1" stop-color="#15889b"/>
+    </linearGradient>
+    <linearGradient id="violet" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ddd6fe"/>
+      <stop offset="1" stop-color="#8b5cf6"/>
+    </linearGradient>
+    <radialGradient id="halo" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#67e8f9" stop-opacity="0.18"/>
+      <stop offset="1" stop-color="#67e8f9" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M32 0H0V32" fill="none" stroke="#9eeaf4" stroke-opacity="0.075"/>
+    </pattern>
+    <filter id="softShadow" x="-40%" y="-40%" width="180%" height="200%">
+      <feDropShadow dx="0" dy="20" stdDeviation="18" flood-color="#000000" flood-opacity="0.5"/>
+    </filter>
+    <filter id="light" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="380" rx="20" fill="url(#background)"/>
+  <rect x="24" y="24" width="1152" height="332" rx="14" fill="url(#grid)"/>
+  <ellipse cx="900" cy="194" rx="286" ry="174" fill="url(#halo)"/>
+
+  <g opacity="0.45" fill="none" stroke="#67e8f9" stroke-width="1">
+    <path d="M0 315H1200" stroke-opacity="0.12"/>
+    <path d="M690 356L870 192L1046 356" stroke-opacity="0.13"/>
+    <path d="M760 356L918 218L1080 356" stroke-opacity="0.1"/>
+  </g>
+
+  <g transform="translate(74 62)">
+    <rect width="262" height="30" rx="15" fill="#142b36" stroke="#315b68"/>
+    <circle cx="18" cy="15" r="5" fill="#34d399" filter="url(#light)"/>
+    <text x="32" y="20" fill="#a9dbe2" font-family="monospace" font-size="12" letter-spacing="1.2">STUDENT / PYTHON DEVELOPER</text>
+  </g>
+
+  <g transform="translate(74 126)">
+    <text x="0" y="0" fill="#8ea5b5" font-family="monospace" font-size="14" letter-spacing="4">ABHRAJYOTI / ABHRA.ME</text>
+    <text x="0" y="68" fill="#f8fafc" font-family="Arial, Helvetica, sans-serif" font-size="64" font-weight="700" letter-spacing="-2">Learning by building.</text>
+    <text x="0" y="108" fill="#b5c5d0" font-family="Arial, Helvetica, sans-serif" font-size="22">Python · generative AI · open source</text>
+    <rect x="0" y="143" width="270" height="3" rx="2" fill="url(#cyan)"/>
+    <text x="0" y="175" fill="#718a99" font-family="monospace" font-size="13" letter-spacing="1.4">PYTHON / GEN AI / FASTAPI / LLMS</text>
+  </g>
+
+  <g transform="translate(790 62)" filter="url(#softShadow)">
+    <circle cx="140" cy="138" r="132" fill="none" stroke="#67e8f9" stroke-opacity="0.13" stroke-width="1" stroke-dasharray="3 10">
+      <animateTransform attributeName="transform" type="rotate" from="0 140 138" to="360 140 138" dur="28s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="140" cy="138" r="104" fill="none" stroke="#c4b5fd" stroke-opacity="0.18" stroke-width="1" stroke-dasharray="2 12">
+      <animateTransform attributeName="transform" type="rotate" from="360 140 138" to="0 140 138" dur="22s" repeatCount="indefinite"/>
+    </circle>
+
+    <g transform="translate(42 38)">
+      <polygon points="0,60 98,10 198,60 100,110" fill="#1c5362" stroke="#67e8f9" stroke-opacity="0.72"/>
+      <polygon points="0,60 100,110 100,224 0,174" fill="#123443" stroke="#67e8f9" stroke-opacity="0.38"/>
+      <polygon points="100,110 198,60 198,174 100,224" fill="#172b42" stroke="#67e8f9" stroke-opacity="0.52"/>
+      <polygon points="35,60 98,28 163,60 100,92" fill="url(#surface)" stroke="#c4b5fd" stroke-opacity="0.6"/>
+      <polygon points="35,60 100,92 100,166 35,134" fill="#18283b" stroke="#c4b5fd" stroke-opacity="0.35"/>
+      <polygon points="100,92 163,60 163,134 100,166" fill="#202844" stroke="#c4b5fd" stroke-opacity="0.5"/>
+      <circle cx="100" cy="92" r="7" fill="#f8fafc" filter="url(#light)"/>
+      <path d="M100 92L100 218M100 92L12 50M100 92L186 48" stroke="#67e8f9" stroke-opacity="0.45" stroke-width="2"/>
+      <text x="42" y="196" fill="#c4b5fd" font-family="monospace" font-size="12" transform="rotate(-26 42 196)">PYTHON</text>
+      <text x="119" y="201" fill="#67e8f9" font-family="monospace" font-size="12" transform="rotate(26 119 201)">GEN AI</text>
+    </g>
+
+    <circle cx="13" cy="114" r="4" fill="#67e8f9" filter="url(#light)">
+      <animateMotion path="M0 0 C80 -72 180 -52 267 0" dur="4s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+
+  <text x="1126" y="334" text-anchor="end" fill="#6e8795" font-family="monospace" font-size="12" letter-spacing="1.5">01 / 01</text>
+</svg>

@@ -1,12 +1,22 @@
 {
   "name": "abhrajyoti-readme-updater",
-  "version": "2.0.0",
-  "description": "Daily motivation updater for GitHub profile README",
-  "main": ".github/scripts/update-motivation.js",
+  "version": "3.0.0",
+  "description": "Self-updating GitHub profile README: live GitHub API stats plus /dev/dungeon, a zero-player roguelike that advances one frame per hour.",
+  "main": ".github/scripts/update-readme.js",
   "scripts": {
-    "update-motivation": "node .github/scripts/update-motivation.js"
+    "update-readme": "node .github/scripts/update-readme.js",
+    "tick": "node .github/scripts/tick-dungeon.js"
   },
-  "keywords": ["github", "readme", "automation", "motivation"],
+  "keywords": [
+    "github",
+    "readme",
+    "automation",
+    "profile",
+    "github-api",
+    "stats",
+    "roguelike",
+    "zero-player-game"
+  ],
   "author": "Abhrajyoti",
   "license": "MIT"
 }

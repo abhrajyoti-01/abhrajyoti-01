@@ -1,64 +1,53 @@
-name: Update README with Daily Motivation
+name: Refresh Profile README
 
 on:
   schedule:
-    # Run daily at 6:30 PM UTC (12:00 AM IST next day)
-    - cron: '30 18 * * *'
-  workflow_dispatch: # Allow manual trigger
+    # Hourly (off the :00 rush): live GitHub data + one /dev/dungeon frame
+    - cron: '17 * * * *'
+  push:
+    branches: [main]
+  workflow_dispatch: # allow manual runs
+
+permissions:
+  contents: write
+
+concurrency:
+  group: readme-update
+  cancel-in-progress: false # queue runs so a frame is never dropped mid-commit
 
 jobs:
-  update-readme:
+  refresh:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
-    
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 1
-        
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '18'
-          
-      - name: Update README with new motivation
-        id: update-readme
+          node-version: '20'
+
+      - name: Refresh live GitHub data
+        # An API hiccup must not freeze the game; the data simply stays as it was.
+        continue-on-error: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_USERNAME: abhrajyoti-01
+        run: node .github/scripts/update-readme.js
+
+      - name: Advance /dev/dungeon by one frame
+        run: node .github/scripts/tick-dungeon.js
+
+      - name: Commit and push
         run: |
-          echo "::group::Updating README.md with new motivation"
-          echo "Current working directory: $(pwd)"
-          echo "README.md exists: $(test -f README.md && echo 'Yes' || echo 'No')"
-          node .github/scripts/update-motivation.js
-          echo "::endgroup::"
-        
-      - name: Check for changes
-        id: check-changes
-        run: |
-          if git diff --quiet README.md; then
-            echo "No changes detected in README.md"
-            echo "changed=false" >> $GITHUB_OUTPUT
-          else
-            echo "Changes detected in README.md"
-            echo "changed=true" >> $GITHUB_OUTPUT
-            git diff --color README.md | cat
+          if git diff --quiet; then
+            echo "ℹ️  Nothing changed"
+            exit 0
           fi
-          
-      - name: Commit and push changes
-        if: steps.check-changes.outputs.changed == 'true'
-        run: |
+          frame=$(node -p "require('./game/state.json').tick")
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git add README.md
-          timestamp=$(date -u '+%Y-%m-%d %H:%M:%S UTC')
-          git commit -m "🌟 Daily motivation update - ${timestamp}"
-          git push origin main
-          echo "README.md updated successfully at ${timestamp}"
-          
-      - name: Log workflow completion
-        run: |
-          if [[ "${{ steps.check-changes.outputs.changed }}" == "true" ]]; then
-            echo "✅ README.md updated and changes pushed to repository"
-          else
-            echo "ℹ️ No changes needed for README.md"
-          fi
+          git add README.md game/state.json assets/lang-dist.svg
+          git commit -m "🎮 /dev/dungeon frame #${frame} · README sync [skip ci]"
+          git push || { git pull --rebase && git push; }

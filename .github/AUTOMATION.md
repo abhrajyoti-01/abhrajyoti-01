@@ -1,68 +1,84 @@
-# 🤖 Automated README Updates
+# 🤖 Self-updating README
 
-This directory contains automation scripts that keep the profile README fresh and engaging with daily updates.
+The profile README rebuilds itself every hour: live GitHub data, plus one new frame of **/dev/dungeon**, a zero-player roguelike that is simulated and rendered entirely by GitHub Actions. No manual edits are needed.
 
 ## 📁 Structure
 
 ```
 .github/
 ├── workflows/
-│   └── update-readme.yml      # GitHub Actions workflow
+│   └── update-readme.yml     # hourly job: refresh data → advance the game → commit
 └── scripts/
-    └── update-motivation.js   # Node.js update script
+    ├── update-readme.js      # GitHub API → stats, languages, repos, stack
+    └── tick-dungeon.js       # loads the world, simulates 40 turns, renders the frame
+
+game/
+├── engine.js                 # /dev/dungeon: generation, AI, combat, renderer (vanilla JS, UMD)
+└── state.json                # the persisted world: map, RNG state, daemon, monsters, log
+
+assets/
+├── hero-3d.svg               # custom header banner
+└── lang-dist.svg             # generated language bar (rewritten each run)
 ```
 
 ## ⚙️ How It Works
 
 ### 🕐 Schedule
-- **Daily at 6:30 PM UTC** (12:00 AM IST next day)
-- Can also be triggered manually via GitHub Actions
+- **Hourly** at minute 17 (`17 * * * *`, off the top-of-the-hour rush)
+- **On every push to `main`**
+- **Manually** via *Actions* → “Refresh Profile README” → *Run workflow*
 
-### 🔄 What Gets Updated
+Bot commits are pushed with `GITHUB_TOKEN`, which never re-triggers workflows, so there is no loop.
 
-1. **Motivation Section** (`lines ~310-324`)
-   - Random programming quote from a curated collection
-   - Mood emoji and description
-   - Energy level with coffee cups
-   - Daily goal message
-   - Status indicator
+### 🔄 Live data (`update-readme.js`)
 
-2. **Learning Journey** (`line ~518`)
-   - Updates the `last_updated` timestamp
+The script calls the GitHub API and rewrites the content between marker comments in `README.md`:
 
-3. **Footer Badge** (`line ~640`)
-   - Updates the "Last Updated" badge timestamp
+| Marker section              | Live data                                                       |
+| --------------------------- | --------------------------------------------------------------- |
+| `<!-- GH:STATS:... -->`     | Repositories, stars, forks, followers (+ contribution stats)    |
+| `<!-- GH:LANGUAGES:... -->` | Top languages, accurate percentages, and an animated share bar  |
+| `<!-- GH:TOP_REPOS:... -->` | Most-starred repositories with live stars, forks, and language  |
+| `<!-- GH:RECENT:... -->`    | Recently pushed projects with language and relative update time |
+| `<!-- GH:TECH:... -->`      | Stack icons (skillicons) derived from detected languages        |
 
-### 📚 Quote Collection
+This step runs with `continue-on-error`, so a GitHub API hiccup leaves the data as it was and never blocks the game.
 
-The script includes 12 carefully selected programming quotes from renowned developers and computer scientists including:
-- Martin Fowler
-- Brian Kernighan  
-- Harold Abelson
-- Michael Feathers
-- And more!
+### 🎮 /dev/dungeon (`tick-dungeon.js` + `game/engine.js`)
 
-### 🎲 Randomization
+GitHub strips `<script>`, `<style>`, `class` and `style` from READMEs, so nothing can execute on the page. The game therefore runs **server-side, one frame per workflow run**:
 
-Each update randomly selects:
-- 1 of 12 motivational quotes
-- 1 of 6 mood states
-- 1 of 4 energy levels
-- 1 of 6 daily goals
-- 1 of 6 status messages
+```
+game/state.json ──▶ engine.tick(world, 40) ──▶ game/state.json
+                                     └───────▶ README.md  <!-- DUNGEON:START --> … <!-- DUNGEON:END -->
+```
 
-## 🚀 Manual Trigger
+- **Zero-player:** the daemon `@` is driven by a priority AI (patch → fight → chase → rest → hunt → loot → explore → descend). Nobody controls it.
+- **Procedural floors:** rooms plus Dijkstra-carved corridors that only enter rooms through mid-wall doors. Every depth is a directory (`/home` → `/usr/src` → … → `/root` → `/dev/null/…`).
+- **Dev-themed bestiary:** bug, off_by_one, null_pointer, memory_leak, race_condition, zombie_process, heisenbug, segfault, and a deadlock boss every fifth depth. Weapons are debugging tools (`grep` → `ebpf`), armour is safety nets (`linter` → `formal_proof`).
+- **Permadeath:** when the daemon dies it lands in the graveyard with its exit code, and a new daemon is forked.
+- **Deterministic:** the mulberry32 PRNG state is saved with the world, so every frame is a pure function of the previous one.
+- **Rendered as text:** a 79-column frame inside a `diff` fence. GitHub's own diff highlighter colours the log (`+` kills/loot, `-` damage/death, `!` level-ups/gear, `#` info, `@@` depth changes).
+- **Balance:** tuned by offline simulation. A daemon typically dies around depth 7 (p90 ≈ 20) after roughly 40 frames (~1.7 days).
 
-You can manually trigger the update by:
-1. Going to the **Actions** tab in the repository
-2. Selecting the "Update README with Daily Motivation" workflow
-3. Clicking "Run workflow"
+Tunables: `DUNGEON_TURNS` (turns per frame, default 40) and `DUNGEON_SEED` (seed for a brand-new world). Delete `game/state.json` to start a new world.
 
 ## 🛠️ Technical Details
 
-- **Language**: Node.js (vanilla JavaScript)
-- **Dependencies**: None (uses only Node.js built-ins)
-- **Permissions**: `contents: write` for committing changes
-- **Git Config**: Uses GitHub Actions bot credentials
+- **Language:** Node.js 18+ (vanilla JavaScript, global `fetch`)
+- **Dependencies:** none
+- **Auth:** uses `GITHUB_TOKEN` for one-request GraphQL language aggregation, contribution stats and a higher API limit. Falls back to unauthenticated REST for local runs.
+- **Permissions:** `contents: write` for committing changes.
+- **Resilience:** if core data cannot be fetched, those sections are left unchanged rather than wiped. If `state.json` is missing or from an incompatible engine version, a new world is created.
 
-The automation ensures the profile stays dynamic and engaging without any manual intervention! ✨
+## 🧪 Run Locally
+
+```bash
+# optional: raise rate limits / enable contribution stats
+export GITHUB_TOKEN=ghp_xxx        # PowerShell: $env:GITHUB_TOKEN="ghp_xxx"
+export GH_USERNAME=abhrajyoti-01   # defaults to abhrajyoti-01
+
+npm run update-readme              # refresh live data
+npm run tick                       # advance /dev/dungeon by one frame
+DUNGEON_TURNS=400 npm run tick     # fast-forward ten frames' worth of turns
+```
