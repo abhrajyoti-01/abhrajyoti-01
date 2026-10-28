@@ -36,36 +36,39 @@ A **zero-player roguelike that lives inside this README.** Nobody controls it, n
 
 <!-- DUNGEON:START -->
 ```diff
-@@ /dev/dungeon · daemon #001 · depth 01 /home · turn 000040 @@
+@@ /dev/dungeon · daemon #001 · depth 01 /home · turn 000080 @@
  ┌─────────────────────────────────────────────────────┬──────────────────────┐
  │                                                     │ DAEMON #001   lvl 01 │
- │                                   ┌──────────┐      │ pid 22567    hunting │
- │                                   │··········│      │                      │
- │                     ┌───────┐     │··········│      │ HP █████████   30/30 │
- │                     │?······│ ░░░░+··········│      │ XP ░░░░░░░░░      0% │
- │                     +··x··@·│ ░   └─────+────┘      │                      │
- │                     └─────+─┘ ░         ░           │ atk 08        def 01 │
- │                           ░  ░░         ░           │ ) gdb             +4 │
- │                           ░░░░      ┌───+──────┐    │ [ no_tests        +0 │
- │                           ░         │··········│    │ ! hotfix          x1 │
- │                                     │··········│    │ * stars            0 │
- │                                     └──────────┘    │                      │
- │                                                     │ depth 01   kills 000 │
- │                                                     │                      │
- │                                                     │ in view            1 │
- │                                                     │ x off_by_one     ███ │
+ │       ┌─────────┐                 ┌──────────┐      │ pid 22567  deploying │
+ │       │·········│                 │··········│      │                      │
+ │       │·>·······│   ┌───────┐     │··········│      │ HP █████████   30/30 │
+ │       └─────+───┘   │·······│ ░░░░+··········│      │ XP ███████░░     75% │
+ │             ░    @░░+·······│ ░   └─────+────┘      │                      │
+ │             ░░░░░░  └─────+─┘ ░         ░           │ atk 08        def 01 │
+ │             ░             ░  ░░         ░           │ ) gdb             +4 │
+ │             ░             ░░░░      ┌───+──────┐    │ [ no_tests        +0 │
+ │             ░             ░         │··········│    │ ! hotfix          x1 │
+ │           ┌─+───────┐     ░         │··········│    │ * stars            6 │
+ │           │·········│    ┌+──────┐  └──────────┘    │                      │
+ │           │·········│    │·······│                  │ depth 01   kills 001 │
+ │           │·········│    │·······│                  │                      │
+ │           │·········│    │·······│                  │ in view        clear │
+ │           └─────────┘    └───────┘                  │                      │
  │                                                     │                      │
  ├─────────────────────────────────────────────────────┴──────────────────────┤
- │ /home 48% mapped · record depth 01 by #001 · 0 daemons lost                │
+ │ /home 100% mapped · record depth 01 by #001 · 0 daemons lost               │
  └────────────────────────────────────────────────────────────────────────────┘
 # 000000  fork    daemon #1 spawned in /home · pid 22567
 ! 000011  equip   gdb (+4 atk) replaces printf
++ 000042  kill    squashed off_by_one · +5 xp
+! 000047  docs    read the docs · /home fully mapped · +4 xp
++ 000062  loot    collected 6 stars
 ```
 
-<p align="center"><sub>frame <b>#1</b> · rendered 2026-10-28 16:23 UTC by GitHub Actions · 40 turns per frame · next frame within the hour</sub></p>
+<p align="center"><sub>frame <b>#2</b> · rendered 2026-10-28 16:35 UTC by GitHub Actions · 40 turns per frame · next frame within the hour</sub></p>
 
 <details>
-<summary><b>Graveyard</b> · 0 daemons lost · 0 bugs squashed · deepest dive: depth 1 by daemon #1</summary>
+<summary><b>Graveyard</b> · 0 daemons lost · 1 bugs squashed · deepest dive: depth 1 by daemon #1</summary>
 <br />
 
 _No daemon has died yet. Give it time._
@@ -215,15 +218,15 @@ Browser-based multiple-choice quiz game with 1,009 questions across 20 topics.
 
 | Rank | Language | Share |
 | :-: | :-- | :-: |
-| **01** | `C` | **29.3%** |
-| **02** | `JavaScript` | **26.2%** |
-| **03** | `TypeScript` | **20.0%** |
-| **04** | `Python` | **16.5%** |
-| **05** | `Go` | **3.9%** |
-| **06** | `Rust` | **1.9%** |
-| **07** | `PHP` | **1.9%** |
+| **01** | `C` | **32.3%** |
+| **02** | `TypeScript` | **22.1%** |
+| **03** | `JavaScript` | **18.6%** |
+| **04** | `Python` | **18.2%** |
+| **05** | `Go` | **4.3%** |
+| **06** | `Rust` | **2.1%** |
+| **07** | `PHP` | **2.1%** |
 
-<img src="assets/lang-dist.svg" width="100%" alt="Byte-weighted language distribution — C 29.3%, JavaScript 26.2%, TypeScript 20.0%, Python 16.5%, Go 3.9%, Rust 1.9%, PHP 1.9%"/>
+<img src="assets/lang-dist.svg" width="100%" alt="Byte-weighted language distribution — C 32.3%, TypeScript 22.1%, JavaScript 18.6%, Python 18.2%, Go 4.3%, Rust 2.1%, PHP 2.1%"/>
 
 <sub>Plus 3 additional languages.</sub>
 <!-- GH:LANGUAGES:END -->
@@ -237,7 +240,7 @@ Browser-based multiple-choice quiz game with 1,009 questions across 20 topics.
 **Recently pushed**
 
 <!-- GH:RECENT:START -->
-<table><tr><td width="6%"><strong>01</strong></td><td><a href="https://github.com/abhrajyoti-01/UnRAR"><strong>UnRAR</strong></a><br /><sub>UnRAR — open-source WinRAR-style archive manager in Rust (egui). ZIP/RAR/7z/TAR/GZ/…</sub></td><td align="right"><sub><code>Rust</code> · 41 mins ago</sub></td></tr><tr><td width="6%"><strong>02</strong></td><td><a href="https://github.com/abhrajyoti-01/QuizGame"><strong>QuizGame</strong></a><br /><sub>Browser-based multiple-choice quiz game with 1,009 questions across 20 topics - Pyt…</sub></td><td align="right"><sub><code>Python</code> · 4 hours ago</sub></td></tr><tr><td width="6%"><strong>03</strong></td><td><a href="https://github.com/abhrajyoti-01/BWU-Portal-Lite"><strong>BWU-Portal-Lite</strong></a><br /><sub>Brainware Portal Lite - Telegram bot for Brainware University Student Self-Service:…</sub></td><td align="right"><sub><code>Python</code> · 19 days ago</sub></td></tr><tr><td width="6%"><strong>04</strong></td><td><a href="https://github.com/abhrajyoti-01/Student-Management-System"><strong>Student-Management-System</strong></a><br /><sub>College DBMS project of Brainware University | Student Management System web app wi…</sub></td><td align="right"><sub><code>PHP</code> · 28 days ago</sub></td></tr><tr><td width="6%"><strong>05</strong></td><td><a href="https://github.com/abhrajyoti-01/arequest"><strong>arequest</strong></a><br /><sub>🚀 High-performance asynchronous HTTP client with a requests-compatible API — simpl…</sub></td><td align="right"><sub><code>Python</code> · 1 month ago</sub></td></tr></table>
+<table><tr><td width="6%"><strong>01</strong></td><td><a href="https://github.com/abhrajyoti-01/UnRAR"><strong>UnRAR</strong></a><br /><sub>UnRAR — open-source WinRAR-style archive manager in Rust (egui). ZIP/RAR/7z/TAR/GZ/…</sub></td><td align="right"><sub><code>Rust</code> · 51 mins ago</sub></td></tr><tr><td width="6%"><strong>02</strong></td><td><a href="https://github.com/abhrajyoti-01/QuizGame"><strong>QuizGame</strong></a><br /><sub>Browser-based multiple-choice quiz game with 1,009 questions across 20 topics - Pyt…</sub></td><td align="right"><sub><code>Python</code> · 4 hours ago</sub></td></tr><tr><td width="6%"><strong>03</strong></td><td><a href="https://github.com/abhrajyoti-01/BWU-Portal-Lite"><strong>BWU-Portal-Lite</strong></a><br /><sub>Brainware Portal Lite - Telegram bot for Brainware University Student Self-Service:…</sub></td><td align="right"><sub><code>Python</code> · 19 days ago</sub></td></tr><tr><td width="6%"><strong>04</strong></td><td><a href="https://github.com/abhrajyoti-01/Student-Management-System"><strong>Student-Management-System</strong></a><br /><sub>College DBMS project of Brainware University | Student Management System web app wi…</sub></td><td align="right"><sub><code>PHP</code> · 28 days ago</sub></td></tr><tr><td width="6%"><strong>05</strong></td><td><a href="https://github.com/abhrajyoti-01/arequest"><strong>arequest</strong></a><br /><sub>🚀 High-performance asynchronous HTTP client with a requests-compatible API — simpl…</sub></td><td align="right"><sub><code>Python</code> · 1 month ago</sub></td></tr></table>
 <!-- GH:RECENT:END -->
 
 <br />
@@ -249,11 +252,11 @@ Browser-based multiple-choice quiz game with 1,009 questions across 20 topics.
 
 **Languages & runtimes**
 
-<img src="https://skillicons.dev/icons?i=c,js,ts,python,go,rust,php&theme=dark" alt="c, js, ts, python, go, rust, php" />
+<img src="https://skillicons.dev/icons?i=c,ts,js,python,go,rust,php&theme=dark" alt="c, ts, js, python, go, rust, php" />
 
 **Frameworks & delivery**
 
-<img src="https://skillicons.dev/icons?i=nodejs,express,react,nextjs,fastapi,django,laravel&theme=dark" alt="nodejs, express, react, nextjs, fastapi, django, laravel" />
+<img src="https://skillicons.dev/icons?i=react,nextjs,nodejs,express,fastapi,django,laravel&theme=dark" alt="react, nextjs, nodejs, express, fastapi, django, laravel" />
 
 **Infrastructure**
 
