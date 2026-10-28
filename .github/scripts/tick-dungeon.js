@@ -6,12 +6,14 @@
  *  Each GitHub Actions run is one "frame":
  *
  *    game/state.json ──▶ engine.tick(world, TURNS) ──▶ game/state.json
- *                                         └──────────▶ README.md (between markers)
+ *                              │ snapshot per turn
+ *                              └──▶ assets/dungeon.svg (auto-playing replay)
+ *                              └──▶ README.md (between markers)
  *
- *      <!-- DUNGEON:START -->  ...rendered frame...  <!-- DUNGEON:END -->
+ *      <!-- DUNGEON:START -->  ...replay + text frame...  <!-- DUNGEON:END -->
  *
- *  The simulation is deterministic (seeded PRNG stored in the state), so the
- *  world only moves when this script runs. No dependencies, Node 18+.
+ *  READMEs can't run code, so the turns simulated here are replayed on loop
+ *  by the SVG until the next run. Deterministic, no dependencies, Node 18+.
  * -----------------------------------------------------------------------------
  */
 
@@ -20,9 +22,11 @@
 const fs = require('fs');
 const path = require('path');
 const Dungeon = require('../../game/engine.js');
+const { renderReplay } = require('../../game/replay.js');
 
 const ROOT = path.join(__dirname, '..', '..');
 const STATE_PATH = path.join(ROOT, 'game', 'state.json');
+const REPLAY_PATH = path.join(ROOT, 'assets', 'dungeon.svg');
 const README_PATH = path.join(ROOT, 'README.md');
 const TURNS = Math.max(1, Math.min(500, Number(process.env.DUNGEON_TURNS) || 40));
 
@@ -42,9 +46,10 @@ function n(value) {
   return Number(value).toLocaleString('en-US');
 }
 
-function renderSection(world) {
+function renderSection(world, first) {
   const stamp = new Date().toISOString().replace('T', ' ').slice(0, 16);
   const r = world.records;
+  const alt = `/dev/dungeon replay: daemon #${world.run} at depth ${world.depth} ${Dungeon.pathFor(world.depth)}, turns ${first} to ${world.turn}`;
 
   const graves = world.graveyard.length
     ? [
@@ -60,17 +65,25 @@ function renderSection(world) {
     : '_No daemon has died yet. Give it time._';
 
   return [
-    '```diff',
-    ...Dungeon.frame(world),
-    '```',
+    `<p align="center"><img src="assets/dungeon.svg?frame=${world.tick}" width="100%" alt="${alt}" /></p>`,
     '',
-    `<p align="center"><sub>frame <b>#${n(world.tick)}</b> · rendered ${stamp} UTC by GitHub Actions · ${TURNS} turns per frame · next frame within the hour</sub></p>`,
+    `<p align="center"><sub>↻ auto-playing the <b>${TURNS} turns</b> simulated in frame <b>#${n(world.tick)}</b> · rendered ${stamp} UTC by GitHub Actions · a new frame every hour</sub></p>`,
     '',
     '<details>',
-    `<summary><b>Graveyard</b> · ${n(r.deaths)} daemon${r.deaths === 1 ? '' : 's'} lost · ${n(r.kills)} bugs squashed · deepest dive: depth ${r.bestDepth} by daemon #${r.bestRun}</summary>`,
+    `<summary><b>Graveyard</b> · ${n(r.deaths)} daemon${r.deaths === 1 ? '' : 's'} lost · ${n(r.kills)} bug${r.kills === 1 ? '' : 's'} squashed · deepest dive: depth ${r.bestDepth} by daemon #${r.bestRun}</summary>`,
     '<br />',
     '',
     graves,
+    '',
+    '</details>',
+    '',
+    '<details>',
+    '<summary><b>Current frame as plain text</b></summary>',
+    '<br />',
+    '',
+    '```diff',
+    ...Dungeon.frame(world),
+    '```',
     '',
     '</details>',
   ].join('\n');
@@ -88,12 +101,14 @@ function inject(content, generated) {
 function main() {
   const world = loadWorld();
   const before = { run: world.run, depth: world.depth, turn: world.turn };
-  Dungeon.tick(world, TURNS);
+  const snaps = [Dungeon.snapshot(world)];
+  Dungeon.tick(world, TURNS, (w) => snaps.push(Dungeon.snapshot(w)));
 
   fs.writeFileSync(STATE_PATH, `${JSON.stringify(Dungeon.serialize(world), null, 1)}\n`);
+  fs.writeFileSync(REPLAY_PATH, renderReplay(snaps, { frame: world.tick }));
 
   const readme = fs.readFileSync(README_PATH, 'utf8');
-  const next = inject(readme, renderSection(world));
+  const next = inject(readme, renderSection(world, before.turn));
   if (next === null) {
     console.error('❌ DUNGEON markers not found in README.md — state saved, README untouched.');
     process.exit(1);

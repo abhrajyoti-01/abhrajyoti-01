@@ -13,11 +13,13 @@ The profile README rebuilds itself every hour: live GitHub data, plus one new fr
     └── tick-dungeon.js       # loads the world, simulates 40 turns, renders the frame
 
 game/
-├── engine.js                 # /dev/dungeon: generation, AI, combat, renderer (vanilla JS, UMD)
+├── engine.js                 # /dev/dungeon: generation, AI, combat, text frame (vanilla JS, UMD)
+├── replay.js                 # turns per-turn snapshots into the auto-playing SVG
 └── state.json                # the persisted world: map, RNG state, daemon, monsters, log
 
 assets/
 ├── hero-3d.svg               # custom header banner
+├── dungeon.svg               # generated /dev/dungeon replay (rewritten each run)
 └── lang-dist.svg             # generated language bar (rewritten each run)
 ```
 
@@ -46,12 +48,16 @@ This step runs with `continue-on-error`, so a GitHub API hiccup leaves the data 
 
 ### 🎮 /dev/dungeon (`tick-dungeon.js` + `game/engine.js`)
 
-GitHub strips `<script>`, `<style>`, `class` and `style` from READMEs, so nothing can execute on the page. The game therefore runs **server-side, one frame per workflow run**:
+GitHub strips `<script>`, `<style>`, `class` and `style` from READMEs, so nothing can execute on the page. The game therefore runs **server-side, one frame per workflow run**, and motion comes from a replay:
 
 ```
 game/state.json ──▶ engine.tick(world, 40) ──▶ game/state.json
-                                     └───────▶ README.md  <!-- DUNGEON:START --> … <!-- DUNGEON:END -->
+                          │ snapshot per turn
+                          ├──▶ replay.js ──▶ assets/dungeon.svg   (auto-playing, loops ~15 s)
+                          └──▶ README.md  <!-- DUNGEON:START --> … <!-- DUNGEON:END -->
 ```
+
+- **Auto-playing replay:** every turn of the run is recorded and rendered into `assets/dungeon.svg` with discrete SMIL keyframes. The map reveals itself, the daemon and monsters move, hits flash, bars drain and the log scrolls. These are the real simulated turns, not a canned animation. Recording is side-effect free: the world evolves identically with or without it.
 
 - **Zero-player:** the daemon `@` is driven by a priority AI (patch → fight → chase → rest → hunt → loot → explore → descend). Nobody controls it.
 - **Procedural floors:** rooms plus Dijkstra-carved corridors that only enter rooms through mid-wall doors. Every depth is a directory (`/home` → `/usr/src` → … → `/root` → `/dev/null/…`).

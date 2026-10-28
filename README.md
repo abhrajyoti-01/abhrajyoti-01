@@ -32,7 +32,7 @@ class Abhrajyoti:
 
 ## `02` &nbsp;/dev/dungeon
 
-A **zero-player roguelike that lives inside this README.** Nobody controls it, not even me. Every hour a GitHub Action loads the world from [`game/state.json`](game/state.json), simulates 40 turns and commits the next frame. The daemon `@` explores a procedurally generated filesystem, squashes bugs, picks up better debugging tools and goes deeper until something kills it. Then the next daemon is forked.
+A **zero-player roguelike that lives inside this README.** Nobody controls it, not even me. Every hour a GitHub Action loads the world from [`game/state.json`](game/state.json), simulates 40 turns and records every one of them; the replay below auto-plays those real turns on loop until the next frame lands. The daemon `@` explores a procedurally generated filesystem, squashes bugs, picks up better debugging tools and goes deeper until something kills it. Then the next daemon is forked.
 
 <!-- DUNGEON:START -->
 ```diff
@@ -97,10 +97,11 @@ flowchart LR
     state[("game/state.json")] --> engine["engine.js<br/>tick(world, 40 turns)"]
     job --> engine
     engine -->|next world| state
-    engine -->|79-column frame| readme["README.md"]
+    engine -->|snapshot per turn| replay["replay.js"]
+    replay -->|animated SVG| readme["README.md"]
 ```
 
-Deterministic by design: the seeded PRNG state is stored with the world, so a frame is a pure function of the previous one. Zero dependencies, vanilla JS, and the log colours come from GitHub's own `diff` highlighter.
+Deterministic by design: the seeded PRNG state is stored with the world, so a frame is a pure function of the previous one. READMEs can't run JavaScript, so motion comes from the replay: an SVG with discrete SMIL keyframes, generated from the recorded turns. Zero dependencies, vanilla JS.
 
 </details>
 
@@ -140,9 +141,37 @@ An **AI-powered healthcare chatbot** that gives educational medical guidance, de
 
 <br />
 
-## `04` &nbsp;Selected work
+## `04` &nbsp;Projects
 
 <table>
+<tr>
+<td width="50%" valign="top">
+
+### [Pythia](https://github.com/abhrajyoti-01/Pythia)
+
+`C99` `SQL` `B+ tree` `database`
+
+Embeddable SQL database engine written from scratch in C99, built to learn how a database really works under the hood.
+
+- single-file B+ tree storage with transactions
+- query planner, interactive REPL and TCP server
+- CSV import/export and a web console
+
+</td>
+<td width="50%" valign="top">
+
+### [usbDacVolumeAndroid](https://github.com/abhrajyoti-01/usbDacVolumeAndroid)
+
+`Java` `Android` `USB audio`
+
+Android app that sets the hardware volume of USB DACs, fixing the low-volume problem with adapters like Apple's USB-C jack. My maintained fork of [polhdez/usbDacVolumeAndroid](https://github.com/polhdez/usbDacVolumeAndroid), now at v1.9.
+
+- Samsung S24 Ultra and Android 15–16 support
+- automatic mode: restores your volume on every connect and after reboot
+- hardened against malformed USB descriptors
+
+</td>
+</tr>
 <tr>
 <td width="50%" valign="top">
 
@@ -159,6 +188,21 @@ Asynchronous HTTP client with a `requests`-compatible API: simple, fast and buil
 </td>
 <td width="50%" valign="top">
 
+### [UnRAR](https://github.com/abhrajyoti-01/UnRAR)
+
+`Rust` `egui` `desktop app`
+
+Open-source, WinRAR-style archive manager with a native egui interface. MIT licensed.
+
+- ZIP, RAR, 7z, TAR, GZ, BZ2, XZ and ZST: list, extract, test
+- create ZIP archives with AES-256 encryption
+- self-extracting (SFX) builder and a built-in viewer
+
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
+
 ### [attendance-tracker](https://github.com/abhrajyoti-01/attendance-tracker)
 
 `Python` `FastAPI` `computer vision`
@@ -168,6 +212,19 @@ Face-recognition attendance system with liveness anti-spoofing and per-organisat
 - MTCNN face detection with ONNX FaceNet embeddings
 - liveness checks: LBP texture, blink, head movement
 - FastAPI, PostgreSQL, Redis and Celery behind a React dashboard
+
+</td>
+<td width="50%" valign="top">
+
+### [rift](https://github.com/abhrajyoti-01/rift)
+
+`Go` `networking` `observability`
+
+Robust Infrastructure For Traffic management: a Go networking toolkit for running and inspecting network traffic.
+
+- DNS monitoring and load balancing
+- TLS inspection and media delivery
+- built-in observability
 
 </td>
 </tr>
@@ -187,21 +244,21 @@ Telegram bot for Brainware University student self-service: attendance, fees, ma
 </td>
 <td width="50%" valign="top">
 
-### [QuizGame](https://github.com/abhrajyoti-01/QuizGame)
+### [dsa-in-c](https://github.com/abhrajyoti-01/dsa-in-c)
 
-`Python` `vanilla JS`
+`C` `algorithms` `learning`
 
-Browser-based multiple-choice quiz game with 1,009 questions across 20 topics.
+198 self-documented data structures and algorithms programs, from fundamentals to advanced.
 
-- Python server, vanilla JS frontend
-- zero dependencies
-- runs anywhere Python does
+- diagrams, pseudo code and dry runs for each program
+- time and space complexity notes
+- 31 LeetCode and HackerRank practice lessons
 
 </td>
 </tr>
 </table>
 
-<sub>Also on my GitHub: <a href="https://github.com/abhrajyoti-01/user-management-api">user-management-api</a> (FastAPI + Pydantic v2) · <a href="https://github.com/abhrajyoti-01/Pythia">Pythia</a> (a small SQL database in C, built to learn how databases work) · <a href="https://github.com/abhrajyoti-01/dsa-in-c">dsa-in-c</a> · <a href="https://github.com/abhrajyoti-01/AuthFlow">AuthFlow</a></sub>
+<sub>More on my GitHub: <a href="https://github.com/abhrajyoti-01/solar-system">solar-system</a> (interactive 3D observatory in Three.js) · <a href="https://github.com/abhrajyoti-01/QuizGame">QuizGame</a> (1,009 questions, zero dependencies) · <a href="https://github.com/abhrajyoti-01/user-management-api">user-management-api</a> (FastAPI + Pydantic v2) · <a href="https://github.com/abhrajyoti-01/AuthFlow">AuthFlow</a></sub>
 
 <br />
 

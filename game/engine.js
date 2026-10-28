@@ -589,9 +589,14 @@
     }
   }
 
-  function tick(w, turns) {
+  // `onTurn(w)` sees the world after every turn (used to record the replay).
+  // Refreshing the FOV first is idempotent, so recording never alters the run.
+  function tick(w, turns, onTurn) {
     w.tick += 1;
-    for (let i = 0; i < turns; i++) step(w);
+    for (let i = 0; i < turns; i++) {
+      step(w);
+      if (onTurn) { updateFov(w); onTurn(w); }
+    }
     updateFov(w);
     return w;
   }
@@ -698,12 +703,38 @@
     return e.c === '@@' ? `@@ ${body} @@` : `${e.c} ${body}`;
   }
 
+  function statusLine(w) {
+    const r = w.records;
+    return `${pathFor(w.depth)} ${mappedPct(w)}% mapped · record depth ${pad(r.bestDepth, 2)} by #${pad(r.bestRun, 3)} · ${r.deaths} daemon${r.deaths === 1 ? '' : 's'} lost`;
+  }
+
+  // Plain, render-ready copy of everything one frame shows. The SVG replay
+  // records one of these per turn.
+  function snapshot(w) {
+    const h = w.hero;
+    return {
+      turn: w.turn, run: w.run, depth: w.depth, path: pathFor(w.depth), floor: `${w.run}/${w.depth}`,
+      tiles: w.tiles, seen: Uint8Array.from(w.seen),
+      hero: {
+        x: h.x, y: h.y, hp: Math.max(0, h.hp), maxHp: h.maxHp, xp: h.xp, need: xpNeed(h.lvl), lvl: h.lvl,
+        mode: h.mode, pid: h.pid, atk: atkOf(h), def: defOf(h), potions: h.potions, stars: h.stars, kills: h.kills,
+        tool: TOOLS[h.tool], guard: GUARDS[h.guard],
+      },
+      monsters: w.monsters
+        .filter((m) => isVisible(w, m))
+        .map((m) => ({ id: m.id, k: m.k, name: MONSTERS[m.k].name, x: m.x, y: m.y, hp: m.hp, maxHp: m.maxHp })),
+      items: w.items.filter((it) => w.seen[idx(it.x, it.y)]).map((it) => ({ k: it.k, x: it.x, y: it.y })),
+      log: w.log.slice(-LOG_LINES).map((e) => ({ c: e.c, text: logLine(e) })),
+      status: statusLine(w),
+    };
+  }
+
   // The frame is designed for a ```diff fence: the header renders purple, the
   // box renders as plain context lines and every log line gets its own colour.
   function frame(w) {
-    const map = mapRows(w), hud = hudRows(w), r = w.records;
+    const map = mapRows(w), hud = hudRows(w);
     const inner = W + HUD + 1;
-    const status = ` ${pathFor(w.depth)} ${mappedPct(w)}% mapped · record depth ${pad(r.bestDepth, 2)} by #${pad(r.bestRun, 3)} · ${r.deaths} daemon${r.deaths === 1 ? '' : 's'} lost`;
+    const status = ` ${statusLine(w)}`;
     const lines = [
       `@@ /dev/dungeon · daemon #${pad(w.run, 3)} · depth ${pad(w.depth, 2)} ${pathFor(w.depth)} · turn ${pad(w.turn, 6)} @@`,
       ` ┌${'─'.repeat(W)}┬${'─'.repeat(HUD)}┐`,
@@ -718,6 +749,6 @@
 
   return {
     VERSION, W, H, MONSTERS, TOOLS, GUARDS,
-    create, tick, step, serialize, hydrate, frame, pathFor,
+    create, tick, step, serialize, hydrate, frame, snapshot, pathFor,
   };
 });

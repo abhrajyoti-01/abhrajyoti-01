@@ -48,6 +48,6 @@ jobs:
           frame=$(node -p "require('./game/state.json').tick")
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git add README.md game/state.json assets/lang-dist.svg
+          git add README.md game/state.json assets/lang-dist.svg assets/dungeon.svg
           git commit -m "🎮 /dev/dungeon frame #${frame} · README sync [skip ci]"
           git push || { git pull --rebase && git push; }
