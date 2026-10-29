@@ -40,6 +40,20 @@ jobs:
       - name: Advance /dev/dungeon by one frame
         run: node .github/scripts/tick-dungeon.js
 
+      - name: Publish the replay to the output branch
+        # The replay SVG is rewritten every run, so it lives alone on a
+        # force-pushed orphan branch instead of piling up in main's history.
+        run: |
+          out=$(mktemp -d)
+          cp assets/dungeon.svg "$out/"
+          cd "$out"
+          git init -q -b output
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config user.name "github-actions[bot]"
+          git add dungeon.svg
+          git commit -qm "/dev/dungeon replay"
+          git push -qf "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" output
+
       - name: Commit and push
         run: |
           if git diff --quiet; then
@@ -49,6 +63,6 @@ jobs:
           frame=$(node -p "require('./game/state.json').tick")
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git add README.md game/state.json assets/lang-dist.svg assets/dungeon.svg
+          git add README.md game/state.json assets/lang-dist.svg
           git commit -m "🎮 /dev/dungeon frame #${frame} · README sync [skip ci]"
           git push || { git pull --rebase && git push; }

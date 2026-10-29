@@ -1,2 +1,5 @@
 # Local screenshots shared while working on the README
 /image*.png
+
+# Generated each run and published to the `output` branch instead
+/assets/dungeon.svg

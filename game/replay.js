@@ -14,7 +14,7 @@
 
 const { W, H } = require('./engine.js');
 
-const STEP = 0.3; // seconds per turn
+const STEP = 0.25; // seconds per turn
 const HOLD = 0.7; // last turn stays up while the loop fades back to the start
 const T = 14; // tile size
 const PAD = 22;

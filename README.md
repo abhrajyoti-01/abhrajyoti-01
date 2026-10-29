@@ -32,7 +32,7 @@ class Abhrajyoti:
 
 ## `02` &nbsp;/dev/dungeon
 
-A **zero-player roguelike that lives inside this README.** Nobody controls it, not even me. Every 30 minutes a GitHub Action loads the world from [`game/state.json`](game/state.json), simulates 100 turns and records every one of them; the replay below auto-plays those real turns on loop until the next frame lands. The daemon `@` explores a procedurally generated filesystem, squashes bugs, picks up better debugging tools and goes deeper until something kills it. Then the next daemon is forked.
+A **zero-player roguelike that lives inside this README.** Nobody controls it, not even me. Every 30 minutes a GitHub Action loads the world from [`game/state.json`](game/state.json), simulates 400 turns and records every one of them; the replay below auto-plays those real turns on loop until the next frame lands. The daemon `@` explores a procedurally generated filesystem, squashes bugs, picks up better debugging tools and goes deeper until something kills it. Then the next daemon is forked.
 
 <!-- DUNGEON:START -->
 <p align="center"><img src="assets/dungeon.svg?frame=8" width="100%" alt="/dev/dungeon replay: daemon #1 at depth 4 /var/log, turns 340 to 440" /></p>
@@ -104,7 +104,7 @@ Every floor is a directory (`/home` → `/usr/src` → … → `/root` → `/dev
 ```mermaid
 flowchart LR
     cron(["⏱ cron · every 30 min"]) --> job["GitHub Actions"]
-    state[("game/state.json")] --> engine["engine.js<br/>tick(world, 100 turns)"]
+    state[("game/state.json")] --> engine["engine.js<br/>tick(world, 400 turns)"]
     job --> engine
     engine -->|next world| state
     engine -->|snapshot per turn| replay["replay.js"]

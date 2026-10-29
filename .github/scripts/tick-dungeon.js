@@ -28,7 +28,11 @@ const ROOT = path.join(__dirname, '..', '..');
 const STATE_PATH = path.join(ROOT, 'game', 'state.json');
 const REPLAY_PATH = path.join(ROOT, 'assets', 'dungeon.svg');
 const README_PATH = path.join(ROOT, 'README.md');
-const TURNS = Math.max(1, Math.min(500, Number(process.env.DUNGEON_TURNS) || 100));
+const TURNS = Math.max(1, Math.min(500, Number(process.env.DUNGEON_TURNS) || 400));
+// The replay is rewritten every run, so the workflow force-pushes it to an
+// orphan `output` branch instead of letting it pile up in main's history.
+const REPO = process.env.GITHUB_REPOSITORY || 'abhrajyoti-01/abhrajyoti-01';
+const REPLAY_URL = `https://raw.githubusercontent.com/${REPO}/output/dungeon.svg`;
 
 function loadWorld() {
   try {
@@ -65,7 +69,7 @@ function renderSection(world, first) {
     : '_No daemon has died yet. Give it time._';
 
   return [
-    `<p align="center"><img src="assets/dungeon.svg?frame=${world.tick}" width="100%" alt="${alt}" /></p>`,
+    `<p align="center"><img src="${REPLAY_URL}?frame=${world.tick}" width="100%" alt="${alt}" /></p>`,
     '',
     `<p align="center"><sub>↻ auto-playing the <b>${TURNS} turns</b> simulated in frame <b>#${n(world.tick)}</b> · rendered ${stamp} UTC by GitHub Actions · a new frame every ~30 minutes</sub></p>`,
     '',

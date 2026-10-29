@@ -10,7 +10,7 @@ The profile README rebuilds itself every 30 minutes: live GitHub data, plus one 
 │   └── update-readme.yml     # every 30 min: refresh data → advance the game → commit
 └── scripts/
     ├── update-readme.js      # GitHub API → stats, languages, repos, stack
-    └── tick-dungeon.js       # loads the world, simulates 100 turns, renders the replay
+    └── tick-dungeon.js       # loads the world, simulates 400 turns, renders the replay
 
 game/
 ├── engine.js                 # /dev/dungeon: generation, AI, combat, text frame (vanilla JS, UMD)
@@ -19,7 +19,6 @@ game/
 
 assets/
 ├── hero-3d.svg               # custom header banner
-├── dungeon.svg               # generated /dev/dungeon replay (rewritten each run)
 └── lang-dist.svg             # generated language bar (rewritten each run)
 ```
 
@@ -51,13 +50,14 @@ This step runs with `continue-on-error`, so a GitHub API hiccup leaves the data 
 GitHub strips `<script>`, `<style>`, `class` and `style` from READMEs, so nothing can execute on the page. The game therefore runs **server-side, one frame per workflow run**, and motion comes from a replay:
 
 ```
-game/state.json ──▶ engine.tick(world, 100) ─▶ game/state.json
+game/state.json ──▶ engine.tick(world, 400) ─▶ game/state.json
                           │ snapshot per turn
-                          ├──▶ replay.js ──▶ assets/dungeon.svg   (auto-playing, ~30 s loop)
+                          ├──▶ replay.js ──▶ dungeon.svg on the output branch (~100 s loop)
                           └──▶ README.md  <!-- DUNGEON:START --> … <!-- DUNGEON:END -->
 ```
 
-- **Auto-playing replay:** every turn of the run is recorded and rendered into `assets/dungeon.svg` with discrete SMIL keyframes. The map reveals itself, the daemon and monsters move, hits flash, bars drain and the log scrolls. These are the real simulated turns, not a canned animation. Recording is side-effect free: the world evolves identically with or without it.
+- **Auto-playing replay:** every turn of the run is recorded and rendered into `dungeon.svg` with discrete SMIL keyframes. The map reveals itself, the daemon and monsters move, hits flash, bars drain and the log scrolls. These are the real simulated turns, not a canned animation. Recording is side-effect free: the world evolves identically with or without it.
+- **Output branch:** the replay (~200 KB) is rewritten every run, so the workflow force-pushes it as the only file on an orphan `output` branch, and the README loads it from `raw.githubusercontent.com/…/output/dungeon.svg?frame=N`. `main` only receives the small README and state diffs.
 
 - **Zero-player:** the daemon `@` is driven by a priority AI (patch → fight → chase → rest → hunt → loot → explore → descend). Nobody controls it.
 - **Procedural floors:** rooms plus Dijkstra-carved corridors that only enter rooms through mid-wall doors. Every depth is a directory (`/home` → `/usr/src` → … → `/root` → `/dev/null/…`).
@@ -65,9 +65,9 @@ game/state.json ──▶ engine.tick(world, 100) ─▶ game/state.json
 - **Permadeath:** when the daemon dies it lands in the graveyard with its exit code, and a new daemon is forked.
 - **Deterministic:** the mulberry32 PRNG state is saved with the world, so every frame is a pure function of the previous one.
 - **Rendered as text:** a 79-column frame inside a `diff` fence. GitHub's own diff highlighter colours the log (`+` kills/loot, `-` damage/death, `!` level-ups/gear, `#` info, `@@` depth changes).
-- **Balance:** tuned by offline simulation. A daemon typically dies around depth 7 (p90 ≈ 20) after roughly 1,600 turns (about 16 frames).
+- **Balance:** tuned by offline simulation. A daemon typically dies around depth 7 (p90 ≈ 20) after roughly 1,500 turns (about 4 frames).
 
-Tunables: `DUNGEON_TURNS` (turns per frame, default 100) and `DUNGEON_SEED` (seed for a brand-new world). Delete `game/state.json` to start a new world.
+Tunables: `DUNGEON_TURNS` (turns per frame, default 400) and `DUNGEON_SEED` (seed for a brand-new world). Delete `game/state.json` to start a new world.
 
 ## 🛠️ Technical Details
 
