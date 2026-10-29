@@ -1,13 +1,13 @@
 # 🤖 Self-updating README
 
-The profile README rebuilds itself every hour: live GitHub data, plus one new frame of **/dev/dungeon**, a zero-player roguelike that is simulated and rendered entirely by GitHub Actions. No manual edits are needed.
+The profile README rebuilds itself every 30 minutes: live GitHub data, plus one new frame of **/dev/dungeon**, a zero-player roguelike that is simulated and rendered entirely by GitHub Actions. No manual edits are needed.
 
 ## 📁 Structure
 
 ```
 .github/
 ├── workflows/
-│   └── update-readme.yml     # hourly job: refresh data → advance the game → commit
+│   └── update-readme.yml     # every 30 min: refresh data → advance the game → commit
 └── scripts/
     ├── update-readme.js      # GitHub API → stats, languages, repos, stack
     └── tick-dungeon.js       # loads the world, simulates 40 turns, renders the frame
@@ -26,7 +26,7 @@ assets/
 ## ⚙️ How It Works
 
 ### 🕐 Schedule
-- **Hourly** at minute 17 (`17 * * * *`, off the top-of-the-hour rush)
+- **Every 30 minutes** at :11 and :41 (`11,41 * * * *`, off the top-of-the-hour rush). GitHub can delay or drop scheduled runs under load; the replay keeps looping until the next frame lands.
 - **On every push to `main`**
 - **Manually** via *Actions* → “Refresh Profile README” → *Run workflow*
 

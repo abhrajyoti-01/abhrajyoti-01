@@ -229,6 +229,11 @@ function renderReplay(snaps, meta) {
   const { lantern, hero } = heroLayers(snaps, tl);
   const progressEnd = (((snaps.length - 1) * STEP) / tl.dur).toFixed(4);
   const fullBar = WIDTH - 2 * PAD;
+  // Shown only during the pause on the last turn, so the jump back to the
+  // first turn reads as a loop rather than the game skipping.
+  const loopBadge = `<g opacity="0"><animate attributeName="opacity" values="0;1" keyTimes="0;${progressEnd}" calcMode="discrete" dur="${tl.dur}s" repeatCount="indefinite"/>` +
+    `<rect x="${MAP_X + MAP_W / 2 - 170}" y="${MAP_Y + MAP_H - 44}" width="340" height="28" rx="14" fill="${C.bg}" fill-opacity="0.94" stroke="${C.faint}"/>` +
+    `<text x="${MAP_X + MAP_W / 2}" y="${MAP_Y + MAP_H - 26}" fill="${C.text}" text-anchor="middle">end of frame #${meta.frame} · looping back to turn ${first}</text></g>`;
 
   const header = tl.runs(snaps.map((s) => `${s.run}|${s.depth}|${s.turn}`), (i) => {
     const s = snaps[i];
@@ -270,6 +275,7 @@ ${itemsLayer(snaps, tl)}
 ${monstersLayer(snaps, tl)}
 ${hero}
 </g>
+${loopBadge}
 ${hud}
 <rect x="${MAP_X - 8}" y="${STATUS_Y}" width="${WIDTH - MAP_X - PAD + 8}" height="26" rx="8" fill="${C.panel}" stroke="${C.line}"/>
 ${status}

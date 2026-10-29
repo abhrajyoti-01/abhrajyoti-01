@@ -67,7 +67,7 @@ function renderSection(world, first) {
   return [
     `<p align="center"><img src="assets/dungeon.svg?frame=${world.tick}" width="100%" alt="${alt}" /></p>`,
     '',
-    `<p align="center"><sub>↻ auto-playing the <b>${TURNS} turns</b> simulated in frame <b>#${n(world.tick)}</b> · rendered ${stamp} UTC by GitHub Actions · a new frame every hour</sub></p>`,
+    `<p align="center"><sub>↻ auto-playing the <b>${TURNS} turns</b> simulated in frame <b>#${n(world.tick)}</b> · rendered ${stamp} UTC by GitHub Actions · a new frame every ~30 minutes</sub></p>`,
     '',
     '<details>',
     `<summary><b>Graveyard</b> · ${n(r.deaths)} daemon${r.deaths === 1 ? '' : 's'} lost · ${n(r.kills)} bug${r.kills === 1 ? '' : 's'} squashed · deepest dive: depth ${r.bestDepth} by daemon #${r.bestRun}</summary>`,

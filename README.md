@@ -32,12 +32,12 @@ class Abhrajyoti:
 
 ## `02` &nbsp;/dev/dungeon
 
-A **zero-player roguelike that lives inside this README.** Nobody controls it, not even me. Every hour a GitHub Action loads the world from [`game/state.json`](game/state.json), simulates 40 turns and records every one of them; the replay below auto-plays those real turns on loop until the next frame lands. The daemon `@` explores a procedurally generated filesystem, squashes bugs, picks up better debugging tools and goes deeper until something kills it. Then the next daemon is forked.
+A **zero-player roguelike that lives inside this README.** Nobody controls it, not even me. Every 30 minutes a GitHub Action loads the world from [`game/state.json`](game/state.json), simulates 40 turns and records every one of them; the replay below auto-plays those real turns on loop until the next frame lands. The daemon `@` explores a procedurally generated filesystem, squashes bugs, picks up better debugging tools and goes deeper until something kills it. Then the next daemon is forked.
 
 <!-- DUNGEON:START -->
 <p align="center"><img src="assets/dungeon.svg?frame=5" width="100%" alt="/dev/dungeon replay: daemon #1 at depth 3 /usr/lib, turns 160 to 200" /></p>
 
-<p align="center"><sub>↻ auto-playing the <b>40 turns</b> simulated in frame <b>#5</b> · rendered 2026-10-29 01:48 UTC by GitHub Actions · a new frame every hour</sub></p>
+<p align="center"><sub>↻ auto-playing the <b>40 turns</b> simulated in frame <b>#5</b> · rendered 2026-10-29 01:48 UTC by GitHub Actions · a new frame every ~30 minutes</sub></p>
 
 <details>
 <summary><b>Graveyard</b> · 0 daemons lost · 7 bugs squashed · deepest dive: depth 3 by daemon #1</summary>
@@ -95,7 +95,7 @@ _No daemon has died yet. Give it time._
 | `@` | **the daemon**, fully autonomous | `!` | **hotfix**, applied when HP runs low |
 | `b` `x` `n` | bug · off_by_one (misses) · null_pointer | `)` | **debugging tool**, weapon: `grep` → `gdb` → `valgrind` → `ebpf` |
 | `l` `r` | memory_leak (regenerates) · race_condition (acts twice) | `[` | **safety net**, armour: `linter` → `type_system` → `formal_proof` |
-| `z` `H` | zombie_process (revives) · heisenbug (moves when observed) | `?` | **docs**, reveal the whole floor |
+| `z` `H` | zombie_process (revives) · heisenbug (moves when observed) | `?` | **docs**, bonus XP |
 | `S` `D` | segfault (crits) · **deadlock**, boss every 5th depth | `*` `>` | stars (score) · deploy to the next depth |
 
 **The AI**, in priority order: patch when hurt → fight what's adjacent → chase what's awake → rest → hunt → loot → explore the nearest unmapped edge → deploy downstairs.
@@ -103,7 +103,7 @@ Every floor is a directory (`/home` → `/usr/src` → … → `/root` → `/dev
 
 ```mermaid
 flowchart LR
-    cron(["⏱ cron · hourly"]) --> job["GitHub Actions"]
+    cron(["⏱ cron · every 30 min"]) --> job["GitHub Actions"]
     state[("game/state.json")] --> engine["engine.js<br/>tick(world, 40 turns)"]
     job --> engine
     engine -->|next world| state
@@ -274,7 +274,7 @@ Telegram bot for Brainware University student self-service: attendance, fees, ma
 
 ## `05` &nbsp;Activity
 
-<sub>Regenerated every hour from the GitHub API by <a href=".github/scripts/update-readme.js"><code>update-readme.js</code></a>.</sub>
+<sub>Regenerated every 30 minutes from the GitHub API by <a href=".github/scripts/update-readme.js"><code>update-readme.js</code></a>.</sub>
 
 <!-- GH:STATS:START -->
 <table align="center"><tr><td align="center" width="25%"><strong>31</strong><br /><sub>Repositories</sub></td><td align="center" width="25%"><strong>8</strong><br /><sub>Stars</sub></td><td align="center" width="25%"><strong>9</strong><br /><sub>Forks</sub></td><td align="center" width="25%"><strong>10</strong><br /><sub>Followers</sub></td></tr><tr><td align="center" width="25%"><strong>171</strong><br /><sub>Contributions (1y)</sub></td><td align="center" width="25%"><strong>127</strong><br /><sub>Commits (1y)</sub></td><td align="center" width="25%"><strong>2</strong><br /><sub>Pull requests</sub></td><td align="center" width="25%"><strong>0</strong><br /><sub>Issues opened</sub></td></tr></table>
@@ -342,6 +342,6 @@ Telegram bot for Brainware University student self-service: attendance, fees, ma
 
 [abhra.me](https://abhra.me) &nbsp;·&nbsp; [abhraayan@gmail.com](mailto:abhraayan@gmail.com) &nbsp;·&nbsp; [@abhrajyoti-01](https://github.com/abhrajyoti-01)
 
-<sub>This README rebuilds itself every hour: live stats from the GitHub API plus a fresh frame of /dev/dungeon, with no manual edits.</sub>
+<sub>This README rebuilds itself every 30 minutes: live stats from the GitHub API plus a fresh frame of /dev/dungeon, with no manual edits.</sub>
 
 </div>

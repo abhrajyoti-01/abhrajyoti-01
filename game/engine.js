@@ -422,9 +422,9 @@
         log(w, '#', 'salvage', `scrapped a spare ${list[it.v][0]} for ${v} stars`);
       }
     } else if (it.k === '?') {
-      w.seen.fill(1);
-      const xp = 4 * w.depth;
-      log(w, '!', 'docs', `read the docs · ${pathFor(w.depth)} fully mapped · +${xp} xp`);
+      // Pure XP: revealing the floor made the map jump and cut exploration short.
+      const xp = 6 * w.depth;
+      log(w, '!', 'docs', `read the docs · +${xp} xp`);
       gainXp(w, xp);
     }
   }

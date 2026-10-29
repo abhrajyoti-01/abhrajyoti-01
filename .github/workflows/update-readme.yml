@@ -2,8 +2,9 @@ name: Refresh Profile README
 
 on:
   schedule:
-    # Hourly (off the :00 rush): live GitHub data + one /dev/dungeon frame
-    - cron: '17 * * * *'
+    # Every 30 min, off the :00 rush. GitHub delays or drops scheduled runs under
+    # load, so two slots per hour keep frames arriving roughly hourly or better.
+    - cron: '11,41 * * * *'
   push:
     branches: [main]
   workflow_dispatch: # allow manual runs
