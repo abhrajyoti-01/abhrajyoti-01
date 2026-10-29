@@ -35,12 +35,12 @@ class Abhrajyoti:
 A **zero-player roguelike that lives inside this README.** Nobody controls it, not even me. Every 30 minutes a GitHub Action loads the world from [`game/state.json`](game/state.json), simulates 100 turns and records every one of them; the replay below auto-plays those real turns on loop until the next frame lands. The daemon `@` explores a procedurally generated filesystem, squashes bugs, picks up better debugging tools and goes deeper until something kills it. Then the next daemon is forked.
 
 <!-- DUNGEON:START -->
-<p align="center"><img src="assets/dungeon.svg?frame=7" width="100%" alt="/dev/dungeon replay: daemon #1 at depth 3 /usr/lib, turns 240 to 340" /></p>
+<p align="center"><img src="assets/dungeon.svg?frame=8" width="100%" alt="/dev/dungeon replay: daemon #1 at depth 4 /var/log, turns 340 to 440" /></p>
 
-<p align="center"><sub>↻ auto-playing the <b>100 turns</b> simulated in frame <b>#7</b> · rendered 2026-10-29 04:08 UTC by GitHub Actions · a new frame every ~30 minutes</sub></p>
+<p align="center"><sub>↻ auto-playing the <b>100 turns</b> simulated in frame <b>#8</b> · rendered 2026-10-29 04:14 UTC by GitHub Actions · a new frame every ~30 minutes</sub></p>
 
 <details>
-<summary><b>Graveyard</b> · 0 daemons lost · 11 bugs squashed · deepest dive: depth 3 by daemon #1</summary>
+<summary><b>Graveyard</b> · 0 daemons lost · 12 bugs squashed · deepest dive: depth 4 by daemon #1</summary>
 <br />
 
 _No daemon has died yet. Give it time._
@@ -52,35 +52,35 @@ _No daemon has died yet. Give it time._
 <br />
 
 ```diff
-@@ /dev/dungeon · daemon #001 · depth 03 /usr/lib · turn 000340 @@
+@@ /dev/dungeon · daemon #001 · depth 04 /var/log · turn 000440 @@
  ┌─────────────────────────────────────────────────────┬──────────────────────┐
  │                                                     │ DAEMON #001   lvl 03 │
- │              ┌─────────┐                    ┌─────┐ │ pid 22567  exploring │
- │  ┌─────┐     │·········│                    │···>·│ │                      │
- │  │·····│     │·········│                    │·····│ │ HP █████████   44/46 │
- │  │·····│ ░░░░+·········│    ┌───────────┐   │·····│ │ XP ████████░     83% │
- │  └────+┘ ░   └─────@───┘    │···········│   └+────┘ │                      │
- │       ░ ░░         ░        │···········│    ░      │ atk 10        def 04 │
- │       ░░░          ░░░░░░░░░+···········+░░░░░      │ ) gdb             +4 │
- │       ░            ░        │···········│   ░       │ [ unit_tests      +2 │
- │                  ┌─+────┐   │···········│  ┌+────┐  │ ! hotfix          x2 │
- │                  │······│   └───────────┘  │·····│  │ * stars           65 │
- │                  │······│                  │·····│  │                      │
- │                  │······│                  │·····│  │ depth 03   kills 011 │
- │                  │······│                  │·····│  │                      │
- │                  └──────┘                  └─────┘  │ in view        clear │
+ │                                                     │ pid 22567    looting │
+ │                                                     │                      │
+ │                                                     │ HP █████████   46/46 │
+ │                                                     │ XP ████████░     89% │
+ │                                                     │                      │
+ │                                                     │ atk 10        def 04 │
+ │                                                     │ ) gdb             +4 │
+ │                                                     │ [ unit_tests      +2 │
+ │                                                     │ ! hotfix          x2 │
+ │                                                     │ * stars           95 │
+ │                                         ┌+───────┐  │                      │
+ │                                         │········│  │ depth 04   kills 012 │
+ │                                         │·*·@····│  │                      │
+ │                                         └────────┘  │ in view        clear │
  │                                                     │                      │
  │                                                     │                      │
  ├─────────────────────────────────────────────────────┴──────────────────────┤
- │ /usr/lib 92% mapped · record depth 03 by #001 · 0 daemons lost             │
+ │ /var/log 9% mapped · record depth 04 by #001 · 0 daemons lost              │
  └────────────────────────────────────────────────────────────────────────────┘
-+ 000218  loot    collected 9 stars
-! 000224  equip   unit_tests (+2 def) replaces no_tests
-+ 000244  kill    squashed race_condition · +16 xp
-+ 000248  loot    stashed a hotfix (2/3)
 + 000285  kill    squashed off_by_one · +7 xp
 + 000290  kill    squashed memory_leak · +13 xp
 + 000333  loot    collected 12 stars
++ 000363  kill    squashed bug · +4 xp
+# 000368  salvage scrapped a spare gdb for 15 stars
+@@ 000432  deploy  deployed → depth 04 /var/log @@
+# 000435  salvage scrapped a spare unit_tests for 15 stars
 ```
 
 </details>
@@ -277,7 +277,7 @@ Telegram bot for Brainware University student self-service: attendance, fees, ma
 <sub>Regenerated every 30 minutes from the GitHub API by <a href=".github/scripts/update-readme.js"><code>update-readme.js</code></a>.</sub>
 
 <!-- GH:STATS:START -->
-<table align="center"><tr><td align="center" width="25%"><strong>31</strong><br /><sub>Repositories</sub></td><td align="center" width="25%"><strong>8</strong><br /><sub>Stars</sub></td><td align="center" width="25%"><strong>9</strong><br /><sub>Forks</sub></td><td align="center" width="25%"><strong>10</strong><br /><sub>Followers</sub></td></tr><tr><td align="center" width="25%"><strong>173</strong><br /><sub>Contributions (1y)</sub></td><td align="center" width="25%"><strong>129</strong><br /><sub>Commits (1y)</sub></td><td align="center" width="25%"><strong>2</strong><br /><sub>Pull requests</sub></td><td align="center" width="25%"><strong>0</strong><br /><sub>Issues opened</sub></td></tr></table>
+<table align="center"><tr><td align="center" width="25%"><strong>31</strong><br /><sub>Repositories</sub></td><td align="center" width="25%"><strong>8</strong><br /><sub>Stars</sub></td><td align="center" width="25%"><strong>9</strong><br /><sub>Forks</sub></td><td align="center" width="25%"><strong>10</strong><br /><sub>Followers</sub></td></tr><tr><td align="center" width="25%"><strong>175</strong><br /><sub>Contributions (1y)</sub></td><td align="center" width="25%"><strong>131</strong><br /><sub>Commits (1y)</sub></td><td align="center" width="25%"><strong>2</strong><br /><sub>Pull requests</sub></td><td align="center" width="25%"><strong>0</strong><br /><sub>Issues opened</sub></td></tr></table>
 <!-- GH:STATS:END -->
 
 <!-- GH:LANGUAGES:START -->
@@ -288,12 +288,12 @@ Telegram bot for Brainware University student self-service: attendance, fees, ma
 | **01** | `C` | **34.3%** |
 | **02** | `TypeScript` | **21.3%** |
 | **03** | `JavaScript` | **18.3%** |
-| **04** | `Python` | **17.6%** |
+| **04** | `Python` | **17.5%** |
 | **05** | `Go` | **4.2%** |
 | **06** | `Rust` | **2.1%** |
 | **07** | `PHP` | **2.0%** |
 
-<img src="assets/lang-dist.svg" width="100%" alt="Byte-weighted language distribution — C 34.3%, TypeScript 21.3%, JavaScript 18.3%, Python 17.6%, Go 4.2%, Rust 2.1%, PHP 2.0%"/>
+<img src="assets/lang-dist.svg" width="100%" alt="Byte-weighted language distribution — C 34.3%, TypeScript 21.3%, JavaScript 18.3%, Python 17.5%, Go 4.2%, Rust 2.1%, PHP 2.0%"/>
 
 <sub>Plus 3 additional languages.</sub>
 <!-- GH:LANGUAGES:END -->
