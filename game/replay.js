@@ -6,13 +6,16 @@
  * turns them into one looping SVG driven by discrete SMIL keyframes: the map
  * reveals itself, the daemon and monsters move, bars and the log update. It is
  * a replay of the turns the engine actually played, not a canned animation.
+ *
+ * Size matters (a new file is committed every frame), so everything static is
+ * drawn once and each changing value gets its own small track.
  */
 'use strict';
 
 const { W, H } = require('./engine.js');
 
-const STEP = 0.32; // seconds per turn
-const HOLD = 2.4; // pause on the last turn before the loop restarts
+const STEP = 0.3; // seconds per turn
+const HOLD = 0.7; // last turn stays up while the loop fades back to the start
 const T = 14; // tile size
 const PAD = 22;
 const HEAD = 46;
@@ -24,10 +27,11 @@ const STATUS_Y = MAP_Y + MAP_H + 16;
 const LOG_Y = STATUS_Y + 44;
 const LOG_LH = 17;
 const HEIGHT = LOG_Y + 6 * LOG_LH + PAD;
+const CW = 7; // monospace digit advance used by the turn odometer
 const DIRS = [[0, -1], [1, 0], [0, 1], [-1, 0]];
 
 const C = {
-  bg: '#0b1220', panel: '#070c16', line: '#1e293b', text: '#cbd5e1', dim: '#64748b', faint: '#334155',
+  bg: '#0b1220', panel: '#070c16', line: '#1e293b', text: '#cbd5e1', bright: '#e2e8f0', dim: '#64748b', faint: '#334155',
   hero: '#67e8f9', hurt: '#f87171', wall: '#5b6b82', floor: '#2a3850', tunnel: '#15223a', door: '#f59e0b', stairs: '#a78bfa',
 };
 const MONSTER_COLOR = {
@@ -187,39 +191,87 @@ function heroLayers(snaps, tl) {
 }
 
 // --------------------------------------------------------------- hud
-function bar(x, y, w, ratio, color) {
-  const f = Math.max(0, Math.min(1, ratio));
-  return `<rect x="${x}" y="${y}" width="${w}" height="7" rx="3.5" fill="${C.line}"/>` +
-    (f > 0 ? `<rect x="${x}" y="${y}" width="${(w * f).toFixed(1)}" height="7" rx="3.5" fill="${color}"/>` : '');
+const HL = HUD_X + 14, HR = HUD_X + HUD_W - 14;
+const row = (i) => MAP_Y + 12 + i * T;
+const textAt = (x, y, body, fill, extra = '') => `<text x="${x}" y="${y}" fill="${fill}"${extra}>${body}</text>`;
+
+// A text value that only re-renders when it changes.
+function field(snaps, tl, valueOf, x, y, { fill = C.text, anchor = 'start', extra = '' } = {}) {
+  const values = snaps.map((s) => valueOf(s));
+  const colorOf = typeof fill === 'function' ? fill : () => fill;
+  const a = anchor === 'end' ? ' text-anchor="end"' : '';
+  return tl.runs(values.map((v, i) => `${v}|${colorOf(snaps[i])}`), (i) =>
+    values[i] === '' ? '' : textAt(x, y, values[i], colorOf(snaps[i]), a + extra));
 }
 
-function hudSvg(s) {
-  const h = s.hero, L = HUD_X + 14, R = HUD_X + HUD_W - 14;
-  const row = (i) => MAP_Y + 12 + i * T;
-  const left = (i, text, fill = C.text, extra = '') => `<text x="${L}" y="${row(i)}" fill="${fill}"${extra}>${text}</text>`;
-  const right = (i, text, fill = C.text) => `<text x="${R}" y="${row(i)}" fill="${fill}" text-anchor="end">${text}</text>`;
-  const hpRatio = h.hp / h.maxHp;
-  const hpColor = hpRatio > 0.5 ? '#4ade80' : hpRatio > 0.25 ? '#facc15' : '#f87171';
-  const gear = (i, ch, name, val) =>
-    left(i, `<tspan fill="${ITEM_COLOR[ch]}">${esc(ch)}</tspan> ${esc(name)}`) + right(i, esc(val), C.dim);
+// A bar whose fill width and colour are tracked per turn.
+function meter(snaps, tl, x, y, w, ratioOf, colorOf, withTrack = true) {
+  const widths = snaps.map((s) => (w * Math.max(0, Math.min(1, ratioOf(s)))).toFixed(1));
+  const colors = snaps.map((s) => colorOf(s));
+  return (withTrack ? `<rect x="${x}" y="${y}" width="${w}" height="7" rx="3.5" fill="${C.line}"/>` : '') +
+    `<rect x="${x}" y="${y}" width="${widths[0]}" height="7" rx="3.5" fill="${colors[0]}">${tl.track('width', widths)}${tl.track('fill', colors)}</rect>`;
+}
+
+function hudLayer(snaps, tl) {
+  const hpColor = (s) => {
+    const r = s.hero.hp / s.hero.maxHp;
+    return r > 0.5 ? '#4ade80' : r > 0.25 ? '#facc15' : '#f87171';
+  };
+  const gear = (i, ch, label) => textAt(HL, row(i), `<tspan fill="${ITEM_COLOR[ch]}">${esc(ch)}</tspan>${label ? ` ${label}` : ''}`, C.text);
+  const right = { anchor: 'end', fill: C.dim };
   let out =
-    left(0, `DAEMON #${pad(s.run, 3)}`, C.hero, ' font-weight="700"') + right(0, `lvl ${pad(h.lvl, 2)}`) +
-    left(1, `pid ${h.pid}`, C.dim) + right(1, h.mode, MODE_COLOR[h.mode] || C.dim) +
-    left(3, 'HP', C.dim) + bar(L + 24, row(3) - 7, 118, hpRatio, hpColor) + right(3, `${h.hp}/${h.maxHp}`) +
-    left(4, 'XP', C.dim) + bar(L + 24, row(4) - 7, 118, h.xp / h.need, '#a78bfa') + right(4, `${Math.floor((100 * h.xp) / h.need)}%`) +
-    left(6, `atk <tspan fill="#e2e8f0">${pad(h.atk, 2)}</tspan>`, C.dim) + right(6, `def <tspan fill="#e2e8f0">${pad(h.def, 2)}</tspan>`, C.dim) +
-    gear(7, ')', h.tool[0], `+${h.tool[1]}`) +
-    gear(8, '[', h.guard[0], `+${h.guard[1]}`) +
-    gear(9, '!', 'hotfix', `x${h.potions}`) +
-    gear(10, '*', 'stars', String(h.stars)) +
-    left(12, `depth <tspan fill="#e2e8f0">${pad(s.depth, 2)}</tspan> <tspan fill="${C.stairs}">${esc(s.path)}</tspan>`, C.dim) +
-    right(12, `kills <tspan fill="#e2e8f0">${pad(h.kills, 3)}</tspan>`, C.dim) +
-    left(14, 'in view', C.dim) + right(14, s.monsters.length ? String(s.monsters.length) : 'clear', s.monsters.length ? '#f87171' : C.dim);
-  s.monsters.slice(0, 2).forEach((m, i) => {
-    out += left(15 + i, `<tspan fill="${MONSTER_COLOR[m.k]}" font-weight="700">${esc(m.k)}</tspan> ${esc(m.name)}`) +
-      bar(R - 40, row(15 + i) - 7, 40, m.hp / m.maxHp, MONSTER_COLOR[m.k]);
-  });
+    // static labels and bar tracks
+    textAt(HL, row(3), 'HP', C.dim) + textAt(HL, row(4), 'XP', C.dim) +
+    textAt(HL, row(6), 'atk', C.dim) + textAt(HR - 22, row(6), 'def', C.dim, ' text-anchor="end"') +
+    gear(7, ')') + gear(8, '[') + gear(9, '!', 'hotfix') + gear(10, '*', 'stars') +
+    textAt(HL, row(12), 'depth', C.dim) + textAt(HR - 30, row(12), 'kills', C.dim, ' text-anchor="end"') +
+    textAt(HL, row(14), 'in view', C.dim) +
+    // live values
+    field(snaps, tl, (s) => `DAEMON #${pad(s.run, 3)}`, HL, row(0), { fill: C.hero, extra: ' font-weight="700"' }) +
+    field(snaps, tl, (s) => `lvl ${pad(s.hero.lvl, 2)}`, HR, row(0), { anchor: 'end' }) +
+    field(snaps, tl, (s) => `pid ${s.hero.pid}`, HL, row(1), { fill: C.dim }) +
+    field(snaps, tl, (s) => s.hero.mode, HR, row(1), { anchor: 'end', fill: (s) => MODE_COLOR[s.hero.mode] || C.dim }) +
+    meter(snaps, tl, HL + 24, row(3) - 7, 118, (s) => s.hero.hp / s.hero.maxHp, hpColor) +
+    field(snaps, tl, (s) => `${s.hero.hp}/${s.hero.maxHp}`, HR, row(3), { anchor: 'end' }) +
+    meter(snaps, tl, HL + 24, row(4) - 7, 118, (s) => s.hero.xp / s.hero.need, () => '#a78bfa') +
+    field(snaps, tl, (s) => `${Math.floor((100 * s.hero.xp) / s.hero.need)}%`, HR, row(4), { anchor: 'end' }) +
+    field(snaps, tl, (s) => pad(s.hero.atk, 2), HL + 28, row(6), { fill: C.bright }) +
+    field(snaps, tl, (s) => pad(s.hero.def, 2), HR, row(6), { anchor: 'end', fill: C.bright }) +
+    field(snaps, tl, (s) => esc(s.hero.tool[0]), HL + 14, row(7)) +
+    field(snaps, tl, (s) => `+${s.hero.tool[1]}`, HR, row(7), right) +
+    field(snaps, tl, (s) => esc(s.hero.guard[0]), HL + 14, row(8)) +
+    field(snaps, tl, (s) => `+${s.hero.guard[1]}`, HR, row(8), right) +
+    field(snaps, tl, (s) => `x${s.hero.potions}`, HR, row(9), right) +
+    field(snaps, tl, (s) => String(s.hero.stars), HR, row(10), right) +
+    field(snaps, tl, (s) => `<tspan fill="${C.bright}">${pad(s.depth, 2)}</tspan> ${esc(s.path)}`, HL + 42, row(12), { fill: C.stairs }) +
+    field(snaps, tl, (s) => pad(s.hero.kills, 3), HR, row(12), { anchor: 'end', fill: C.bright }) +
+    field(snaps, tl, (s) => (s.monsters.length ? String(s.monsters.length) : 'clear'), HR, row(14), {
+      anchor: 'end', fill: (s) => (s.monsters.length ? '#f87171' : C.dim),
+    });
+  // the two nearest monsters in view, each with a health meter
+  for (const slot of [0, 1]) {
+    const m = (s) => s.monsters[slot];
+    out += field(snaps, tl, (s) => (m(s) ? `<tspan fill="${MONSTER_COLOR[m(s).k]}" font-weight="700">${esc(m(s).k)}</tspan> ${esc(m(s).name)}` : ''),
+      HL, row(15 + slot), { fill: C.text });
+    out += tl.shown(snaps.map((s) => !!m(s)),
+      meter(snaps, tl, HR - 40, row(15 + slot) - 7, 40, (s) => (m(s) ? m(s).hp / m(s).maxHp : 0), (s) => (m(s) ? MONSTER_COLOR[m(s).k] : C.line)));
+  }
   return out;
+}
+
+// Rolling digits: one strip of 0-9 per position, shifted per turn.
+function odometer(snaps, tl, xRight, y) {
+  const values = snaps.map((s) => s.turn);
+  const digits = Math.max(6, String(Math.max(...values)).length);
+  let out = `<clipPath id="odo"><rect x="${xRight - digits * CW - 1}" y="${y - 11}" width="${digits * CW + 2}" height="${T}"/></clipPath>` +
+    `<g clip-path="url(#odo)" fill="${C.bright}" text-anchor="middle">`;
+  for (let d = 0; d < digits; d++) {
+    const at = values.map((v) => +pad(v, digits)[d]);
+    const x = xRight - (digits - d) * CW + CW / 2;
+    const strip = Array.from({ length: 10 }, (_, k) => `<tspan x="${x}" y="${y + k * T}">${k}</tspan>`).join('');
+    out += `<g transform="translate(0 ${-at[0] * T})">${tl.move(at.map((v) => `0 ${-v * T}`))}<text>${strip}</text></g>`;
+  }
+  return { svg: `${out}</g>`, width: digits * CW };
 }
 
 // ------------------------------------------------------------- frame
@@ -227,22 +279,21 @@ function renderReplay(snaps, meta) {
   const tl = timeline(snaps.length);
   const first = snaps[0].turn, last = snaps[snaps.length - 1].turn;
   const { lantern, hero } = heroLayers(snaps, tl);
-  const progressEnd = (((snaps.length - 1) * STEP) / tl.dur).toFixed(4);
+  const playEnd = (((snaps.length - 1) * STEP) / tl.dur).toFixed(4);
+  const fadeIn = (0.35 / tl.dur).toFixed(4), fadeOut = ((tl.dur - 0.5) / tl.dur).toFixed(4);
   const fullBar = WIDTH - 2 * PAD;
-  // Shown only during the pause on the last turn, so the jump back to the
-  // first turn reads as a loop rather than the game skipping.
-  const loopBadge = `<g opacity="0"><animate attributeName="opacity" values="0;1" keyTimes="0;${progressEnd}" calcMode="discrete" dur="${tl.dur}s" repeatCount="indefinite"/>` +
-    `<rect x="${MAP_X + MAP_W / 2 - 170}" y="${MAP_Y + MAP_H - 44}" width="340" height="28" rx="14" fill="${C.bg}" fill-opacity="0.94" stroke="${C.faint}"/>` +
-    `<text x="${MAP_X + MAP_W / 2}" y="${MAP_Y + MAP_H - 26}" fill="${C.text}" text-anchor="middle">end of frame #${meta.frame} · looping back to turn ${first}</text></g>`;
+  const turn = odometer(snaps, tl, WIDTH - PAD, 29);
 
-  const header = tl.runs(snaps.map((s) => `${s.run}|${s.depth}|${s.turn}`), (i) => {
+  const where = tl.runs(snaps.map((s) => `${s.run}|${s.depth}`), (i) => {
     const s = snaps[i];
     return `<text x="${PAD + 212}" y="29" fill="${C.dim}">daemon <tspan fill="${C.hero}">#${pad(s.run, 3)}</tspan> · depth ` +
-      `<tspan fill="#e2e8f0">${pad(s.depth, 2)}</tspan> <tspan fill="${C.stairs}">${esc(s.path)}</tspan> · turn <tspan fill="#e2e8f0">${pad(s.turn, 6)}</tspan></text>`;
+      `<tspan fill="${C.bright}">${pad(s.depth, 2)}</tspan> <tspan fill="${C.stairs}">${esc(s.path)}</tspan></text>`;
   });
-  const hud = tl.runs(snaps.map((s) => JSON.stringify([s.run, s.depth, s.hero, s.monsters.map((m) => [m.k, m.hp])])), (i) => hudSvg(snaps[i]));
-  const status = tl.runs(snaps.map((s) => s.status), (i) =>
-    `<text x="${MAP_X}" y="${STATUS_Y + 17}" fill="${C.dim}">${esc(snaps[i].status)}</text>`);
+  // mapped % in 5% steps keeps the status line from re-rendering every step
+  const status = tl.runs(snaps.map((s) => `${s.path}|${Math.floor(s.mapped / 5) * 5}|${s.records.bestDepth}|${s.records.bestRun}|${s.records.deaths}`), (i) => {
+    const s = snaps[i], r = s.records;
+    return `<text x="${MAP_X}" y="${STATUS_Y + 17}" fill="${C.dim}">${esc(s.path)} ${Math.floor(s.mapped / 5) * 5}% mapped · record depth ${pad(r.bestDepth, 2)} by #${pad(r.bestRun, 3)} · ${r.deaths} daemon${r.deaths === 1 ? '' : 's'} lost</text>`;
+  });
   const log = tl.runs(snaps.map((s) => s.log.map((l) => l.text).join('\n')), (i) =>
     snaps[i].log.slice(-6).map((l, j) =>
       `<text x="${MAP_X}" y="${LOG_Y + j * LOG_LH}" fill="${LOG_COLOR[l.c] || C.text}">${esc(l.text)}</text>`).join(''));
@@ -260,11 +311,12 @@ function renderReplay(snaps, meta) {
 <rect x="0.5" y="0.5" width="${WIDTH - 1}" height="${HEIGHT - 1}" rx="15.5" fill="none" stroke="${C.line}"/>
 <circle cx="${PAD + 5}" cy="25" r="4.5" fill="#ef4444"><animate attributeName="opacity" values="1;0.25;1" dur="1.4s" repeatCount="indefinite"/></circle>
 <text x="${PAD + 16}" y="29" fill="#ef4444" font-weight="700" letter-spacing="2">REPLAY</text>
-<text x="${PAD + 84}" y="29" fill="#e2e8f0" font-weight="700" font-size="13.5">/dev/dungeon</text>
-${header}
-<text x="${WIDTH - PAD}" y="29" fill="${C.dim}" text-anchor="end">frame #${meta.frame} · turns ${first}–${last}</text>
+<text x="${PAD + 84}" y="29" fill="${C.bright}" font-weight="700" font-size="13.5">/dev/dungeon</text>
+${where}
+<text x="${WIDTH - PAD - turn.width - 6}" y="29" fill="${C.dim}" text-anchor="end">frame #${meta.frame} · turn</text>
+${turn.svg}
 <rect x="${PAD}" y="${HEAD - 4}" width="${fullBar}" height="2" rx="1" fill="${C.line}"/>
-<rect x="${PAD}" y="${HEAD - 4}" width="0" height="2" rx="1" fill="#ef4444"><animate attributeName="width" values="0;${fullBar};${fullBar}" keyTimes="0;${progressEnd};1" dur="${tl.dur}s" repeatCount="indefinite"/></rect>
+<rect x="${PAD}" y="${HEAD - 4}" width="0" height="2" rx="1" fill="#ef4444"><animate attributeName="width" values="0;${fullBar};${fullBar}" keyTimes="0;${playEnd};1" dur="${tl.dur}s" repeatCount="indefinite"/></rect>
 <rect x="${MAP_X - 8}" y="${MAP_Y - 8}" width="${MAP_W + 16}" height="${MAP_H + 16}" rx="10" fill="${C.panel}" stroke="${C.line}"/>
 <rect x="${MAP_X}" y="${MAP_Y}" width="${MAP_W}" height="${MAP_H}" fill="url(#grid)"/>
 <rect x="${HUD_X}" y="${MAP_Y - 8}" width="${HUD_W}" height="${MAP_H + 16}" rx="10" fill="${C.panel}" stroke="${C.line}"/>
@@ -275,11 +327,11 @@ ${itemsLayer(snaps, tl)}
 ${monstersLayer(snaps, tl)}
 ${hero}
 </g>
-${loopBadge}
-${hud}
+${hudLayer(snaps, tl)}
 <rect x="${MAP_X - 8}" y="${STATUS_Y}" width="${WIDTH - MAP_X - PAD + 8}" height="26" rx="8" fill="${C.panel}" stroke="${C.line}"/>
 ${status}
 ${log}
+<rect x="1" y="${HEAD}" width="${WIDTH - 2}" height="${HEIGHT - HEAD - 1}" fill="${C.bg}" opacity="0"><animate attributeName="opacity" values="0.85;0;0;0.85" keyTimes="0;${fadeIn};${fadeOut};1" dur="${tl.dur}s" repeatCount="indefinite"/></rect>
 </g>
 </svg>
 `;

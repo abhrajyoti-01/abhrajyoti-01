@@ -28,7 +28,7 @@ const ROOT = path.join(__dirname, '..', '..');
 const STATE_PATH = path.join(ROOT, 'game', 'state.json');
 const REPLAY_PATH = path.join(ROOT, 'assets', 'dungeon.svg');
 const README_PATH = path.join(ROOT, 'README.md');
-const TURNS = Math.max(1, Math.min(500, Number(process.env.DUNGEON_TURNS) || 40));
+const TURNS = Math.max(1, Math.min(500, Number(process.env.DUNGEON_TURNS) || 100));
 
 function loadWorld() {
   try {

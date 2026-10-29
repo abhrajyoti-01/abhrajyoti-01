@@ -725,7 +725,7 @@
         .map((m) => ({ id: m.id, k: m.k, name: MONSTERS[m.k].name, x: m.x, y: m.y, hp: m.hp, maxHp: m.maxHp })),
       items: w.items.filter((it) => w.seen[idx(it.x, it.y)]).map((it) => ({ k: it.k, x: it.x, y: it.y })),
       log: w.log.slice(-LOG_LINES).map((e) => ({ c: e.c, text: logLine(e) })),
-      status: statusLine(w),
+      mapped: mappedPct(w), records: { ...w.records },
     };
   }
 

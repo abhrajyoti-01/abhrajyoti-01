@@ -10,7 +10,7 @@ The profile README rebuilds itself every 30 minutes: live GitHub data, plus one 
 │   └── update-readme.yml     # every 30 min: refresh data → advance the game → commit
 └── scripts/
     ├── update-readme.js      # GitHub API → stats, languages, repos, stack
-    └── tick-dungeon.js       # loads the world, simulates 40 turns, renders the frame
+    └── tick-dungeon.js       # loads the world, simulates 100 turns, renders the replay
 
 game/
 ├── engine.js                 # /dev/dungeon: generation, AI, combat, text frame (vanilla JS, UMD)
@@ -51,9 +51,9 @@ This step runs with `continue-on-error`, so a GitHub API hiccup leaves the data 
 GitHub strips `<script>`, `<style>`, `class` and `style` from READMEs, so nothing can execute on the page. The game therefore runs **server-side, one frame per workflow run**, and motion comes from a replay:
 
 ```
-game/state.json ──▶ engine.tick(world, 40) ──▶ game/state.json
+game/state.json ──▶ engine.tick(world, 100) ─▶ game/state.json
                           │ snapshot per turn
-                          ├──▶ replay.js ──▶ assets/dungeon.svg   (auto-playing, loops ~15 s)
+                          ├──▶ replay.js ──▶ assets/dungeon.svg   (auto-playing, ~30 s loop)
                           └──▶ README.md  <!-- DUNGEON:START --> … <!-- DUNGEON:END -->
 ```
 
@@ -65,9 +65,9 @@ game/state.json ──▶ engine.tick(world, 40) ──▶ game/state.json
 - **Permadeath:** when the daemon dies it lands in the graveyard with its exit code, and a new daemon is forked.
 - **Deterministic:** the mulberry32 PRNG state is saved with the world, so every frame is a pure function of the previous one.
 - **Rendered as text:** a 79-column frame inside a `diff` fence. GitHub's own diff highlighter colours the log (`+` kills/loot, `-` damage/death, `!` level-ups/gear, `#` info, `@@` depth changes).
-- **Balance:** tuned by offline simulation. A daemon typically dies around depth 7 (p90 ≈ 20) after roughly 40 frames (~1.7 days).
+- **Balance:** tuned by offline simulation. A daemon typically dies around depth 7 (p90 ≈ 20) after roughly 1,600 turns (about 16 frames).
 
-Tunables: `DUNGEON_TURNS` (turns per frame, default 40) and `DUNGEON_SEED` (seed for a brand-new world). Delete `game/state.json` to start a new world.
+Tunables: `DUNGEON_TURNS` (turns per frame, default 100) and `DUNGEON_SEED` (seed for a brand-new world). Delete `game/state.json` to start a new world.
 
 ## 🛠️ Technical Details
 
@@ -86,5 +86,5 @@ export GH_USERNAME=abhrajyoti-01   # defaults to abhrajyoti-01
 
 npm run update-readme              # refresh live data
 npm run tick                       # advance /dev/dungeon by one frame
-DUNGEON_TURNS=400 npm run tick     # fast-forward ten frames' worth of turns
+DUNGEON_TURNS=400 npm run tick     # one long frame of 400 turns
 ```
