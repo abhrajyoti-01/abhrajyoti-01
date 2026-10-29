@@ -29,6 +29,10 @@
   // depth 7 (p90 ≈ 20) after ~1,600 turns. Bosses scale more gently.
   const BALANCE = { hp: 0.3, atk: 1.1, def: 3, boss: 0.4 };
 
+  // Resting is a short breather, not a long standstill: it only kicks in when
+  // badly hurt and heals a fixed share of max HP per turn.
+  const REST = { start: 0.4, stop: 0.75, perTurn: 0.08 };
+
   // Every depth is a directory; past /root the daemon is in the void.
   const PATHS = ['/home', '/usr/src', '/usr/lib', '/var/log', '/proc', '/sys', '/dev', '/boot', '/etc/init.d', '/root'];
 
@@ -512,8 +516,8 @@
     }
 
     if (awake.length) h.resting = false;
-    else if (h.hp < h.maxHp * 0.5) h.resting = true;
-    else if (h.hp >= h.maxHp * 0.9) h.resting = false;
+    else if (h.hp < h.maxHp * REST.start) h.resting = true;
+    else if (h.hp >= h.maxHp * REST.stop) h.resting = false;
     if (h.resting) { h.mode = 'resting'; return; }
 
     if (inView.length) {
@@ -585,7 +589,8 @@
     monstersTurn(w);
     if (h.hp <= 0) return die(w);
     if (!w.monsters.some((m) => m.awake && isVisible(w, m))) {
-      if (w.turn % (h.resting ? 2 : 5) === 0) h.hp = Math.min(h.maxHp, h.hp + 1 + Math.floor(h.lvl / 6));
+      if (h.resting) h.hp = Math.min(h.maxHp, h.hp + Math.ceil(h.maxHp * REST.perTurn));
+      else if (w.turn % 5 === 0) h.hp = Math.min(h.maxHp, h.hp + 1 + Math.floor(h.lvl / 6));
     }
   }
 
