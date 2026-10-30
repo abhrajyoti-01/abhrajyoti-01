@@ -35,16 +35,17 @@ class Abhrajyoti:
 A **zero-player roguelike that lives inside this README.** Nobody controls it, not even me. Every 30 minutes a GitHub Action loads the world from [`game/state.json`](game/state.json), simulates 400 turns and records every one of them; the replay below auto-plays those real turns on loop until the next frame lands. The daemon `@` explores a procedurally generated filesystem, squashes bugs, picks up better debugging tools and goes deeper until something kills it. Then the next daemon is forked.
 
 <!-- DUNGEON:START -->
-<p align="center"><img src="https://raw.githubusercontent.com/abhrajyoti-01/abhrajyoti-01/output/dungeon.svg?frame=14" width="100%" alt="/dev/dungeon replay: daemon #3 at depth 6 /sys, turns 2440 to 2840" /></p>
+<p align="center"><img src="https://raw.githubusercontent.com/abhrajyoti-01/abhrajyoti-01/output/dungeon.svg?frame=15" width="100%" alt="/dev/dungeon replay: daemon #4 at depth 1 /home, turns 2840 to 3240" /></p>
 
-<p align="center"><sub>↻ auto-playing the <b>400 turns</b> simulated in frame <b>#14</b> · rendered 2026-10-30 08:33 UTC by GitHub Actions · a new frame every ~30 minutes</sub></p>
+<p align="center"><sub>↻ auto-playing the <b>400 turns</b> simulated in frame <b>#15</b> · rendered 2026-10-30 15:18 UTC by GitHub Actions · a new frame every ~30 minutes</sub></p>
 
 <details>
-<summary><b>Graveyard</b> · 2 daemons lost · 108 bugs squashed · deepest dive: depth 7 by daemon #1</summary>
+<summary><b>Graveyard</b> · 3 daemons lost · 130 bugs squashed · deepest dive: depth 8 by daemon #3</summary>
 <br />
 
 | daemon | reached | lvl | kills | killed by | uptime |
 | :-: | :-- | :-: | :-: | :-- | --: |
+| `#003` | depth 8 · `/boot` | 9 | 57 | `segfault` | 1,376 turns |
 | `#002` | depth 5 · `/proc` | 5 | 29 | `heisenbug` | 884 turns |
 | `#001` | depth 7 · `/dev` | 8 | 44 | `segfault` | 978 turns |
 
@@ -55,35 +56,35 @@ A **zero-player roguelike that lives inside this README.** Nobody controls it, n
 <br />
 
 ```diff
-@@ /dev/dungeon · daemon #003 · depth 06 /sys · turn 002840 @@
+@@ /dev/dungeon · daemon #004 · depth 01 /home · turn 003240 @@
  ┌─────────────────────────────────────────────────────┬──────────────────────┐
- │                                                     │ DAEMON #003   lvl 07 │
- │               ┌────────┐            ┌──────┐        │ pid 14875    looting │
- │               │·····!··│            │······│        │                      │
- │               │·*·····@│       ░░░░░+······│        │ HP ██████░░░   54/75 │
- │               +········+░░░░░░░░    └─────+┘        │ XP ███░░░░░░     31% │
- │               └────────┘       ░          ░         │                      │
- │                                ░          ░░░       │ atk 20        def 06 │
- │                               ┌+──────┐     ░       │ ) perf           +10 │
- │                               │·······│     ░       │ [ unit_tests      +2 │
- │                               │·······│    ┌+────┐  │ ! hotfix          x1 │
- │                               │·······│    │·····│  │ * stars          136 │
- │                               │·······│    │·····│  │                      │
- │                               │·······│    │·····│  │ depth 06   kills 035 │
- │                               └───────┘    └─────┘  │                      │
+ │                                                     │ DAEMON #004   lvl 01 │
+ │                                            ┌─────┐  │ pid 15555    looting │
+ │                                            │·····│  │                      │
+ │                                            │·*@··│  │ HP █████████   30/30 │
+ │                                            └──+──┘  │ XP ░░░░░░░░░      0% │
+ │                                                     │                      │
+ │                                                     │ atk 04        def 01 │
+ │                                                     │ ) printf          +0 │
+ │                                                     │ [ no_tests        +0 │
+ │                                                     │ ! hotfix          x1 │
+ │                                                     │ * stars            0 │
+ │                                                     │                      │
+ │                                                     │ depth 01   kills 000 │
+ │                                                     │                      │
  │                                                     │ in view        clear │
  │                                                     │                      │
  │                                                     │                      │
  ├─────────────────────────────────────────────────────┴──────────────────────┤
- │ /sys 63% mapped · record depth 07 by #001 · 2 daemons lost                 │
+ │ /home 6% mapped · record depth 08 by #003 · 3 daemons lost                 │
  └────────────────────────────────────────────────────────────────────────────┘
-- 002818  hit     segfault hit for 17 · critical · hp 27/67
-! 002820  heal    applied a hotfix · +32 hp
-+ 002821  kill    squashed segfault · +53 xp
-! 002821  lvlup   daemon reached lvl 7 · +8 max hp
-+ 002837  kill    squashed off_by_one · +9 xp
-- 002838  hit     race_condition hit for 10 · critical · hp 52/75
-+ 002839  kill    squashed race_condition · +21 xp
+# 003214  blink   heisenbug moved when observed
++ 003217  kill    squashed heisenbug · +41 xp
++ 003218  loot    collected 40 stars
+- 003236  hit     segfault hit for 20 · critical · hp 25/88
+- 003237  hit     segfault hit for 20 · critical · hp 5/88
+- 003238  exit    daemon #3 killed by segfault in /boot · exit 139 SIGSEGV
+# 003238  fork    daemon #4 spawned in /home · pid 15555
 ```
 
 </details>
