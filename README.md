@@ -35,12 +35,12 @@ class Abhrajyoti:
 A **zero-player roguelike that lives inside this README.** Nobody controls it, not even me. Every 30 minutes a GitHub Action loads the world from [`game/state.json`](game/state.json), simulates 400 turns and records every one of them; the replay below auto-plays those real turns on loop until the next frame lands. The daemon `@` explores a procedurally generated filesystem, squashes bugs, picks up better debugging tools and goes deeper until something kills it. Then the next daemon is forked.
 
 <!-- DUNGEON:START -->
-<p align="center"><img src="https://raw.githubusercontent.com/abhrajyoti-01/abhrajyoti-01/output/dungeon.svg?frame=12" width="100%" alt="/dev/dungeon replay: daemon #3 at depth 2 /usr/src, turns 1640 to 2040" /></p>
+<p align="center"><img src="https://raw.githubusercontent.com/abhrajyoti-01/abhrajyoti-01/output/dungeon.svg?frame=13" width="100%" alt="/dev/dungeon replay: daemon #3 at depth 4 /var/log, turns 2040 to 2440" /></p>
 
-<p align="center"><sub>↻ auto-playing the <b>400 turns</b> simulated in frame <b>#12</b> · rendered 2026-10-29 21:59 UTC by GitHub Actions · a new frame every ~30 minutes</sub></p>
+<p align="center"><sub>↻ auto-playing the <b>400 turns</b> simulated in frame <b>#13</b> · rendered 2026-10-30 01:55 UTC by GitHub Actions · a new frame every ~30 minutes</sub></p>
 
 <details>
-<summary><b>Graveyard</b> · 2 daemons lost · 80 bugs squashed · deepest dive: depth 7 by daemon #1</summary>
+<summary><b>Graveyard</b> · 2 daemons lost · 94 bugs squashed · deepest dive: depth 7 by daemon #1</summary>
 <br />
 
 | daemon | reached | lvl | kills | killed by | uptime |
@@ -55,35 +55,35 @@ A **zero-player roguelike that lives inside this README.** Nobody controls it, n
 <br />
 
 ```diff
-@@ /dev/dungeon · daemon #003 · depth 02 /usr/src · turn 002040 @@
+@@ /dev/dungeon · daemon #003 · depth 04 /var/log · turn 002440 @@
  ┌─────────────────────────────────────────────────────┬──────────────────────┐
- │                                                     │ DAEMON #003   lvl 02 │
- │           ┌──────┐      ┌──────┐                    │ pid 14875  exploring │
- │           │······│      │······│    ┌───────┐       │                      │
- │           │······│      │······+░░░░+·······│       │ HP ████████░   33/37 │
- │           │······+░░░   │······│    │·······│       │ XP █████░░░░     54% │
- │           └+─────┘  ░   │······│    │·······│       │                      │
- │                     ░░░░+······│    │·······│       │ atk 07        def 02 │
- │                     ░   └──────┘    └──────+┘       │ ) grep            +2 │
- │                                            ░        │ [ no_tests        +0 │
- │                                            @        │ ! hotfix          x3 │
- │                                           ─+─       │ * stars           10 │
- │                                                     │                      │
- │                                                     │ depth 02   kills 007 │
+ │                                                     │ DAEMON #003   lvl 04 │
+ │      ┌────────┐                                     │ pid 14875    looting │
+ │      │········│                                     │                      │
+ │      │········│                                     │ HP ███████░░   42/51 │
+ │      └+──────+┘                                     │ XP ████░░░░░     46% │
+ │              ░    ┌───────────┐      ┌─────────┐    │                      │
+ │              ░    │···········│      │·······>·│    │ atk 13        def 05 │
+ │          ┌───+─┐  │···········│      │·········│    │ ) strace          +6 │
+ │          │·····+░░+···········+░░░░░░+·@[······│    │ [ unit_tests      +2 │
+ │          │·····│  └───────────┘      │·········│    │ ! hotfix          x3 │
+ │          │·····│                     └─────────┘    │ * stars           61 │
+ │          └─────┘                                    │                      │
+ │                                                     │ depth 04   kills 021 │
  │                                                     │                      │
  │                                                     │ in view        clear │
  │                                                     │                      │
  │                                                     │                      │
  ├─────────────────────────────────────────────────────┴──────────────────────┤
- │ /usr/src 51% mapped · record depth 07 by #001 · 2 daemons lost             │
+ │ /var/log 82% mapped · record depth 07 by #001 · 2 daemons lost             │
  └────────────────────────────────────────────────────────────────────────────┘
-+ 001942  loot    applied a spare hotfix on the spot
-@@ 001992  deploy  deployed → depth 02 /usr/src @@
-# 001993  salvage scrapped a spare grep for 10 stars
-+ 002011  kill    squashed null_pointer · +9 xp
-+ 002012  loot    applied a spare hotfix on the spot
-+ 002026  kill    squashed bug · +3 xp
-+ 002031  kill    squashed bug · +3 xp
++ 002403  loot    applied a spare hotfix on the spot
+# 002415  salvage scrapped a spare gdb for 15 stars
++ 002432  kill    squashed null_pointer · +12 xp
+! 002432  lvlup   daemon reached lvl 4 · +6 max hp
++ 002434  kill    squashed race_condition · +17 xp
++ 002436  kill    squashed off_by_one · +7 xp
++ 002439  kill    squashed memory_leak · +15 xp · critical
 ```
 
 </details>
@@ -310,7 +310,7 @@ Telegram bot for Brainware University student self-service: attendance, fees, ma
 **Recently pushed**
 
 <!-- GH:RECENT:START -->
-<table><tr><td width="6%"><strong>01</strong></td><td><a href="https://github.com/abhrajyoti-01/dsa-in-c"><strong>dsa-in-c</strong></a><br /><sub>198 self-documented data structures and algorithms programs in C - fundamentals to…</sub></td><td align="right"><sub><code>C</code> · 1 day ago</sub></td></tr><tr><td width="6%"><strong>02</strong></td><td><a href="https://github.com/abhrajyoti-01/UnRAR"><strong>UnRAR</strong></a><br /><sub>UnRAR — open-source WinRAR-style archive manager in Rust (egui). ZIP/RAR/7z/TAR/GZ/…</sub></td><td align="right"><sub><code>Rust</code> · 1 day ago</sub></td></tr><tr><td width="6%"><strong>03</strong></td><td><a href="https://github.com/abhrajyoti-01/QuizGame"><strong>QuizGame</strong></a><br /><sub>Browser-based multiple-choice quiz game with 1,009 questions across 20 topics - Pyt…</sub></td><td align="right"><sub><code>Python</code> · 1 day ago</sub></td></tr><tr><td width="6%"><strong>04</strong></td><td><a href="https://github.com/abhrajyoti-01/BWU-Portal-Lite"><strong>BWU-Portal-Lite</strong></a><br /><sub>Brainware Portal Lite - Telegram bot for Brainware University Student Self-Service:…</sub></td><td align="right"><sub><code>Python</code> · 20 days ago</sub></td></tr><tr><td width="6%"><strong>05</strong></td><td><a href="https://github.com/abhrajyoti-01/Student-Management-System"><strong>Student-Management-System</strong></a><br /><sub>College DBMS project of Brainware University | Student Management System web app wi…</sub></td><td align="right"><sub><code>PHP</code> · 1 month ago</sub></td></tr></table>
+<table><tr><td width="6%"><strong>01</strong></td><td><a href="https://github.com/abhrajyoti-01/dsa-in-c"><strong>dsa-in-c</strong></a><br /><sub>198 self-documented data structures and algorithms programs in C - fundamentals to…</sub></td><td align="right"><sub><code>C</code> · 1 day ago</sub></td></tr><tr><td width="6%"><strong>02</strong></td><td><a href="https://github.com/abhrajyoti-01/UnRAR"><strong>UnRAR</strong></a><br /><sub>UnRAR — open-source WinRAR-style archive manager in Rust (egui). ZIP/RAR/7z/TAR/GZ/…</sub></td><td align="right"><sub><code>Rust</code> · 1 day ago</sub></td></tr><tr><td width="6%"><strong>03</strong></td><td><a href="https://github.com/abhrajyoti-01/QuizGame"><strong>QuizGame</strong></a><br /><sub>Browser-based multiple-choice quiz game with 1,009 questions across 20 topics - Pyt…</sub></td><td align="right"><sub><code>Python</code> · 2 days ago</sub></td></tr><tr><td width="6%"><strong>04</strong></td><td><a href="https://github.com/abhrajyoti-01/BWU-Portal-Lite"><strong>BWU-Portal-Lite</strong></a><br /><sub>Brainware Portal Lite - Telegram bot for Brainware University Student Self-Service:…</sub></td><td align="right"><sub><code>Python</code> · 21 days ago</sub></td></tr><tr><td width="6%"><strong>05</strong></td><td><a href="https://github.com/abhrajyoti-01/Student-Management-System"><strong>Student-Management-System</strong></a><br /><sub>College DBMS project of Brainware University | Student Management System web app wi…</sub></td><td align="right"><sub><code>PHP</code> · 1 month ago</sub></td></tr></table>
 <!-- GH:RECENT:END -->
 
 <br />
