@@ -35,12 +35,12 @@ class Abhrajyoti:
 A **zero-player roguelike that lives inside this README.** Nobody controls it, not even me. Every 30 minutes a GitHub Action loads the world from [`game/state.json`](game/state.json), simulates 400 turns and records every one of them; the replay below auto-plays those real turns on loop until the next frame lands. The daemon `@` explores a procedurally generated filesystem, squashes bugs, picks up better debugging tools and goes deeper until something kills it. Then the next daemon is forked.
 
 <!-- DUNGEON:START -->
-<p align="center"><img src="https://raw.githubusercontent.com/abhrajyoti-01/abhrajyoti-01/output/dungeon.svg?frame=24" width="100%" alt="/dev/dungeon replay: daemon #5 at depth 5 /proc, turns 6440 to 6840" /></p>
+<p align="center"><img src="https://raw.githubusercontent.com/abhrajyoti-01/abhrajyoti-01/output/dungeon.svg?frame=25" width="100%" alt="/dev/dungeon replay: daemon #5 at depth 8 /boot, turns 6840 to 7240" /></p>
 
-<p align="center"><sub>↻ auto-playing the <b>400 turns</b> simulated in frame <b>#24</b> · rendered 2026-11-01 13:13 UTC by GitHub Actions · a new frame every ~30 minutes</sub></p>
+<p align="center"><sub>↻ auto-playing the <b>400 turns</b> simulated in frame <b>#25</b> · rendered 2026-11-01 18:32 UTC by GitHub Actions · a new frame every ~30 minutes</sub></p>
 
 <details>
-<summary><b>Graveyard</b> · 4 daemons lost · 326 bugs squashed · deepest dive: depth 20 by daemon #4</summary>
+<summary><b>Graveyard</b> · 4 daemons lost · 357 bugs squashed · deepest dive: depth 20 by daemon #4</summary>
 <br />
 
 | daemon | reached | lvl | kills | killed by | uptime |
@@ -57,35 +57,35 @@ A **zero-player roguelike that lives inside this README.** Nobody controls it, n
 <br />
 
 ```diff
-@@ /dev/dungeon · daemon #005 · depth 05 /proc · turn 006840 @@
+@@ /dev/dungeon · daemon #005 · depth 08 /boot · turn 007240 @@
  ┌─────────────────────────────────────────────────────┬──────────────────────┐
- │                                                     │ DAEMON #005   lvl 05 │
- │                                           ┌───────┐ │ pid 11211  exploring │
- │                                ┌──────┐   │·······│ │                      │
- │                                │······│ ░░+@······│ │ HP █████████   60/62 │
- │                                +······│ ░ └─────+─┘ │ XP ████░░░░░     42% │
- │                                └─────+┘ ░       ░   │                      │
- │                                      ░ ░░       ░   │ atk 14        def 06 │
- │                                      ░░░        ░   │ ) strace          +6 │
- │                                      ░          ░   │ [ type_system     +3 │
- │                                             ┌───+─┐ │ ! hotfix          x3 │
- │                                             │·····│ │ * stars          169 │
- │                                             │·····│ │                      │
- │                                             │·····│ │ depth 05   kills 024 │
- │                                             │·····│ │                      │
- │                                             └─────┘ │ in view        clear │
- │                                                     │                      │
+ │                                                     │ DAEMON #005   lvl 09 │
+ │      ┌──────┐                                       │ pid 11211  exploring │
+ │      │······│   ┌─────┐                             │                      │
+ │      │······+░░░+·····│                             │ HP ████████░   79/92 │
+ │      │······│   │·@···+                             │ XP ██████░░░     64% │
+ │      │······│   │·····│                             │                      │
+ │      └──+───┘   │·····│                             │ atk 20        def 09 │
+ │         ░       └─────┘                             │ ) valgrind        +8 │
+ │         ░                                           │ [ ci_pipeline     +4 │
+ │  ┌──────+───┐                                       │ ! hotfix          x1 │
+ │  │··········│                                       │ * stars          550 │
+ │  │··········│                                       │                      │
+ │  │··········│                                       │ depth 08   kills 055 │
+ │  │··········│                                       │                      │
+ │  │··········│                                       │ in view        clear │
+ │  └──────────┘                                       │                      │
  │                                                     │                      │
  ├─────────────────────────────────────────────────────┴──────────────────────┤
- │ /proc 42% mapped · record depth 20 by #004 · 4 daemons lost                │
+ │ /boot 59% mapped · record depth 20 by #004 · 4 daemons lost                │
  └────────────────────────────────────────────────────────────────────────────┘
-@@ 006784  deploy  deployed → depth 05 /proc @@
-! 006787  equip   strace (+6 atk) replaces gdb
-+ 006806  kill    squashed memory_leak · +16 xp
-! 006808  docs    read the docs · +30 xp
-+ 006810  loot    stashed a hotfix (3/3)
-+ 006821  kill    squashed off_by_one · +8 xp
-# 006824  salvage scrapped a spare type_system for 20 stars
++ 007207  loot    collected 40 stars
+# 007209  blink   heisenbug moved when observed
+- 007211  hit     segfault hit for 18 · critical · hp 37/92
++ 007215  kill    squashed segfault · +61 xp · critical
++ 007218  kill    squashed heisenbug · +41 xp
+! 007230  docs    read the docs · +48 xp
++ 007237  loot    stashed a hotfix (1/3)
 ```
 
 </details>
