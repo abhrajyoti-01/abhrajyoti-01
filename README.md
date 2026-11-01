@@ -35,12 +35,12 @@ class Abhrajyoti:
 A **zero-player roguelike that lives inside this README.** Nobody controls it, not even me. Every 30 minutes a GitHub Action loads the world from [`game/state.json`](game/state.json), simulates 400 turns and records every one of them; the replay below auto-plays those real turns on loop until the next frame lands. The daemon `@` explores a procedurally generated filesystem, squashes bugs, picks up better debugging tools and goes deeper until something kills it. Then the next daemon is forked.
 
 <!-- DUNGEON:START -->
-<p align="center"><img src="https://raw.githubusercontent.com/abhrajyoti-01/abhrajyoti-01/output/dungeon.svg?frame=25" width="100%" alt="/dev/dungeon replay: daemon #5 at depth 8 /boot, turns 6840 to 7240" /></p>
+<p align="center"><img src="https://raw.githubusercontent.com/abhrajyoti-01/abhrajyoti-01/output/dungeon.svg?frame=26" width="100%" alt="/dev/dungeon replay: daemon #5 at depth 10 /root, turns 7240 to 7640" /></p>
 
-<p align="center"><sub>↻ auto-playing the <b>400 turns</b> simulated in frame <b>#25</b> · rendered 2026-11-01 18:32 UTC by GitHub Actions · a new frame every ~30 minutes</sub></p>
+<p align="center"><sub>↻ auto-playing the <b>400 turns</b> simulated in frame <b>#26</b> · rendered 2026-11-01 22:23 UTC by GitHub Actions · a new frame every ~30 minutes</sub></p>
 
 <details>
-<summary><b>Graveyard</b> · 4 daemons lost · 357 bugs squashed · deepest dive: depth 20 by daemon #4</summary>
+<summary><b>Graveyard</b> · 4 daemons lost · 383 bugs squashed · deepest dive: depth 20 by daemon #4</summary>
 <br />
 
 | daemon | reached | lvl | kills | killed by | uptime |
@@ -57,35 +57,35 @@ A **zero-player roguelike that lives inside this README.** Nobody controls it, n
 <br />
 
 ```diff
-@@ /dev/dungeon · daemon #005 · depth 08 /boot · turn 007240 @@
+@@ /dev/dungeon · daemon #005 · depth 10 /root · turn 007640 @@
  ┌─────────────────────────────────────────────────────┬──────────────────────┐
- │                                                     │ DAEMON #005   lvl 09 │
- │      ┌──────┐                                       │ pid 11211  exploring │
- │      │······│   ┌─────┐                             │                      │
- │      │······+░░░+·····│                             │ HP ████████░   79/92 │
- │      │······│   │·@···+                             │ XP ██████░░░     64% │
- │      │······│   │·····│                             │                      │
- │      └──+───┘   │·····│                             │ atk 20        def 09 │
- │         ░       └─────┘                             │ ) valgrind        +8 │
- │         ░                                           │ [ ci_pipeline     +4 │
- │  ┌──────+───┐                                       │ ! hotfix          x1 │
- │  │··········│                                       │ * stars          550 │
- │  │··········│                                       │                      │
- │  │··········│                                       │ depth 08   kills 055 │
- │  │··········│                                       │                      │
- │  │··········│                                       │ in view        clear │
- │  └──────────┘                                       │                      │
+ │                                                     │ DAEMON #005   lvl 12 │
+ │                                          ┌─────┐    │ pid 11211  deploying │
+ │ ┌──────┐                    ┌─────────┐  │···>·│    │                      │
+ │ │······│                    │·········│  │·····│    │ HP █████████ 115/115 │
+ │ │······│                    │·········│  │·····│    │ XP ██████░░░     65% │
+ │ └──+───┘    ┌──────────┐ ░░░+·······@·│  │·····│    │                      │
+ │    ░        │··········+░░  └────────+┘  └+────┘    │ atk 28        def 11 │
+ │    ░░░░░░░░░+··········│             ░    ░         │ ) rr             +13 │
+ │    ░        │··········│             ░░░░░░         │ [ ci_pipeline     +4 │
+ │    ░        └─────+────┘             ░              │ ! hotfix          x0 │
+ │    ░              ░                  ░              │ * stars          737 │
+ │  ┌─+────┐         ░               ┌──+─────┐        │                      │
+ │  │······│    ┌────+────┐          │········│        │ depth 10   kills 081 │
+ │  │······│    │·········│          │········│        │                      │
+ │  └──────┘    │·········│          └────────┘        │ in view        clear │
+ │              └─────────┘                            │                      │
  │                                                     │                      │
  ├─────────────────────────────────────────────────────┴──────────────────────┤
- │ /boot 59% mapped · record depth 20 by #004 · 4 daemons lost                │
+ │ /root 100% mapped · record depth 20 by #004 · 4 daemons lost               │
  └────────────────────────────────────────────────────────────────────────────┘
-+ 007207  loot    collected 40 stars
-# 007209  blink   heisenbug moved when observed
-- 007211  hit     segfault hit for 18 · critical · hp 37/92
-+ 007215  kill    squashed segfault · +61 xp · critical
-+ 007218  kill    squashed heisenbug · +41 xp
-! 007230  docs    read the docs · +48 xp
-+ 007237  loot    stashed a hotfix (1/3)
++ 007550  kill    squashed segfault · +70 xp
+! 007552  heal    applied a hotfix · +51 hp
+- 007554  hit     segfault hit for 20 · critical · hp 51/115
++ 007556  kill    squashed segfault · +70 xp · critical
++ 007562  loot    collected 70 stars
++ 007588  kill    squashed bug · +7 xp
++ 007599  kill    squashed null_pointer · +19 xp
 ```
 
 </details>
@@ -312,7 +312,7 @@ Telegram bot for Brainware University student self-service: attendance, fees, ma
 **Recently pushed**
 
 <!-- GH:RECENT:START -->
-<table><tr><td width="6%"><strong>01</strong></td><td><a href="https://github.com/abhrajyoti-01/StorageCleaner"><strong>StorageCleaner</strong></a><br /><sub>AI-assisted Windows disk cleanup: caches, crash dumps, old Windows files + power-th…</sub></td><td align="right"><sub><code>Python</code> · 1 day ago</sub></td></tr><tr><td width="6%"><strong>02</strong></td><td><a href="https://github.com/abhrajyoti-01/QuizGame"><strong>QuizGame</strong></a><br /><sub>React 18 + Vite quiz app with 1,009 questions across 20 topics — Python standard-li…</sub></td><td align="right"><sub><code>Python</code> · 1 day ago</sub></td></tr><tr><td width="6%"><strong>03</strong></td><td><a href="https://github.com/abhrajyoti-01/dsa-in-c"><strong>dsa-in-c</strong></a><br /><sub>198 self-documented data structures and algorithms programs in C - fundamentals to…</sub></td><td align="right"><sub><code>C</code> · 4 days ago</sub></td></tr><tr><td width="6%"><strong>04</strong></td><td><a href="https://github.com/abhrajyoti-01/UnRAR"><strong>UnRAR</strong></a><br /><sub>UnRAR — open-source WinRAR-style archive manager in Rust (egui). ZIP/RAR/7z/TAR/GZ/…</sub></td><td align="right"><sub><code>Rust</code> · 4 days ago</sub></td></tr><tr><td width="6%"><strong>05</strong></td><td><a href="https://github.com/abhrajyoti-01/BWU-Portal-Lite"><strong>BWU-Portal-Lite</strong></a><br /><sub>Brainware Portal Lite - Telegram bot for Brainware University Student Self-Service:…</sub></td><td align="right"><sub><code>Python</code> · 23 days ago</sub></td></tr></table>
+<table><tr><td width="6%"><strong>01</strong></td><td><a href="https://github.com/abhrajyoti-01/StorageCleaner"><strong>StorageCleaner</strong></a><br /><sub>AI-assisted Windows disk cleanup: caches, crash dumps, old Windows files + power-th…</sub></td><td align="right"><sub><code>Python</code> · 2 days ago</sub></td></tr><tr><td width="6%"><strong>02</strong></td><td><a href="https://github.com/abhrajyoti-01/QuizGame"><strong>QuizGame</strong></a><br /><sub>React 18 + Vite quiz app with 1,009 questions across 20 topics — Python standard-li…</sub></td><td align="right"><sub><code>Python</code> · 2 days ago</sub></td></tr><tr><td width="6%"><strong>03</strong></td><td><a href="https://github.com/abhrajyoti-01/dsa-in-c"><strong>dsa-in-c</strong></a><br /><sub>198 self-documented data structures and algorithms programs in C - fundamentals to…</sub></td><td align="right"><sub><code>C</code> · 4 days ago</sub></td></tr><tr><td width="6%"><strong>04</strong></td><td><a href="https://github.com/abhrajyoti-01/UnRAR"><strong>UnRAR</strong></a><br /><sub>UnRAR — open-source WinRAR-style archive manager in Rust (egui). ZIP/RAR/7z/TAR/GZ/…</sub></td><td align="right"><sub><code>Rust</code> · 4 days ago</sub></td></tr><tr><td width="6%"><strong>05</strong></td><td><a href="https://github.com/abhrajyoti-01/BWU-Portal-Lite"><strong>BWU-Portal-Lite</strong></a><br /><sub>Brainware Portal Lite - Telegram bot for Brainware University Student Self-Service:…</sub></td><td align="right"><sub><code>Python</code> · 23 days ago</sub></td></tr></table>
 <!-- GH:RECENT:END -->
 
 <br />
