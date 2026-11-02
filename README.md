@@ -35,16 +35,17 @@ class Abhrajyoti:
 A **zero-player roguelike that lives inside this README.** Nobody controls it, not even me. Every 30 minutes a GitHub Action loads the world from [`game/state.json`](game/state.json), simulates 400 turns and records every one of them; the replay below auto-plays those real turns on loop until the next frame lands. The daemon `@` explores a procedurally generated filesystem, squashes bugs, picks up better debugging tools and goes deeper until something kills it. Then the next daemon is forked.
 
 <!-- DUNGEON:START -->
-<p align="center"><img src="https://raw.githubusercontent.com/abhrajyoti-01/abhrajyoti-01/output/dungeon.svg?frame=28" width="100%" alt="/dev/dungeon replay: daemon #5 at depth 15 /dev/null/4540, turns 8040 to 8440" /></p>
+<p align="center"><img src="https://raw.githubusercontent.com/abhrajyoti-01/abhrajyoti-01/output/dungeon.svg?frame=29" width="100%" alt="/dev/dungeon replay: daemon #6 at depth 3 /usr/lib, turns 8440 to 8840" /></p>
 
-<p align="center"><sub>↻ auto-playing the <b>400 turns</b> simulated in frame <b>#28</b> · rendered 2026-11-02 09:23 UTC by GitHub Actions · a new frame every ~30 minutes</sub></p>
+<p align="center"><sub>↻ auto-playing the <b>400 turns</b> simulated in frame <b>#29</b> · rendered 2026-11-02 19:46 UTC by GitHub Actions · a new frame every ~30 minutes</sub></p>
 
 <details>
-<summary><b>Graveyard</b> · 4 daemons lost · 430 bugs squashed · deepest dive: depth 20 by daemon #4</summary>
+<summary><b>Graveyard</b> · 5 daemons lost · 452 bugs squashed · deepest dive: depth 20 by daemon #4</summary>
 <br />
 
 | daemon | reached | lvl | kills | killed by | uptime |
 | :-: | :-- | :-: | :-: | :-- | --: |
+| `#005` | depth 16 · `/dev/null/e377` | 16 | 138 | `zombie_process` | 2,308 turns |
 | `#004` | depth 20 · `/dev/null/5c55` | 17 | 172 | `segfault` | 3,007 turns |
 | `#003` | depth 8 · `/boot` | 9 | 57 | `segfault` | 1,376 turns |
 | `#002` | depth 5 · `/proc` | 5 | 29 | `heisenbug` | 884 turns |
@@ -57,35 +58,35 @@ A **zero-player roguelike that lives inside this README.** Nobody controls it, n
 <br />
 
 ```diff
-@@ /dev/dungeon · daemon #005 · depth 15 /dev/null/4540 · turn 008440 @@
+@@ /dev/dungeon · daemon #006 · depth 03 /usr/lib · turn 008840 @@
  ┌─────────────────────────────────────────────────────┬──────────────────────┐
- │                                                     │ DAEMON #005   lvl 15 │
- │  ┌──────┐                                           │ pid 11211  exploring │
- │  │······│                                           │                      │
- │  │······│                                           │ HP ████████░ 119/135 │
- │  │······│                                           │ XP █░░░░░░░░     11% │
- │  └─────+┘                                           │                      │
- │        ░                                            │ atk 34        def 16 │
- │        ░         ┌───────┐ ░░░@░                    │ ) ebpf           +16 │
- │        ░         │·······+░░                        │ [ formal_proof    +8 │
- │       ┌+──────┐  │·······│                          │ ! hotfix          x3 │
- │       │·······+░░+·······│                          │ * stars         1008 │
- │       │·······│  └───────┘                          │                      │
- │       │·······│                                     │ depth 15   kills 128 │
- │       │·······│                                     │                      │
- │       └───────┘                                     │ in view        clear │
- │                                                     │                      │
+ │                                                     │ DAEMON #006   lvl 03 │
+ │                                                     │ pid 21942  exploring │
+ │      ┌────────────┐                                 │                      │
+ │      │············│                                 │ HP █████████   45/45 │
+ │      │············│                                 │ XP ████░░░░░     45% │
+ │      │············│                                 │                      │
+ │      └───────+───+┘                                 │ atk 06        def 04 │
+ │              ░   ░                                  │ ) printf          +0 │
+ │              ░   ░░                                 │ [ unit_tests      +2 │
+ │              ░    ░                                 │ ! hotfix          x3 │
+ │              ░   ┌+─────┐   ┌───────+┐              │ * stars           88 │
+ │       ┌──────+┐  │······│   │········│              │                      │
+ │       │·······│  │······+░░░@········│              │ depth 03   kills 012 │
+ │       │·······│  └──────┘   │········│              │                      │
+ │       │·······│             │········│              │ in view        clear │
+ │       └───────┘             └────────┘              │                      │
  │                                                     │                      │
  ├─────────────────────────────────────────────────────┴──────────────────────┤
- │ /dev/null/4540 60% mapped · record depth 20 by #004 · 4 daemons lost       │
+ │ /usr/lib 64% mapped · record depth 20 by #004 · 5 daemons lost             │
  └────────────────────────────────────────────────────────────────────────────┘
-+ 008403  kill    squashed heisenbug · +62 xp
-+ 008406  kill    squashed zombie_process · +47 xp
-! 008406  lvlup   daemon reached lvl 15 · +7 max hp
-+ 008408  kill    squashed off_by_one · +16 xp
-+ 008410  kill    squashed memory_leak · +31 xp
-+ 008413  loot    applied a spare hotfix on the spot
-+ 008424  kill    squashed null_pointer · +25 xp
+@@ 008794  deploy  deployed → depth 03 /usr/lib @@
++ 008797  loot    collected 9 stars
++ 008812  kill    squashed bug · +4 xp
++ 008814  kill    squashed memory_leak · +13 xp · critical
++ 008815  loot    applied a spare hotfix on the spot
++ 008829  kill    squashed off_by_one · +7 xp
+# 008831  salvage scrapped a spare unit_tests for 15 stars
 ```
 
 </details>
@@ -282,7 +283,7 @@ Telegram bot for Brainware University student self-service: attendance, fees, ma
 <sub>Regenerated every 30 minutes from the GitHub API by <a href=".github/scripts/update-readme.js"><code>update-readme.js</code></a>.</sub>
 
 <!-- GH:STATS:START -->
-<table align="center"><tr><td align="center" width="25%"><strong>32</strong><br /><sub>Repositories</sub></td><td align="center" width="25%"><strong>8</strong><br /><sub>Stars</sub></td><td align="center" width="25%"><strong>9</strong><br /><sub>Forks</sub></td><td align="center" width="25%"><strong>10</strong><br /><sub>Followers</sub></td></tr><tr><td align="center" width="25%"><strong>183</strong><br /><sub>Contributions (1y)</sub></td><td align="center" width="25%"><strong>138</strong><br /><sub>Commits (1y)</sub></td><td align="center" width="25%"><strong>2</strong><br /><sub>Pull requests</sub></td><td align="center" width="25%"><strong>0</strong><br /><sub>Issues opened</sub></td></tr></table>
+<table align="center"><tr><td align="center" width="25%"><strong>33</strong><br /><sub>Repositories</sub></td><td align="center" width="25%"><strong>8</strong><br /><sub>Stars</sub></td><td align="center" width="25%"><strong>9</strong><br /><sub>Forks</sub></td><td align="center" width="25%"><strong>10</strong><br /><sub>Followers</sub></td></tr><tr><td align="center" width="25%"><strong>185</strong><br /><sub>Contributions (1y)</sub></td><td align="center" width="25%"><strong>139</strong><br /><sub>Commits (1y)</sub></td><td align="center" width="25%"><strong>2</strong><br /><sub>Pull requests</sub></td><td align="center" width="25%"><strong>0</strong><br /><sub>Issues opened</sub></td></tr></table>
 <!-- GH:STATS:END -->
 
 <!-- GH:LANGUAGES:START -->
@@ -290,15 +291,15 @@ Telegram bot for Brainware University student self-service: attendance, fees, ma
 
 | Rank | Language | Share |
 | :-: | :-- | :-: |
-| **01** | `C` | **32.9%** |
-| **02** | `Python` | **20.5%** |
-| **03** | `TypeScript` | **20.4%** |
-| **04** | `JavaScript` | **17.9%** |
+| **01** | `C` | **32.6%** |
+| **02** | `Python` | **20.8%** |
+| **03** | `TypeScript` | **20.3%** |
+| **04** | `JavaScript` | **18.0%** |
 | **05** | `Go` | **4.0%** |
 | **06** | `Rust` | **2.0%** |
 | **07** | `PHP` | **1.9%** |
 
-<img src="assets/lang-dist.svg" width="100%" alt="Byte-weighted language distribution — C 32.9%, Python 20.5%, TypeScript 20.4%, JavaScript 17.9%, Go 4.0%, Rust 2.0%, PHP 1.9%"/>
+<img src="assets/lang-dist.svg" width="100%" alt="Byte-weighted language distribution — C 32.6%, Python 20.8%, TypeScript 20.3%, JavaScript 18.0%, Go 4.0%, Rust 2.0%, PHP 1.9%"/>
 
 <sub>Plus 3 additional languages.</sub>
 <!-- GH:LANGUAGES:END -->
@@ -312,7 +313,7 @@ Telegram bot for Brainware University student self-service: attendance, fees, ma
 **Recently pushed**
 
 <!-- GH:RECENT:START -->
-<table><tr><td width="6%"><strong>01</strong></td><td><a href="https://github.com/abhrajyoti-01/StorageCleaner"><strong>StorageCleaner</strong></a><br /><sub>AI-assisted Windows disk cleanup: caches, crash dumps, old Windows files + power-th…</sub></td><td align="right"><sub><code>Python</code> · 2 days ago</sub></td></tr><tr><td width="6%"><strong>02</strong></td><td><a href="https://github.com/abhrajyoti-01/QuizGame"><strong>QuizGame</strong></a><br /><sub>React 18 + Vite quiz app with 1,009 questions across 20 topics — Python standard-li…</sub></td><td align="right"><sub><code>Python</code> · 2 days ago</sub></td></tr><tr><td width="6%"><strong>03</strong></td><td><a href="https://github.com/abhrajyoti-01/dsa-in-c"><strong>dsa-in-c</strong></a><br /><sub>198 self-documented data structures and algorithms programs in C - fundamentals to…</sub></td><td align="right"><sub><code>C</code> · 5 days ago</sub></td></tr><tr><td width="6%"><strong>04</strong></td><td><a href="https://github.com/abhrajyoti-01/UnRAR"><strong>UnRAR</strong></a><br /><sub>UnRAR — open-source WinRAR-style archive manager in Rust (egui). ZIP/RAR/7z/TAR/GZ/…</sub></td><td align="right"><sub><code>Rust</code> · 5 days ago</sub></td></tr><tr><td width="6%"><strong>05</strong></td><td><a href="https://github.com/abhrajyoti-01/BWU-Portal-Lite"><strong>BWU-Portal-Lite</strong></a><br /><sub>Brainware Portal Lite - Telegram bot for Brainware University Student Self-Service:…</sub></td><td align="right"><sub><code>Python</code> · 24 days ago</sub></td></tr></table>
+<table><tr><td width="6%"><strong>01</strong></td><td><a href="https://github.com/abhrajyoti-01/ai-storyboarding"><strong>ai-storyboarding</strong></a><br /><sub>Turn one story idea into a cinematic storyboard: AI-written narrative beats plus a…</sub></td><td align="right"><sub><code>Python</code> · 5 hours ago</sub></td></tr><tr><td width="6%"><strong>02</strong></td><td><a href="https://github.com/abhrajyoti-01/StorageCleaner"><strong>StorageCleaner</strong></a><br /><sub>AI-assisted Windows disk cleanup: caches, crash dumps, old Windows files + power-th…</sub></td><td align="right"><sub><code>Python</code> · 3 days ago</sub></td></tr><tr><td width="6%"><strong>03</strong></td><td><a href="https://github.com/abhrajyoti-01/QuizGame"><strong>QuizGame</strong></a><br /><sub>React 18 + Vite quiz app with 1,009 questions across 20 topics — Python standard-li…</sub></td><td align="right"><sub><code>Python</code> · 3 days ago</sub></td></tr><tr><td width="6%"><strong>04</strong></td><td><a href="https://github.com/abhrajyoti-01/dsa-in-c"><strong>dsa-in-c</strong></a><br /><sub>198 self-documented data structures and algorithms programs in C - fundamentals to…</sub></td><td align="right"><sub><code>C</code> · 5 days ago</sub></td></tr><tr><td width="6%"><strong>05</strong></td><td><a href="https://github.com/abhrajyoti-01/UnRAR"><strong>UnRAR</strong></a><br /><sub>UnRAR — open-source WinRAR-style archive manager in Rust (egui). ZIP/RAR/7z/TAR/GZ/…</sub></td><td align="right"><sub><code>Rust</code> · 5 days ago</sub></td></tr></table>
 <!-- GH:RECENT:END -->
 
 <br />
