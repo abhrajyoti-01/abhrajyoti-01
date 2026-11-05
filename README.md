@@ -35,12 +35,12 @@ class Abhrajyoti:
 A **zero-player roguelike that lives inside this README.** Nobody controls it, not even me. Every 30 minutes a GitHub Action loads the world from [`game/state.json`](game/state.json), simulates 400 turns and records every one of them; the replay below auto-plays those real turns on loop until the next frame lands. The daemon `@` explores a procedurally generated filesystem, squashes bugs, picks up better debugging tools and goes deeper until something kills it. Then the next daemon is forked.
 
 <!-- DUNGEON:START -->
-<p align="center"><img src="https://raw.githubusercontent.com/abhrajyoti-01/abhrajyoti-01/output/dungeon.svg?frame=39" width="100%" alt="/dev/dungeon replay: daemon #11 at depth 1 /home, turns 12440 to 12840" /></p>
+<p align="center"><img src="https://raw.githubusercontent.com/abhrajyoti-01/abhrajyoti-01/output/dungeon.svg?frame=40" width="100%" alt="/dev/dungeon replay: daemon #11 at depth 4 /var/log, turns 12840 to 13240" /></p>
 
-<p align="center"><sub>↻ auto-playing the <b>400 turns</b> simulated in frame <b>#39</b> · rendered 2026-11-05 15:48 UTC by GitHub Actions · a new frame every ~30 minutes</sub></p>
+<p align="center"><sub>↻ auto-playing the <b>400 turns</b> simulated in frame <b>#40</b> · rendered 2026-11-05 21:57 UTC by GitHub Actions · a new frame every ~30 minutes</sub></p>
 
 <details>
-<summary><b>Graveyard</b> · 10 daemons lost · 638 bugs squashed · deepest dive: depth 20 by daemon #4</summary>
+<summary><b>Graveyard</b> · 10 daemons lost · 652 bugs squashed · deepest dive: depth 20 by daemon #4</summary>
 <br />
 
 | daemon | reached | lvl | kills | killed by | uptime |
@@ -58,35 +58,35 @@ A **zero-player roguelike that lives inside this README.** Nobody controls it, n
 <br />
 
 ```diff
-@@ /dev/dungeon · daemon #011 · depth 01 /home · turn 012840 @@
+@@ /dev/dungeon · daemon #011 · depth 04 /var/log · turn 013240 @@
  ┌─────────────────────────────────────────────────────┬──────────────────────┐
- │                                                     │ DAEMON #011   lvl 02 │
- │        ┌───────────┐  ┌──────┐                      │ pid 19859  exploring │
- │        │···········│  │······│                      │                      │
- │      ░░+···········+░░+······│                      │ HP █████████   39/39 │
- │      ░ └──────────+┘  └─────+┘                      │ XP █░░░░░░░░      5% │
- │      ░            ░         ░                       │                      │
- │      ░            ░         ░░░░░░░░ ┌──────┐       │ atk 05        def 04 │
- │      ░   ┌────────+──┐      ░      ░░+······│       │ ) printf          +0 │
- │ ┌────+┐  │···········│     ┌+────┐   │······│       │ [ unit_tests      +2 │
- │ │·····│  │···········│     │·····│   └─────+┘       │ ! hotfix          x1 │
- │ │·····│  │···········│     │·····│         ░        │ * stars            4 │
- │ │>····│  │···········│     └─────┘         @        │                      │
- │ │·····│  └───────────┘                    ─+─       │ depth 01   kills 004 │
- │ └─────┘                                             │                      │
- │                                                     │ in view        clear │
+ │                                                     │ DAEMON #011   lvl 04 │
+ │             ┌─────┐     ┌─────────┐                 │ pid 19859  exploring │
+ │             │·····│     │·········│                 │                      │
+ │         ░░░░+·····+░░░░░+·········│                 │ HP ██████░░░   36/51 │
+ │         ░   └───+─┘     └──+──────┘                 │ XP █████████     95% │
+ │         ░       ░          ░                        │                      │
+ │         ░       ░          ░                        │ atk 11        def 05 │
+ │         ░   ┌───+──┐       ░                        │ ) gdb             +4 │
+ │ ┌───────@┐  │······│       ░                        │ [ unit_tests      +2 │
+ │ │········│  │······│       ░                        │ ! hotfix          x2 │
+ │ │·>······│  │······│     ┌─+──────┐                 │ * stars           89 │
+ │ │········│  │······│     │········+                 │                      │
+ │ │········│  │······│     │········│                 │ depth 04   kills 018 │
+ │ │········│  └──────┘     │········│                 │                      │
+ │ └────────┘               └────────┘                 │ in view        clear │
  │                                                     │                      │
  │                                                     │                      │
  ├─────────────────────────────────────────────────────┴──────────────────────┤
- │ /home 93% mapped · record depth 20 by #004 · 10 daemons lost               │
+ │ /var/log 80% mapped · record depth 20 by #004 · 10 daemons lost            │
  └────────────────────────────────────────────────────────────────────────────┘
-! 012746  equip   unit_tests (+2 def) replaces no_tests
-+ 012755  kill    squashed bug · +3 xp
-+ 012758  kill    squashed off_by_one · +5 xp
-+ 012828  loot    collected 4 stars
-+ 012830  kill    squashed bug · +3 xp · critical
-+ 012831  kill    squashed bug · +3 xp
-! 012831  lvlup   daemon reached lvl 2 · +9 max hp
+! 013181  heal    applied a hotfix · +26 hp
+- 013181  hit     zombie_process hit for 11 · critical · hp 32/51
++ 013183  kill    squashed zombie_process · +22 xp
++ 013191  kill    squashed race_condition · +17 xp · critical
+! 013193  docs    read the docs · +24 xp
++ 013197  loot    stashed a hotfix (2/3)
+! 013231  docs    read the docs · +24 xp
 ```
 
 </details>
@@ -313,7 +313,7 @@ Telegram bot for Brainware University student self-service: attendance, fees, ma
 **Recently pushed**
 
 <!-- GH:RECENT:START -->
-<table><tr><td width="6%"><strong>01</strong></td><td><a href="https://github.com/abhrajyoti-01/arequest"><strong>arequest</strong></a><br /><sub>🚀 High-performance asynchronous HTTP client with a requests-compatible API — simpl…</sub></td><td align="right"><sub><code>Python</code> · 1 day ago</sub></td></tr><tr><td width="6%"><strong>02</strong></td><td><a href="https://github.com/abhrajyoti-01/ai-storyboarding"><strong>ai-storyboarding</strong></a><br /><sub>Turn one story idea into a cinematic storyboard: AI-written narrative beats plus a…</sub></td><td align="right"><sub><code>Python</code> · 3 days ago</sub></td></tr><tr><td width="6%"><strong>03</strong></td><td><a href="https://github.com/abhrajyoti-01/StorageCleaner"><strong>StorageCleaner</strong></a><br /><sub>AI-assisted Windows disk cleanup: caches, crash dumps, old Windows files + power-th…</sub></td><td align="right"><sub><code>Python</code> · 5 days ago</sub></td></tr><tr><td width="6%"><strong>04</strong></td><td><a href="https://github.com/abhrajyoti-01/QuizGame"><strong>QuizGame</strong></a><br /><sub>React 18 + Vite quiz app with 1,009 questions across 20 topics — Python standard-li…</sub></td><td align="right"><sub><code>Python</code> · 5 days ago</sub></td></tr><tr><td width="6%"><strong>05</strong></td><td><a href="https://github.com/abhrajyoti-01/dsa-in-c"><strong>dsa-in-c</strong></a><br /><sub>198 self-documented data structures and algorithms programs in C - fundamentals to…</sub></td><td align="right"><sub><code>C</code> · 8 days ago</sub></td></tr></table>
+<table><tr><td width="6%"><strong>01</strong></td><td><a href="https://github.com/abhrajyoti-01/arequest"><strong>arequest</strong></a><br /><sub>🚀 High-performance asynchronous HTTP client with a requests-compatible API — simpl…</sub></td><td align="right"><sub><code>Python</code> · 1 day ago</sub></td></tr><tr><td width="6%"><strong>02</strong></td><td><a href="https://github.com/abhrajyoti-01/ai-storyboarding"><strong>ai-storyboarding</strong></a><br /><sub>Turn one story idea into a cinematic storyboard: AI-written narrative beats plus a…</sub></td><td align="right"><sub><code>Python</code> · 3 days ago</sub></td></tr><tr><td width="6%"><strong>03</strong></td><td><a href="https://github.com/abhrajyoti-01/StorageCleaner"><strong>StorageCleaner</strong></a><br /><sub>AI-assisted Windows disk cleanup: caches, crash dumps, old Windows files + power-th…</sub></td><td align="right"><sub><code>Python</code> · 6 days ago</sub></td></tr><tr><td width="6%"><strong>04</strong></td><td><a href="https://github.com/abhrajyoti-01/QuizGame"><strong>QuizGame</strong></a><br /><sub>React 18 + Vite quiz app with 1,009 questions across 20 topics — Python standard-li…</sub></td><td align="right"><sub><code>Python</code> · 6 days ago</sub></td></tr><tr><td width="6%"><strong>05</strong></td><td><a href="https://github.com/abhrajyoti-01/dsa-in-c"><strong>dsa-in-c</strong></a><br /><sub>198 self-documented data structures and algorithms programs in C - fundamentals to…</sub></td><td align="right"><sub><code>C</code> · 8 days ago</sub></td></tr></table>
 <!-- GH:RECENT:END -->
 
 <br />
