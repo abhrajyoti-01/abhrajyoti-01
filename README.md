@@ -35,21 +35,21 @@ class Abhrajyoti:
 A **zero-player roguelike that lives inside this README.** Nobody controls it, not even me. Every 30 minutes a GitHub Action loads the world from [`game/state.json`](game/state.json), simulates 400 turns and records every one of them; the replay below auto-plays those real turns on loop until the next frame lands. The daemon `@` explores a procedurally generated filesystem, squashes bugs, picks up better debugging tools and goes deeper until something kills it. Then the next daemon is forked.
 
 <!-- DUNGEON:START -->
-<p align="center"><img src="https://raw.githubusercontent.com/abhrajyoti-01/abhrajyoti-01/output/dungeon.svg?frame=42" width="100%" alt="/dev/dungeon replay: daemon #12 at depth 5 /proc, turns 13640 to 14040" /></p>
+<p align="center"><img src="https://raw.githubusercontent.com/abhrajyoti-01/abhrajyoti-01/output/dungeon.svg?frame=43" width="100%" alt="/dev/dungeon replay: daemon #13 at depth 2 /usr/src, turns 14040 to 14440" /></p>
 
-<p align="center"><sub>↻ auto-playing the <b>400 turns</b> simulated in frame <b>#42</b> · rendered 2026-11-06 09:50 UTC by GitHub Actions · a new frame every ~30 minutes</sub></p>
+<p align="center"><sub>↻ auto-playing the <b>400 turns</b> simulated in frame <b>#43</b> · rendered 2026-11-06 17:26 UTC by GitHub Actions · a new frame every ~30 minutes</sub></p>
 
 <details>
-<summary><b>Graveyard</b> · 11 daemons lost · 688 bugs squashed · deepest dive: depth 20 by daemon #4</summary>
+<summary><b>Graveyard</b> · 12 daemons lost · 707 bugs squashed · deepest dive: depth 20 by daemon #4</summary>
 <br />
 
 | daemon | reached | lvl | kills | killed by | uptime |
 | :-: | :-- | :-: | :-: | :-- | --: |
+| `#012` | depth 6 · `/sys` | 7 | 37 | `segfault` | 718 turns |
 | `#011` | depth 5 · `/proc` | 5 | 27 | `deadlock` | 715 turns |
 | `#010` | depth 7 · `/dev` | 8 | 47 | `segfault` | 1,001 turns |
 | `#009` | depth 5 · `/proc` | 5 | 26 | `zombie_process` | 711 turns |
 | `#008` | depth 5 · `/proc` | 5 | 28 | `deadlock` | 662 turns |
-| `#007` | depth 7 · `/dev` | 8 | 46 | `zombie_process` | 832 turns |
 
 </details>
 
@@ -58,35 +58,35 @@ A **zero-player roguelike that lives inside this README.** Nobody controls it, n
 <br />
 
 ```diff
-@@ /dev/dungeon · daemon #012 · depth 05 /proc · turn 014040 @@
+@@ /dev/dungeon · daemon #013 · depth 02 /usr/src · turn 014440 @@
  ┌─────────────────────────────────────────────────────┬──────────────────────┐
- │                                                     │ DAEMON #012   lvl 05 │
- │     ┌────────┐                            ┌─────┐   │ pid 26372    resting │
- │     │········│                            │·····│   │                      │
- │     │········│                            │·····│   │ HP ██░░░░░░░   11/61 │
- │     │········│  ┌─────┐               ░░░░+@····│   │ XP ████████░     87% │
- │     └+───────┘  │·····│               ░   └───+─┘   │                      │
- │      ░          │·····│    ┌──────────+┐            │ atk 14        def 06 │
- │      ░░░░░░░░░░░+·····+░░░░+···········│            │ ) strace          +6 │
- │      ░          │·····│    │···········│            │ [ type_system     +3 │
- │      ░          │·····│    │···········│            │ ! hotfix          x0 │
- │      ░          └─────┘    │···········│            │ * stars          128 │
- │   ┌──+───────┐             └───────────┘            │                      │
- │   │··········│                                      │ depth 05   kills 027 │
- │   │··········│                                      │                      │
- │   └──────────┘                                      │ in view        clear │
- │                                                     │                      │
+ │                                                     │ DAEMON #013   lvl 03 │
+ │                                           ┌─────┐   │ pid 18841  deploying │
+ │                          ┌────────────┐   │·····│   │                      │
+ │                          │············│   │·····│   │ HP █████████   46/46 │
+ │       ┌──────┐           │············│   │·····│   │ XP █░░░░░░░░     10% │
+ │       │······│           │············│   │·····│   │                      │
+ │       │······│           │············│   └+────┘   │ atk 08        def 02 │
+ │       │······│     ░░░░░░+············│    ░        │ ) grep            +2 │
+ │       │······│     ░     └───────────+┘  ░░@        │ [ no_tests        +0 │
+ │       │>·····+░░░░░░                 ░   ░          │ ! hotfix          x3 │
+ │       └──────┘     ░                 ░   ░          │ * stars           14 │
+ │                    ░            ┌────+───+┐         │                      │
+ │                   ┌+────┐       │·········│         │ depth 02   kills 009 │
+ │                   │·····│       │·········│         │                      │
+ │                   │·····│       └─────────┘         │ in view        clear │
+ │                   └─────┘                           │                      │
  │                                                     │                      │
  ├─────────────────────────────────────────────────────┴──────────────────────┤
- │ /proc 89% mapped · record depth 20 by #004 · 11 daemons lost               │
+ │ /usr/src 100% mapped · record depth 20 by #004 · 12 daemons lost           │
  └────────────────────────────────────────────────────────────────────────────┘
-! 014002  equip   type_system (+3 def) replaces unit_tests
-- 014030  hit     race_condition hit for 8 · critical · hp 42/61
-+ 014031  kill    squashed race_condition · +19 xp
-+ 014033  kill    squashed null_pointer · +13 xp
-# 014037  revive  zombie_process re-parented to init · back for more
-- 014038  hit     zombie_process hit for 12 · critical · hp 6/61
-+ 014039  kill    squashed zombie_process · +24 xp · critical
++ 014376  loot    applied a spare hotfix on the spot
++ 014414  loot    collected 6 stars
++ 014427  kill    squashed null_pointer · +9 xp
++ 014429  kill    squashed null_pointer · +9 xp
+! 014429  lvlup   daemon reached lvl 3 · +9 max hp
++ 014430  loot    applied a spare hotfix on the spot
++ 014433  loot    applied a spare hotfix on the spot
 ```
 
 </details>
@@ -283,7 +283,7 @@ Telegram bot for Brainware University student self-service: attendance, fees, ma
 <sub>Regenerated every 30 minutes from the GitHub API by <a href=".github/scripts/update-readme.js"><code>update-readme.js</code></a>.</sub>
 
 <!-- GH:STATS:START -->
-<table align="center"><tr><td align="center" width="25%"><strong>33</strong><br /><sub>Repositories</sub></td><td align="center" width="25%"><strong>8</strong><br /><sub>Stars</sub></td><td align="center" width="25%"><strong>10</strong><br /><sub>Forks</sub></td><td align="center" width="25%"><strong>10</strong><br /><sub>Followers</sub></td></tr><tr><td align="center" width="25%"><strong>187</strong><br /><sub>Contributions (1y)</sub></td><td align="center" width="25%"><strong>141</strong><br /><sub>Commits (1y)</sub></td><td align="center" width="25%"><strong>2</strong><br /><sub>Pull requests</sub></td><td align="center" width="25%"><strong>0</strong><br /><sub>Issues opened</sub></td></tr></table>
+<table align="center"><tr><td align="center" width="25%"><strong>33</strong><br /><sub>Repositories</sub></td><td align="center" width="25%"><strong>8</strong><br /><sub>Stars</sub></td><td align="center" width="25%"><strong>10</strong><br /><sub>Forks</sub></td><td align="center" width="25%"><strong>11</strong><br /><sub>Followers</sub></td></tr><tr><td align="center" width="25%"><strong>187</strong><br /><sub>Contributions (1y)</sub></td><td align="center" width="25%"><strong>141</strong><br /><sub>Commits (1y)</sub></td><td align="center" width="25%"><strong>2</strong><br /><sub>Pull requests</sub></td><td align="center" width="25%"><strong>0</strong><br /><sub>Issues opened</sub></td></tr></table>
 <!-- GH:STATS:END -->
 
 <!-- GH:LANGUAGES:START -->
