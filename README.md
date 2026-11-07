@@ -35,12 +35,12 @@ class Abhrajyoti:
 A **zero-player roguelike that lives inside this README.** Nobody controls it, not even me. Every 30 minutes a GitHub Action loads the world from [`game/state.json`](game/state.json), simulates 400 turns and records every one of them; the replay below auto-plays those real turns on loop until the next frame lands. The daemon `@` explores a procedurally generated filesystem, squashes bugs, picks up better debugging tools and goes deeper until something kills it. Then the next daemon is forked.
 
 <!-- DUNGEON:START -->
-<p align="center"><img src="https://raw.githubusercontent.com/abhrajyoti-01/abhrajyoti-01/output/dungeon.svg?frame=46" width="100%" alt="/dev/dungeon replay: daemon #14 at depth 5 /proc, turns 15240 to 15640" /></p>
+<p align="center"><img src="https://raw.githubusercontent.com/abhrajyoti-01/abhrajyoti-01/output/dungeon.svg?frame=47" width="100%" alt="/dev/dungeon replay: daemon #14 at depth 7 /dev, turns 15640 to 16040" /></p>
 
-<p align="center"><sub>↻ auto-playing the <b>400 turns</b> simulated in frame <b>#46</b> · rendered 2026-11-07 09:13 UTC by GitHub Actions · a new frame every ~30 minutes</sub></p>
+<p align="center"><sub>↻ auto-playing the <b>400 turns</b> simulated in frame <b>#47</b> · rendered 2026-11-07 15:54 UTC by GitHub Actions · a new frame every ~30 minutes</sub></p>
 
 <details>
-<summary><b>Graveyard</b> · 13 daemons lost · 767 bugs squashed · deepest dive: depth 20 by daemon #4</summary>
+<summary><b>Graveyard</b> · 13 daemons lost · 782 bugs squashed · deepest dive: depth 20 by daemon #4</summary>
 <br />
 
 | daemon | reached | lvl | kills | killed by | uptime |
@@ -58,35 +58,35 @@ A **zero-player roguelike that lives inside this README.** Nobody controls it, n
 <br />
 
 ```diff
-@@ /dev/dungeon · daemon #014 · depth 05 /proc · turn 015640 @@
+@@ /dev/dungeon · daemon #014 · depth 07 /dev · turn 016040 @@
  ┌─────────────────────────────────────────────────────┬──────────────────────┐
- │                                                     │ DAEMON #014   lvl 05 │
- │    ┌─────┐                                          │ pid 20185   fighting │
- │    │·····│         ┌───────────┐        ┌─────┐     │                      │
- │    │·····│         │···········│        │·····│     │ HP ████░░░░░   29/59 │
- │    └─+───┘         │···········│ ░░░░░░░+·····│     │ XP ███████░░     79% │
- │      ░             └+─────────+┘ ░      └────+┘     │                      │
- │      ░              ░         ░ ░░           ░      │ atk 14        def 06 │
- │      ░              ░         ░░░            ░      │ ) strace          +6 │
- │      ░░░░░░░░ ┌─────+────┐    ░              ░      │ [ type_system     +3 │
- │      ░      ░░+··········│                   ░      │ ! hotfix          x1 │
- │   ┌──+───┐    │··········│                 ┌─+────┐ │ * stars           77 │
- │   │······│    └──────────┘                 │>@znD·│ │                      │
- │   │······│                                 │······│ │ depth 05   kills 027 │
- │   └──────┘                                 │······│ │                      │
- │                                            └──────┘ │ in view            3 │
- │                                                     │ z zombie_process █░░ │
- │                                                     │ n null_pointer   ███ │
+ │                                                     │ DAEMON #014   lvl 08 │
+ │                                                     │ pid 20185   fighting │
+ │                                                     │                      │
+ │                        ┌───────┐      ┌───────┐     │ HP █████░░░░   44/82 │
+ │                        │·······│      │····H··│     │ XP ███░░░░░░     35% │
+ │                        │·······│    ░░@xH·····│     │                      │
+ │                      ░░+·······+░░░░░ └───────┘     │ atk 19        def 08 │
+ │                      ░ └───────┘    ░               │ ) valgrind        +8 │
+ │                     ░░                              │ [ type_system     +3 │
+ │                      ░                              │ ! hotfix          x2 │
+ │                      ░                              │ * stars          309 │
+ │                      ░                              │                      │
+ │                    ┌─+────────┐                     │ depth 07   kills 042 │
+ │                    │··········│                     │                      │
+ │                    │··········│                     │ in view            3 │
+ │                    └──────────┘                     │ x off_by_one     ░░░ │
+ │                                                     │ H heisenbug      ███ │
  ├─────────────────────────────────────────────────────┴──────────────────────┤
- │ /proc 86% mapped · record depth 20 by #004 · 13 daemons lost               │
+ │ /dev 43% mapped · record depth 20 by #004 · 13 daemons lost                │
  └────────────────────────────────────────────────────────────────────────────┘
-+ 015619  kill    squashed memory_leak · +16 xp
-+ 015633  kill    squashed memory_leak · +16 xp
-- 015634  hit     zombie_process hit for 12 · critical · hp 16/59
-! 015635  heal    applied a hotfix · +29 hp
-- 015635  hit     race_condition hit for 8 · critical · hp 29/59
-+ 015636  kill    squashed race_condition · +19 xp
-! 015638  heal    applied a hotfix · +29 hp
+@@ 015993  deploy  deployed → depth 07 /dev @@
++ 015997  loot    stashed a hotfix (2/3)
+# 016006  salvage scrapped a spare valgrind for 25 stars
+- 016017  hit     segfault hit for 17 · critical · hp 65/82
++ 016022  kill    squashed segfault · +57 xp
++ 016024  kill    squashed off_by_one · +10 xp
++ 016025  loot    collected 56 stars
 ```
 
 </details>
