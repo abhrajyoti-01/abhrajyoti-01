@@ -35,21 +35,21 @@ class Abhrajyoti:
 A **zero-player roguelike that lives inside this README.** Nobody controls it, not even me. Every 30 minutes a GitHub Action loads the world from [`game/state.json`](game/state.json), simulates 400 turns and records every one of them; the replay below auto-plays those real turns on loop until the next frame lands. The daemon `@` explores a procedurally generated filesystem, squashes bugs, picks up better debugging tools and goes deeper until something kills it. Then the next daemon is forked.
 
 <!-- DUNGEON:START -->
-<p align="center"><img src="https://raw.githubusercontent.com/abhrajyoti-01/abhrajyoti-01/output/dungeon.svg?frame=48" width="100%" alt="/dev/dungeon replay: daemon #15 at depth 2 /usr/src, turns 16040 to 16440" /></p>
+<p align="center"><img src="https://raw.githubusercontent.com/abhrajyoti-01/abhrajyoti-01/output/dungeon.svg?frame=49" width="100%" alt="/dev/dungeon replay: daemon #16 at depth 1 /home, turns 16440 to 16840" /></p>
 
-<p align="center"><sub>↻ auto-playing the <b>400 turns</b> simulated in frame <b>#48</b> · rendered 2026-11-07 20:12 UTC by GitHub Actions · a new frame every ~30 minutes</sub></p>
+<p align="center"><sub>↻ auto-playing the <b>400 turns</b> simulated in frame <b>#49</b> · rendered 2026-11-07 23:56 UTC by GitHub Actions · a new frame every ~30 minutes</sub></p>
 
 <details>
-<summary><b>Graveyard</b> · 14 daemons lost · 797 bugs squashed · deepest dive: depth 20 by daemon #4</summary>
+<summary><b>Graveyard</b> · 15 daemons lost · 818 bugs squashed · deepest dive: depth 20 by daemon #4</summary>
 <br />
 
 | daemon | reached | lvl | kills | killed by | uptime |
 | :-: | :-- | :-: | :-: | :-- | --: |
+| `#015` | depth 5 · `/proc` | 5 | 27 | `heisenbug` | 631 turns |
 | `#014` | depth 7 · `/dev` | 8 | 48 | `segfault` | 1,094 turns |
 | `#013` | depth 7 · `/dev` | 8 | 42 | `segfault` | 854 turns |
 | `#012` | depth 6 · `/sys` | 7 | 37 | `segfault` | 718 turns |
 | `#011` | depth 5 · `/proc` | 5 | 27 | `deadlock` | 715 turns |
-| `#010` | depth 7 · `/dev` | 8 | 47 | `segfault` | 1,001 turns |
 
 </details>
 
@@ -58,35 +58,35 @@ A **zero-player roguelike that lives inside this README.** Nobody controls it, n
 <br />
 
 ```diff
-@@ /dev/dungeon · daemon #015 · depth 02 /usr/src · turn 016440 @@
+@@ /dev/dungeon · daemon #016 · depth 01 /home · turn 016840 @@
  ┌─────────────────────────────────────────────────────┬──────────────────────┐
- │                                                     │ DAEMON #015   lvl 03 │
- │                                ┌─────┐              │ pid 1409   deploying │
- │                                │·····│   ┌─────┐    │                      │
- │        ┌───────────┐           │·····+░░░+····@│    │ HP █████████   46/46 │
- │        │···········│           └+────┘   │·····│    │ XP ██░░░░░░░     19% │
- │        │···········│            ░        │·····│    │                      │
- │        │···········│            ░        │·····│    │ atk 08        def 04 │
- │        │···········│   ┌────────+───┐    │·····│    │ ) grep            +2 │
- │        └───────+───┘   │············│    └────+┘    │ [ unit_tests      +2 │
- │                ░       │············│         ░     │ ! hotfix          x3 │
- │                ░░░░░░░░+············│         ░     │ * stars           48 │
- │                ░       │············│      ┌──+───┐ │                      │
- │       ┌────────+┐      │············│      │······│ │ depth 02   kills 009 │
- │       │·········│      └────────────┘      │······│ │                      │
- │       │·········│                          │····>·│ │ in view        clear │
- │       └─────────┘                          └──────┘ │                      │
+ │                                                     │ DAEMON #016   lvl 02 │
+ │                                                     │ pid 31127  exploring │
+ │                                      ┌────────────┐ │                      │
+ │                                      │········>···│ │ HP █████████   36/36 │
+ │                                      │············│ │ XP ░░░░░░░░░      2% │
+ │                    ┌──────────┐      │············│ │                      │
+ │     ┌───────┐      │··········│      └─+──────────┘ │ atk 05        def 02 │
+ │     │·······+░░░░░░+··········│        ░            │ ) printf          +0 │
+ │     │······@│      │··········│        ░            │ [ no_tests        +0 │
+ │     └+──────┘      │··········+░░░░░ ┌─+───┐        │ ! hotfix          x2 │
+ │                    └──────────┘    ░░+·····│        │ * stars            8 │
+ │                                      │·····│        │                      │
+ │                                      │·····│        │ depth 01   kills 003 │
+ │                                      │·····│        │                      │
+ │                                      │·····│        │ in view        clear │
+ │                                      └─────┘        │                      │
  │                                                     │                      │
  ├─────────────────────────────────────────────────────┴──────────────────────┤
- │ /usr/src 100% mapped · record depth 20 by #004 · 14 daemons lost           │
+ │ /home 91% mapped · record depth 20 by #004 · 15 daemons lost               │
  └────────────────────────────────────────────────────────────────────────────┘
-! 016310  lvlup   daemon reached lvl 3 · +7 max hp
-! 016315  equip   grep (+2 atk) replaces printf
-# 016325  salvage scrapped a spare linter for 10 stars
-+ 016335  kill    squashed null_pointer · +9 xp
-+ 016336  loot    applied a spare hotfix on the spot
-+ 016339  loot    collected 16 stars
-+ 016396  kill    squashed bug · +3 xp
+# 016746  fork    daemon #16 spawned in /home · pid 31127
++ 016748  loot    stashed a hotfix (2/3)
++ 016762  kill    squashed off_by_one · +5 xp · critical
++ 016769  loot    collected 8 stars
++ 016795  kill    squashed bug · +3 xp
++ 016799  kill    squashed off_by_one · +5 xp
+! 016799  lvlup   daemon reached lvl 2 · +6 max hp
 ```
 
 </details>
