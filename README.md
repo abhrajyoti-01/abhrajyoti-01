@@ -35,12 +35,12 @@ class Abhrajyoti:
 A **zero-player roguelike that lives inside this README.** Nobody controls it, not even me. Every 30 minutes a GitHub Action loads the world from [`game/state.json`](game/state.json), simulates 400 turns and records every one of them; the replay below auto-plays those real turns on loop until the next frame lands. The daemon `@` explores a procedurally generated filesystem, squashes bugs, picks up better debugging tools and goes deeper until something kills it. Then the next daemon is forked.
 
 <!-- DUNGEON:START -->
-<p align="center"><img src="https://raw.githubusercontent.com/abhrajyoti-01/abhrajyoti-01/output/dungeon.svg?frame=51" width="100%" alt="/dev/dungeon replay: daemon #17 at depth 2 /usr/src, turns 17240 to 17640" /></p>
+<p align="center"><img src="https://raw.githubusercontent.com/abhrajyoti-01/abhrajyoti-01/output/dungeon.svg?frame=52" width="100%" alt="/dev/dungeon replay: daemon #17 at depth 4 /var/log, turns 17640 to 18040" /></p>
 
-<p align="center"><sub>↻ auto-playing the <b>400 turns</b> simulated in frame <b>#51</b> · rendered 2026-11-08 13:15 UTC by GitHub Actions · a new frame every ~30 minutes</sub></p>
+<p align="center"><sub>↻ auto-playing the <b>400 turns</b> simulated in frame <b>#52</b> · rendered 2026-11-08 18:29 UTC by GitHub Actions · a new frame every ~30 minutes</sub></p>
 
 <details>
-<summary><b>Graveyard</b> · 16 daemons lost · 849 bugs squashed · deepest dive: depth 20 by daemon #4</summary>
+<summary><b>Graveyard</b> · 16 daemons lost · 866 bugs squashed · deepest dive: depth 20 by daemon #4</summary>
 <br />
 
 | daemon | reached | lvl | kills | killed by | uptime |
@@ -58,35 +58,35 @@ A **zero-player roguelike that lives inside this README.** Nobody controls it, n
 <br />
 
 ```diff
-@@ /dev/dungeon · daemon #017 · depth 02 /usr/src · turn 017640 @@
+@@ /dev/dungeon · daemon #017 · depth 04 /var/log · turn 018040 @@
  ┌─────────────────────────────────────────────────────┬──────────────────────┐
- │                                                     │ DAEMON #017   lvl 02 │
- │                                                     │ pid 31959   fighting │
- │   ┌─────┐                                           │                      │
- │   │·····│                                           │ HP █████████   38/38 │
- │   │·····│                                           │ XP ██░░░░░░░     20% │
- │   └────+┘                                           │                      │
- │        ░       ┌────────────┐                       │ atk 05        def 03 │
- │        ░░░░░░░░+·····@b·····│                       │ ) printf          +0 │
- │        ░       │············│                       │ [ linter          +1 │
- │                │··········!·│                       │ ! hotfix          x3 │
- │                │··········?·+                       │ * stars           11 │
- │                └────────────┘                       │                      │
- │                                                     │ depth 02   kills 005 │
+ │                                                     │ DAEMON #017   lvl 05 │
+ │        ┌───────┐    ┌──────┐                        │ pid 31959  exploring │
+ │        │·······│    │······│                        │                      │
+ │        │·······│    │······│                        │ HP █████████   58/58 │
+ │        │·······+░░░░+······+░░@░░ ─                 │ XP ░░░░░░░░░      5% │
+ │        └+──────┘  ░ └──────┘    ░░                  │                      │
+ │         ░         ░              ░                  │ atk 08        def 06 │
+ │         ░         ░             ┌+────+───┐         │ ) printf          +0 │
+ │         ░         ░             │·········│         │ [ type_system     +3 │
+ │         ░         ░           ░░+·········│         │ ! hotfix          x2 │
+ │         ░        ┌+─────────┐ ░ └─────────┘         │ * stars          104 │
+ │  ┌──────+────┐   │··········+░░                     │                      │
+ │  │···········│   │··········│                       │ depth 04   kills 022 │
+ │  │······>····│   └──────────┘                       │                      │
+ │  └───────────┘                                      │ in view        clear │
  │                                                     │                      │
- │                                                     │ in view            1 │
- │                                                     │ b bug            ███ │
  │                                                     │                      │
  ├─────────────────────────────────────────────────────┴──────────────────────┤
- │ /usr/src 46% mapped · record depth 20 by #004 · 16 daemons lost            │
+ │ /var/log 86% mapped · record depth 20 by #004 · 16 daemons lost            │
  └────────────────────────────────────────────────────────────────────────────┘
-+ 017601  kill    squashed off_by_one · +5 xp
-! 017601  lvlup   daemon reached lvl 2 · +8 max hp
-+ 017603  kill    squashed bug · +3 xp · critical
-+ 017604  loot    stashed a hotfix (3/3)
-! 017609  equip   linter (+1 def) replaces no_tests
-@@ 017621  deploy  deployed → depth 02 /usr/src @@
-+ 017638  kill    squashed bug · +3 xp
++ 017919  kill    squashed memory_leak · +15 xp
++ 017941  kill    squashed race_condition · +17 xp
++ 017944  kill    squashed null_pointer · +12 xp
++ 017972  kill    squashed memory_leak · +15 xp
++ 017996  kill    squashed race_condition · +17 xp
+! 017996  lvlup   daemon reached lvl 5 · +6 max hp
++ 018003  loot    stashed a hotfix (2/3)
 ```
 
 </details>
