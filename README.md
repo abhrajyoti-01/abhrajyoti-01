@@ -35,21 +35,21 @@ class Abhrajyoti:
 A **zero-player roguelike that lives inside this README.** Nobody controls it, not even me. Every 30 minutes a GitHub Action loads the world from [`game/state.json`](game/state.json), simulates 400 turns and records every one of them; the replay below auto-plays those real turns on loop until the next frame lands. The daemon `@` explores a procedurally generated filesystem, squashes bugs, picks up better debugging tools and goes deeper until something kills it. Then the next daemon is forked.
 
 <!-- DUNGEON:START -->
-<p align="center"><img src="https://raw.githubusercontent.com/abhrajyoti-01/abhrajyoti-01/output/dungeon.svg?frame=58" width="100%" alt="/dev/dungeon replay: daemon #17 at depth 19 /dev/null/be1e, turns 20040 to 20440" /></p>
+<p align="center"><img src="https://raw.githubusercontent.com/abhrajyoti-01/abhrajyoti-01/output/dungeon.svg?frame=59" width="100%" alt="/dev/dungeon replay: daemon #18 at depth 2 /usr/src, turns 20440 to 20840" /></p>
 
-<p align="center"><sub>↻ auto-playing the <b>400 turns</b> simulated in frame <b>#58</b> · rendered 2026-11-10 11:02 UTC by GitHub Actions · a new frame every ~30 minutes</sub></p>
+<p align="center"><sub>↻ auto-playing the <b>400 turns</b> simulated in frame <b>#59</b> · rendered 2026-11-10 18:38 UTC by GitHub Actions · a new frame every ~30 minutes</sub></p>
 
 <details>
-<summary><b>Graveyard</b> · 16 daemons lost · 1,006 bugs squashed · deepest dive: depth 20 by daemon #4</summary>
+<summary><b>Graveyard</b> · 17 daemons lost · 1,020 bugs squashed · deepest dive: depth 20 by daemon #4</summary>
 <br />
 
 | daemon | reached | lvl | kills | killed by | uptime |
 | :-: | :-- | :-: | :-: | :-- | --: |
+| `#017` | depth 19 · `/dev/null/be1e` | 17 | 167 | `segfault` | 3,048 turns |
 | `#016` | depth 5 · `/proc` | 5 | 29 | `deadlock` | 767 turns |
 | `#015` | depth 5 · `/proc` | 5 | 27 | `heisenbug` | 631 turns |
 | `#014` | depth 7 · `/dev` | 8 | 48 | `segfault` | 1,094 turns |
 | `#013` | depth 7 · `/dev` | 8 | 42 | `segfault` | 854 turns |
-| `#012` | depth 6 · `/sys` | 7 | 37 | `segfault` | 718 turns |
 
 </details>
 
@@ -58,35 +58,35 @@ A **zero-player roguelike that lives inside this README.** Nobody controls it, n
 <br />
 
 ```diff
-@@ /dev/dungeon · daemon #017 · depth 19 /dev/null/be1e · turn 020440 @@
+@@ /dev/dungeon · daemon #018 · depth 02 /usr/src · turn 020840 @@
  ┌─────────────────────────────────────────────────────┬──────────────────────┐
- │                                                     │ DAEMON #017   lvl 17 │
- │                                                     │ pid 31959  exploring │
- │                                                     │                      │
- │                                         ░@ ┌─────┐  │ HP ████████░ 130/144 │
- │                                          ░░+·····│  │ XP ███░░░░░░     29% │
- │                                            │·····│  │                      │
- │                                            └+────┘  │ atk 36        def 17 │
- │                                                     │ ) ebpf           +16 │
- │                                                     │ [ formal_proof    +8 │
- │                                                     │ ! hotfix          x0 │
- │                                                     │ * stars         2274 │
- │                                                     │                      │
- │                                                     │ depth 19   kills 162 │
- │                                                     │                      │
- │                                                     │ in view        clear │
- │                                                     │                      │
+ │                                                     │ DAEMON #018   lvl 03 │
+ │         ┌──────────┐                                │ pid 12209  deploying │
+ │         │··········│                                │                      │
+ │         │··········│      ┌───────┐      ┌─────┐    │ HP █████████   46/46 │
+ │         │··········│      │·······│      │····>│    │ XP █░░░░░░░░     12% │
+ │         │··········│      │·······│    ░░+·····│    │                      │
+ │         └+────────+┘      │·······│    ░ └─────┘    │ atk 08        def 03 │
+ │          ░        ░░░░░░░░+·······│    ░            │ ) grep            +2 │
+ │          ░        ░       │······@+░░░░░            │ [ linter          +1 │
+ │       ┌──+──┐  ┌──+───┐   └───────┘    ░            │ ! hotfix          x3 │
+ │       │·····│  │······│               ┌+────┐       │ * stars           32 │
+ │       │·····│  │······│               │·····│       │                      │
+ │       │·····│  │······│               │·····│       │ depth 02   kills 009 │
+ │       │·····│  │······│               │·····│       │                      │
+ │       │·····│  └──────┘               │·····│       │ in view        clear │
+ │       └─────┘                         └─────┘       │                      │
  │                                                     │                      │
  ├─────────────────────────────────────────────────────┴──────────────────────┤
- │ /dev/null/be1e 7% mapped · record depth 20 by #004 · 16 daemons lost       │
+ │ /usr/src 100% mapped · record depth 20 by #004 · 17 daemons lost           │
  └────────────────────────────────────────────────────────────────────────────┘
-+ 020406  loot    collected 90 stars
-+ 020424  kill    squashed memory_leak · +36 xp
-- 020428  hit     segfault hit for 30 · critical · hp 47/144
-! 020429  heal    applied a hotfix · +63 hp
-+ 020431  kill    squashed segfault · +107 xp
-@@ 020435  deploy  deployed → depth 19 /dev/null/be1e @@
-+ 020436  loot    collected 95 stars
++ 020758  loot    applied a spare hotfix on the spot
+# 020760  salvage scrapped a spare grep for 10 stars
++ 020785  kill    squashed null_pointer · +9 xp
++ 020815  kill    squashed null_pointer · +9 xp
+! 020815  lvlup   daemon reached lvl 3 · +7 max hp
++ 020816  loot    applied a spare hotfix on the spot
++ 020818  loot    collected 18 stars
 ```
 
 </details>
