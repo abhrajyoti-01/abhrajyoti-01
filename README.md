@@ -35,21 +35,21 @@ class Abhrajyoti:
 A **zero-player roguelike that lives inside this README.** Nobody controls it, not even me. Every 30 minutes a GitHub Action loads the world from [`game/state.json`](game/state.json), simulates 400 turns and records every one of them; the replay below auto-plays those real turns on loop until the next frame lands. The daemon `@` explores a procedurally generated filesystem, squashes bugs, picks up better debugging tools and goes deeper until something kills it. Then the next daemon is forked.
 
 <!-- DUNGEON:START -->
-<p align="center"><img src="https://raw.githubusercontent.com/abhrajyoti-01/abhrajyoti-01/output/dungeon.svg?frame=61" width="100%" alt="/dev/dungeon replay: daemon #18 at depth 7 /dev, turns 21240 to 21640" /></p>
+<p align="center"><img src="https://raw.githubusercontent.com/abhrajyoti-01/abhrajyoti-01/output/dungeon.svg?frame=62" width="100%" alt="/dev/dungeon replay: daemon #19 at depth 2 /usr/src, turns 21640 to 22040" /></p>
 
-<p align="center"><sub>↻ auto-playing the <b>400 turns</b> simulated in frame <b>#61</b> · rendered 2026-11-11 06:02 UTC by GitHub Actions · a new frame every ~30 minutes</sub></p>
+<p align="center"><sub>↻ auto-playing the <b>400 turns</b> simulated in frame <b>#62</b> · rendered 2026-11-11 14:09 UTC by GitHub Actions · a new frame every ~30 minutes</sub></p>
 
 <details>
-<summary><b>Graveyard</b> · 17 daemons lost · 1,061 bugs squashed · deepest dive: depth 20 by daemon #4</summary>
+<summary><b>Graveyard</b> · 18 daemons lost · 1,083 bugs squashed · deepest dive: depth 20 by daemon #4</summary>
 <br />
 
 | daemon | reached | lvl | kills | killed by | uptime |
 | :-: | :-- | :-: | :-: | :-- | --: |
+| `#018` | depth 9 · `/etc/init.d` | 10 | 64 | `segfault` | 1,317 turns |
 | `#017` | depth 19 · `/dev/null/be1e` | 17 | 167 | `segfault` | 3,048 turns |
 | `#016` | depth 5 · `/proc` | 5 | 29 | `deadlock` | 767 turns |
 | `#015` | depth 5 · `/proc` | 5 | 27 | `heisenbug` | 631 turns |
 | `#014` | depth 7 · `/dev` | 8 | 48 | `segfault` | 1,094 turns |
-| `#013` | depth 7 · `/dev` | 8 | 42 | `segfault` | 854 turns |
 
 </details>
 
@@ -58,35 +58,35 @@ A **zero-player roguelike that lives inside this README.** Nobody controls it, n
 <br />
 
 ```diff
-@@ /dev/dungeon · daemon #018 · depth 07 /dev · turn 021640 @@
+@@ /dev/dungeon · daemon #019 · depth 02 /usr/src · turn 022040 @@
  ┌─────────────────────────────────────────────────────┬──────────────────────┐
- │                                                     │ DAEMON #018   lvl 09 │
- │                                                     │ pid 12209  deploying │
- │                  ┌───────────┐             ┌─────┐  │                      │
- │                  │···········│             │·····│  │ HP ██████░░░   58/89 │
- │                  │···········│             │·····│  │ XP ████░░░░░     39% │
- │              ░░░░+···········│             │·····│  │                      │
- │ ┌──────────┐ @   └────────+──┘  ┌──────┐   │·····│  │ atk 20        def 08 │
- │ │··········+░░            ░     │······+░░░+·····│  │ ) valgrind        +8 │
- │ │··········│              ░     │······│   └────+┘  │ [ type_system     +3 │
- │ │··········│       ┌──────+─┐   │······│        ░   │ ! hotfix          x1 │
- │ └──────────┘       │········+░░░+······│        ░   │ * stars          473 │
- │                    │········│   │······│    ┌───+─┐ │                      │
- │                    │········│   └──────┘    │·····│ │ depth 07   kills 050 │
- │                    │········│               │·····│ │                      │
- │                    │········│               │····>│ │ in view        clear │
- │                    └────────┘               └─────┘ │                      │
+ │                                                     │ DAEMON #019   lvl 03 │
+ │          ┌────────────┐     ┌──────┐                │ pid 27761  exploring │
+ │          │············│     │······│                │                      │
+ │          │············│     │······│                │ HP █████████   47/47 │
+ │          │············│   ░░+······│                │ XP █░░░░░░░░     13% │
+ │          └──+────────+┘   ░ └─────+┘                │                      │
+ │             ░        ░    ░       ░    ┌──────────┐ │ atk 08        def 04 │
+ │             ░        ░    ░       ░░░░░+··········│ │ ) grep            +2 │
+ │             @    ┌───+────+─┐       ░  │··········│ │ [ unit_tests      +2 │
+ │            ─+─   │··········│       ░  └──────────┘ │ ! hotfix          x3 │
+ │                  │··········│       ░               │ * stars           25 │
+ │                  └──────────┘       ░               │                      │
+ │                                     ░ ┌────────┐    │ depth 02   kills 008 │
+ │                                     ░░+········│    │                      │
+ │                                       │········│    │ in view        clear │
+ │                                       └────────┘    │                      │
  │                                                     │                      │
  ├─────────────────────────────────────────────────────┴──────────────────────┤
- │ /dev 100% mapped · record depth 20 by #004 · 17 daemons lost               │
+ │ /usr/src 76% mapped · record depth 20 by #004 · 18 daemons lost            │
  └────────────────────────────────────────────────────────────────────────────┘
-+ 021600  kill    squashed segfault · +57 xp · critical
-! 021605  heal    applied a hotfix · +41 hp
-+ 021606  kill    squashed heisenbug · +38 xp
-+ 021610  loot    collected 63 stars
-# 021630  blink   heisenbug moved when observed
-+ 021633  kill    squashed heisenbug · +38 xp
-+ 021634  loot    stashed a hotfix (1/3)
++ 022009  kill    squashed off_by_one · +6 xp
++ 022010  loot    stashed a hotfix (3/3)
++ 022012  loot    applied a spare hotfix on the spot
++ 022025  kill    squashed null_pointer · +9 xp
+# 022028  salvage scrapped a spare unit_tests for 15 stars
+! 022034  docs    read the docs · +12 xp
+! 022034  lvlup   daemon reached lvl 3 · +8 max hp
 ```
 
 </details>
