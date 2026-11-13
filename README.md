@@ -35,21 +35,21 @@ class Abhrajyoti:
 A **zero-player roguelike that lives inside this README.** Nobody controls it, not even me. Every 30 minutes a GitHub Action loads the world from [`game/state.json`](game/state.json), simulates 400 turns and records every one of them; the replay below auto-plays those real turns on loop until the next frame lands. The daemon `@` explores a procedurally generated filesystem, squashes bugs, picks up better debugging tools and goes deeper until something kills it. Then the next daemon is forked.
 
 <!-- DUNGEON:START -->
-<p align="center"><img src="https://raw.githubusercontent.com/abhrajyoti-01/abhrajyoti-01/output/dungeon.svg?frame=68" width="100%" alt="/dev/dungeon replay: daemon #21 at depth 5 /proc, turns 24040 to 24440" /></p>
+<p align="center"><img src="https://raw.githubusercontent.com/abhrajyoti-01/abhrajyoti-01/output/dungeon.svg?frame=69" width="100%" alt="/dev/dungeon replay: daemon #22 at depth 3 /usr/lib, turns 24440 to 24840" /></p>
 
-<p align="center"><sub>↻ auto-playing the <b>400 turns</b> simulated in frame <b>#68</b> · rendered 2026-11-13 06:32 UTC by GitHub Actions · a new frame every ~30 minutes</sub></p>
+<p align="center"><sub>↻ auto-playing the <b>400 turns</b> simulated in frame <b>#69</b> · rendered 2026-11-13 14:53 UTC by GitHub Actions · a new frame every ~30 minutes</sub></p>
 
 <details>
-<summary><b>Graveyard</b> · 20 daemons lost · 1,199 bugs squashed · deepest dive: depth 20 by daemon #4</summary>
+<summary><b>Graveyard</b> · 21 daemons lost · 1,218 bugs squashed · deepest dive: depth 20 by daemon #4</summary>
 <br />
 
 | daemon | reached | lvl | kills | killed by | uptime |
 | :-: | :-- | :-: | :-: | :-- | --: |
+| `#021` | depth 5 · `/proc` | 5 | 29 | `deadlock` | 769 turns |
 | `#020` | depth 8 · `/boot` | 9 | 53 | `heisenbug` | 931 turns |
 | `#019` | depth 7 · `/dev` | 8 | 48 | `segfault` | 971 turns |
 | `#018` | depth 9 · `/etc/init.d` | 10 | 64 | `segfault` | 1,317 turns |
 | `#017` | depth 19 · `/dev/null/be1e` | 17 | 167 | `segfault` | 3,048 turns |
-| `#016` | depth 5 · `/proc` | 5 | 29 | `deadlock` | 767 turns |
 
 </details>
 
@@ -58,35 +58,35 @@ A **zero-player roguelike that lives inside this README.** Nobody controls it, n
 <br />
 
 ```diff
-@@ /dev/dungeon · daemon #021 · depth 05 /proc · turn 024440 @@
+@@ /dev/dungeon · daemon #022 · depth 03 /usr/lib · turn 024840 @@
  ┌─────────────────────────────────────────────────────┬──────────────────────┐
- │                                                     │ DAEMON #021   lvl 04 │
- │                                                     │ pid 16791   fighting │
- │                                        ┌─────┐      │                      │
- │                                        │·····│      │ HP ████████░   52/56 │
- │                                        │·····│      │ XP ███████░░     76% │
- │                             ┌──────┐ ░░+·····│      │                      │
- │                             │······+░░ └+────┘      │ atk 13        def 06 │
- │                             │······│    ░           │ ) strace          +6 │
- │                             │······│    ░           │ [ type_system     +3 │
- │                             └──+───┘   ┌@────┐      │ ! hotfix          x3 │
- │                                        │·····│      │ * stars          128 │
- │                                        │·····│      │                      │
- │                                        │·····│      │ depth 05   kills 023 │
- │                                        │·····│      │                      │
- │                                        │·····│      │ in view        clear │
- │                                        └─────┘      │                      │
+ │                                                     │ DAEMON #022   lvl 03 │
+ │                               ┌─────────┐           │ pid 25782  exploring │
+ │                               │·········│           │                      │
+ │                            ░░░+·······@·│           │ HP ███████░░   34/43 │
+ │                            ░  └────────+┘           │ XP ███████░░     81% │
+ │                   ┌──────┐ ░                        │                      │
+ │                   │······│ ░                        │ atk 10        def 04 │
+ │        ┌───────┐░░+······│ ░                        │ ) gdb             +4 │
+ │        │·······+░ └+─────┘ ░                        │ [ unit_tests      +2 │
+ │        │·······│   ░      ░░                        │ ! hotfix          x3 │
+ │        └───────┘   ░      ░                         │ * stars           18 │
+ │                   ┌+──────+┐                        │                      │
+ │                   │········│                        │ depth 03   kills 013 │
+ │                   │········│                        │                      │
+ │                   └────────┘                        │ in view        clear │
+ │                                                     │                      │
  │                                                     │                      │
  ├─────────────────────────────────────────────────────┴──────────────────────┤
- │ /proc 35% mapped · record depth 20 by #004 · 20 daemons lost               │
+ │ /usr/lib 59% mapped · record depth 20 by #004 · 21 daemons lost            │
  └────────────────────────────────────────────────────────────────────────────┘
-+ 024338  kill    squashed off_by_one · +7 xp
-+ 024339  loot    collected 32 stars
-+ 024344  loot    applied a spare hotfix on the spot
-! 024353  equip   type_system (+3 def) replaces unit_tests
-@@ 024417  deploy  deployed → depth 05 /proc @@
-# 024430  salvage scrapped a spare strace for 20 stars
-+ 024440  kill    squashed null_pointer · +13 xp · critical
+@@ 024766  deploy  deployed → depth 03 /usr/lib @@
++ 024776  kill    squashed memory_leak · +13 xp
++ 024777  kill    squashed off_by_one · +7 xp
+! 024785  equip   unit_tests (+2 def) replaces no_tests
++ 024791  loot    applied a spare hotfix on the spot
++ 024831  kill    squashed null_pointer · +10 xp
++ 024833  kill    squashed race_condition · +16 xp
 ```
 
 </details>
