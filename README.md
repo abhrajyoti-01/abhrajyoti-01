@@ -35,21 +35,21 @@ class Abhrajyoti:
 A **zero-player roguelike that lives inside this README.** Nobody controls it, not even me. Every 30 minutes a GitHub Action loads the world from [`game/state.json`](game/state.json), simulates 400 turns and records every one of them; the replay below auto-plays those real turns on loop until the next frame lands. The daemon `@` explores a procedurally generated filesystem, squashes bugs, picks up better debugging tools and goes deeper until something kills it. Then the next daemon is forked.
 
 <!-- DUNGEON:START -->
-<p align="center"><img src="https://raw.githubusercontent.com/abhrajyoti-01/abhrajyoti-01/output/dungeon.svg?frame=73" width="100%" alt="/dev/dungeon replay: daemon #23 at depth 7 /dev, turns 26040 to 26440" /></p>
+<p align="center"><img src="https://raw.githubusercontent.com/abhrajyoti-01/abhrajyoti-01/output/dungeon.svg?frame=74" width="100%" alt="/dev/dungeon replay: daemon #24 at depth 3 /usr/lib, turns 26440 to 26840" /></p>
 
-<p align="center"><sub>↻ auto-playing the <b>400 turns</b> simulated in frame <b>#73</b> · rendered 2026-11-14 15:45 UTC by GitHub Actions · a new frame every ~30 minutes</sub></p>
+<p align="center"><sub>↻ auto-playing the <b>400 turns</b> simulated in frame <b>#74</b> · rendered 2026-11-14 20:40 UTC by GitHub Actions · a new frame every ~30 minutes</sub></p>
 
 <details>
-<summary><b>Graveyard</b> · 22 daemons lost · 1,306 bugs squashed · deepest dive: depth 20 by daemon #4</summary>
+<summary><b>Graveyard</b> · 23 daemons lost · 1,323 bugs squashed · deepest dive: depth 20 by daemon #4</summary>
 <br />
 
 | daemon | reached | lvl | kills | killed by | uptime |
 | :-: | :-- | :-: | :-: | :-- | --: |
+| `#023` | depth 8 · `/boot` | 9 | 51 | `heisenbug` | 992 turns |
 | `#022` | depth 8 · `/boot` | 9 | 52 | `null_pointer` | 1,002 turns |
 | `#021` | depth 5 · `/proc` | 5 | 29 | `deadlock` | 769 turns |
 | `#020` | depth 8 · `/boot` | 9 | 53 | `heisenbug` | 931 turns |
 | `#019` | depth 7 · `/dev` | 8 | 48 | `segfault` | 971 turns |
-| `#018` | depth 9 · `/etc/init.d` | 10 | 64 | `segfault` | 1,317 turns |
 
 </details>
 
@@ -58,35 +58,35 @@ A **zero-player roguelike that lives inside this README.** Nobody controls it, n
 <br />
 
 ```diff
-@@ /dev/dungeon · daemon #023 · depth 07 /dev · turn 026440 @@
+@@ /dev/dungeon · daemon #024 · depth 03 /usr/lib · turn 026840 @@
  ┌─────────────────────────────────────────────────────┬──────────────────────┐
- │                                                     │ DAEMON #023   lvl 09 │
- │                                       ┌───────────┐ │ pid 24937  exploring │
- │                      ┌──────┐         │···········│ │                      │
- │                      │······+░░░░░░░░░+···········│ │ HP █████████   93/93 │
- │                      │······│         └─────+─────┘ │ XP ░░░░░░░░░      0% │
- │                      └───+──┘               ░       │                      │
- │                          ░                  ░       │ atk 20        def 09 │
- │                          ░               ┌──+───┐   │ ) valgrind        +8 │
- │                   ┌──────+────┐          │······│   │ [ ci_pipeline     +4 │
- │                   │···········│          │·····>│   │ ! hotfix          x0 │
- │                   │···········│          └──────┘   │ * stars          310 │
- │          ┌+────┐  │···········│                     │                      │
- │          │··@··+░░+···········│                     │ depth 07   kills 049 │
- │          │·····│  │···········│                     │                      │
- │          └─────┘  └───────────┘                     │ in view        clear │
- │                                                     │                      │
+ │                                                     │ DAEMON #024   lvl 04 │
+ │                                                     │ pid 19084  deploying │
+ │                    ┌──────┐                         │                      │
+ │                    │······│    ┌───────────┐        │ HP █████████   56/56 │
+ │            ░░░░░░░░+······│    │···········│        │ XP █░░░░░░░░     13% │
+ │ ┌──────┐   ░       └───+──┘    │···········│        │                      │
+ │ │······+░░░░           ░       │···········│        │ atk 13        def 06 │
+ │ │······│   ░           ░░░░░░░░+···········│        │ ) strace          +6 │
+ │ │······│  ┌+───────┐   ░       │···········│        │ [ type_system     +3 │
+ │ └──────┘  │········│   @       └──────────+┘        │ ! hotfix          x3 │
+ │           │········+░░░░                  ░         │ * stars           45 │
+ │           │········│   ░                  ░         │                      │
+ │           └────────┘  ┌+─────┐        ┌───+─────┐   │ depth 03   kills 015 │
+ │                       │······│        │·········│   │                      │
+ │                       │······│        │········>│   │ in view        clear │
+ │                       └──────┘        └─────────┘   │                      │
  │                                                     │                      │
  ├─────────────────────────────────────────────────────┴──────────────────────┤
- │ /dev 88% mapped · record depth 20 by #004 · 22 daemons lost                │
+ │ /usr/lib 100% mapped · record depth 20 by #004 · 23 daemons lost           │
  └────────────────────────────────────────────────────────────────────────────┘
-+ 026376  kill    squashed memory_leak · +19 xp
-+ 026379  kill    squashed heisenbug · +38 xp
-+ 026429  kill    squashed bug · +6 xp
-# 026434  revive  zombie_process re-parented to init · back for more
-+ 026436  kill    squashed zombie_process · +29 xp
-! 026436  lvlup   daemon reached lvl 9 · +8 max hp
-# 026437  salvage scrapped a spare ci_pipeline for 25 stars
+# 026765  salvage scrapped a spare unit_tests for 15 stars
++ 026804  kill    squashed bug · +4 xp
+! 026808  equip   strace (+6 atk) replaces grep
+! 026809  docs    read the docs · +18 xp
++ 026826  kill    squashed bug · +4 xp
+! 026826  lvlup   daemon reached lvl 4 · +9 max hp
++ 026830  kill    squashed memory_leak · +13 xp
 ```
 
 </details>
@@ -313,7 +313,7 @@ Telegram bot for Brainware University student self-service: attendance, fees, ma
 **Recently pushed**
 
 <!-- GH:RECENT:START -->
-<table><tr><td width="6%"><strong>01</strong></td><td><a href="https://github.com/abhrajyoti-01/arequest"><strong>arequest</strong></a><br /><sub>🚀 High-performance asynchronous HTTP client with a requests-compatible API — simpl…</sub></td><td align="right"><sub><code>Python</code> · 10 days ago</sub></td></tr><tr><td width="6%"><strong>02</strong></td><td><a href="https://github.com/abhrajyoti-01/ai-storyboarding"><strong>ai-storyboarding</strong></a><br /><sub>Turn one story idea into a cinematic storyboard: AI-written narrative beats plus a…</sub></td><td align="right"><sub><code>Python</code> · 12 days ago</sub></td></tr><tr><td width="6%"><strong>03</strong></td><td><a href="https://github.com/abhrajyoti-01/StorageCleaner"><strong>StorageCleaner</strong></a><br /><sub>AI-assisted Windows disk cleanup: caches, crash dumps, old Windows files + power-th…</sub></td><td align="right"><sub><code>Python</code> · 14 days ago</sub></td></tr><tr><td width="6%"><strong>04</strong></td><td><a href="https://github.com/abhrajyoti-01/QuizGame"><strong>QuizGame</strong></a><br /><sub>React 18 + Vite quiz app with 1,009 questions across 20 topics — Python standard-li…</sub></td><td align="right"><sub><code>Python</code> · 14 days ago</sub></td></tr><tr><td width="6%"><strong>05</strong></td><td><a href="https://github.com/abhrajyoti-01/dsa-in-c"><strong>dsa-in-c</strong></a><br /><sub>198 self-documented data structures and algorithms programs in C - fundamentals to…</sub></td><td align="right"><sub><code>C</code> · 17 days ago</sub></td></tr></table>
+<table><tr><td width="6%"><strong>01</strong></td><td><a href="https://github.com/abhrajyoti-01/arequest"><strong>arequest</strong></a><br /><sub>🚀 High-performance asynchronous HTTP client with a requests-compatible API — simpl…</sub></td><td align="right"><sub><code>Python</code> · 10 days ago</sub></td></tr><tr><td width="6%"><strong>02</strong></td><td><a href="https://github.com/abhrajyoti-01/ai-storyboarding"><strong>ai-storyboarding</strong></a><br /><sub>Turn one story idea into a cinematic storyboard: AI-written narrative beats plus a…</sub></td><td align="right"><sub><code>Python</code> · 12 days ago</sub></td></tr><tr><td width="6%"><strong>03</strong></td><td><a href="https://github.com/abhrajyoti-01/StorageCleaner"><strong>StorageCleaner</strong></a><br /><sub>AI-assisted Windows disk cleanup: caches, crash dumps, old Windows files + power-th…</sub></td><td align="right"><sub><code>Python</code> · 15 days ago</sub></td></tr><tr><td width="6%"><strong>04</strong></td><td><a href="https://github.com/abhrajyoti-01/QuizGame"><strong>QuizGame</strong></a><br /><sub>React 18 + Vite quiz app with 1,009 questions across 20 topics — Python standard-li…</sub></td><td align="right"><sub><code>Python</code> · 15 days ago</sub></td></tr><tr><td width="6%"><strong>05</strong></td><td><a href="https://github.com/abhrajyoti-01/dsa-in-c"><strong>dsa-in-c</strong></a><br /><sub>198 self-documented data structures and algorithms programs in C - fundamentals to…</sub></td><td align="right"><sub><code>C</code> · 17 days ago</sub></td></tr></table>
 <!-- GH:RECENT:END -->
 
 <br />
