@@ -1,60 +1,72 @@
 {
  "v": 1,
  "seed": 2055,
- "rng": 3581321428,
- "tick": 77,
- "turn": 28040,
+ "rng": 1640028591,
+ "tick": 78,
+ "turn": 28440,
  "run": 24,
- "depth": 11,
- "floorTurn": 106,
- "nextId": 1506,
+ "depth": 14,
+ "floorTurn": 134,
+ "nextId": 1536,
  "tiles": [
   "                                                     ",
-  "                                                     ",
-  "                            #########                ",
-  "                            #.......#                ",
-  "                            #.......#        ####### ",
-  "        #############       ######+##        #.....# ",
-  "        #..........>#             ,     ,,,,,+.....# ",
-  "        #...........#             ,,,,,,,    ####### ",
-  "        #...........#             ,     ,            ",
-  "        #...........+,,,, ########+#    ,            ",
-  "        #############   ,,+........#   #+######      ",
-  "                          #........#   #......#      ",
-  "                          #........#   #......#      ",
-  "                          #........#   #......#      ",
-  "                          #........#   ########      ",
-  "                          ##########                 ",
+  "                          #############              ",
+  "                          #...........#    #######   ",
+  "           ##########     #...........#    #.....#   ",
+  "           #........#     #...........# ,,,+...>.#   ",
+  "         ,,+........#     #...........# ,  #######   ",
+  "         , ####+#####     ###+#######+# ,            ",
+  "         ,     ,             ,       , ,,            ",
+  "         ,     ,             ,       ,,,             ",
+  "  #######+##   ,             ,         ,             ",
+  "  #........#   ,        #####+###      ,             ",
+  "  #........#  #+#####   #.......#     #+#####        ",
+  "  #........#  #.....#   #.......#     #.....#        ",
+  "  #........#  #.....+,,,+.......#     #.....#        ",
+  "  #........#  #.....#   #########     #######        ",
+  "  ##########  #######                                ",
   "                                                     "
  ],
  "rooms": [
   {
-   "x": 9,
-   "y": 6,
-   "w": 11,
-   "h": 4
-  },
-  {
-   "x": 27,
+   "x": 3,
    "y": 10,
    "w": 8,
    "h": 5
   },
   {
-   "x": 29,
-   "y": 3,
-   "w": 7,
+   "x": 12,
+   "y": 4,
+   "w": 8,
    "h": 2
   },
   {
-   "x": 40,
-   "y": 11,
-   "w": 6,
+   "x": 15,
+   "y": 12,
+   "w": 5,
    "h": 3
   },
   {
-   "x": 46,
-   "y": 5,
+   "x": 25,
+   "y": 11,
+   "w": 7,
+   "h": 3
+  },
+  {
+   "x": 27,
+   "y": 2,
+   "w": 11,
+   "h": 4
+  },
+  {
+   "x": 39,
+   "y": 12,
+   "w": 5,
+   "h": 2
+  },
+  {
+   "x": 44,
+   "y": 3,
    "w": 5,
    "h": 2
   }
@@ -62,266 +74,266 @@
  "monsters": [],
  "items": [],
  "hero": {
-  "x": 14,
-  "y": 6,
-  "hp": 69,
-  "maxHp": 114,
-  "atk": 15,
-  "def": 7,
-  "lvl": 12,
-  "xp": 452,
-  "tool": 6,
+  "x": 41,
+  "y": 4,
+  "hp": 67,
+  "maxHp": 130,
+  "atk": 17,
+  "def": 8,
+  "lvl": 14,
+  "xp": 242,
+  "tool": 7,
   "guard": 6,
   "potions": 3,
-  "stars": 901,
-  "kills": 91,
+  "stars": 1402,
+  "kills": 121,
   "pid": 19084,
   "born": 26543,
   "mode": "deploying",
   "stun": 0,
   "resting": false,
-  "lastHit": "S"
+  "lastHit": "z"
  },
  "log": [
   {
-   "t": 27819,
+   "t": 28124,
    "c": "+",
    "tag": "kill",
-   "m": "squashed race_condition · +28 xp · critical"
+   "m": "squashed memory_leak · +27 xp · critical"
   },
   {
-   "t": 27824,
-   "c": "-",
-   "tag": "hit",
-   "m": "segfault hit for 19 · critical · hp 52/108"
-  },
-  {
-   "t": 27825,
+   "t": 28136,
    "c": "+",
    "tag": "kill",
-   "m": "squashed segfault · +70 xp"
+   "m": "squashed null_pointer · +21 xp · critical"
   },
   {
-   "t": 27826,
-   "c": "+",
-   "tag": "kill",
-   "m": "squashed bug · +7 xp"
-  },
-  {
-   "t": 27827,
-   "c": "+",
-   "tag": "loot",
-   "m": "collected 90 stars"
-  },
-  {
-   "t": 27828,
+   "t": 28138,
    "c": "+",
    "tag": "loot",
    "m": "applied a spare hotfix on the spot"
   },
   {
-   "t": 27844,
-   "c": "-",
-   "tag": "hit",
-   "m": "segfault hit for 19 · critical · hp 43/108"
-  },
-  {
-   "t": 27846,
-   "c": "!",
-   "tag": "heal",
-   "m": "applied a hotfix · +49 hp"
-  },
-  {
-   "t": 27848,
+   "t": 28161,
    "c": "+",
-   "tag": "kill",
-   "m": "squashed segfault · +70 xp"
+   "tag": "loot",
+   "m": "collected 108 stars"
   },
   {
-   "t": 27849,
-   "c": "+",
-   "tag": "kill",
-   "m": "squashed bug · +7 xp"
-  },
-  {
-   "t": 27851,
+   "t": 28164,
    "c": "#",
    "tag": "salvage",
-   "m": "scrapped a spare perf for 30 stars"
+   "m": "scrapped a spare rr for 35 stars"
   },
   {
-   "t": 27881,
-   "c": "+",
-   "tag": "kill",
-   "m": "squashed off_by_one · +12 xp"
-  },
-  {
-   "t": 27882,
-   "c": "+",
-   "tag": "kill",
-   "m": "squashed bug · +7 xp"
-  },
-  {
-   "t": 27898,
-   "c": "-",
-   "tag": "hit",
-   "m": "zombie_process hit for 15 · critical · hp 72/108"
-  },
-  {
-   "t": 27899,
-   "c": "+",
-   "tag": "kill",
-   "m": "squashed zombie_process · +35 xp · critical"
-  },
-  {
-   "t": 27902,
-   "c": "+",
-   "tag": "loot",
-   "m": "stashed a hotfix (3/3)"
-  },
-  {
-   "t": 27918,
-   "c": "#",
-   "tag": "lock",
-   "m": "deadlock grabbed the mutex · daemon blocked"
-  },
-  {
-   "t": 27921,
-   "c": "+",
-   "tag": "kill",
-   "m": "resolved deadlock · +282 xp"
-  },
-  {
-   "t": 27921,
-   "c": "!",
-   "tag": "lvlup",
-   "m": "daemon reached lvl 12 · +6 max hp"
-  },
-  {
-   "t": 27922,
-   "c": "-",
-   "tag": "hit",
-   "m": "zombie_process hit for 14 · critical · hp 94/114"
-  },
-  {
-   "t": 27924,
-   "c": "#",
-   "tag": "revive",
-   "m": "zombie_process re-parented to init · back for more"
-  },
-  {
-   "t": 27926,
-   "c": "+",
-   "tag": "kill",
-   "m": "squashed zombie_process · +35 xp"
-  },
-  {
-   "t": 27928,
-   "c": "+",
-   "tag": "kill",
-   "m": "squashed race_condition · +28 xp"
-  },
-  {
-   "t": 27929,
+   "t": 28166,
    "c": "!",
    "tag": "equip",
-   "m": "rr (+13 atk) replaces perf"
+   "m": "ebpf (+16 atk) replaces rr"
   },
   {
-   "t": 27931,
-   "c": "+",
-   "tag": "loot",
-   "m": "collected 30 stars"
-  },
-  {
-   "t": 27934,
+   "t": 28173,
    "c": "@@",
    "tag": "deploy",
-   "m": "deployed → depth 11 /dev/null/cc62"
+   "m": "deployed → depth 13 /dev/null/8d12"
   },
   {
-   "t": 27951,
+   "t": 28198,
    "c": "+",
    "tag": "kill",
-   "m": "squashed null_pointer · +20 xp"
+   "m": "squashed zombie_process · +42 xp"
   },
   {
-   "t": 27953,
+   "t": 28199,
    "c": "+",
    "tag": "kill",
-   "m": "squashed race_condition · +30 xp"
+   "m": "squashed bug · +8 xp"
   },
   {
-   "t": 27955,
+   "t": 28213,
    "c": "+",
    "tag": "kill",
-   "m": "squashed race_condition · +30 xp"
+   "m": "squashed memory_leak · +28 xp"
   },
   {
-   "t": 27957,
+   "t": 28215,
    "c": "+",
    "tag": "kill",
-   "m": "squashed race_condition · +30 xp"
+   "m": "squashed off_by_one · +14 xp · critical"
   },
   {
-   "t": 27960,
-   "c": "+",
-   "tag": "loot",
-   "m": "collected 33 stars"
-  },
-  {
-   "t": 27978,
+   "t": 28218,
    "c": "+",
    "tag": "kill",
-   "m": "squashed race_condition · +30 xp"
+   "m": "squashed heisenbug · +56 xp"
   },
   {
-   "t": 27980,
-   "c": "!",
-   "tag": "equip",
-   "m": "formal_proof (+8 def) replaces fuzzer"
-  },
-  {
-   "t": 27984,
+   "t": 28220,
    "c": "+",
    "tag": "kill",
-   "m": "squashed zombie_process · +38 xp"
+   "m": "squashed race_condition · +34 xp"
   },
   {
-   "t": 27995,
+   "t": 28221,
    "c": "+",
    "tag": "kill",
-   "m": "squashed zombie_process · +38 xp"
+   "m": "squashed bug · +8 xp"
   },
   {
-   "t": 27996,
+   "t": 28228,
    "c": "+",
    "tag": "loot",
    "m": "applied a spare hotfix on the spot"
   },
   {
-   "t": 27999,
+   "t": 28263,
    "c": "+",
    "tag": "kill",
-   "m": "squashed memory_leak · +25 xp"
+   "m": "squashed memory_leak · +28 xp"
   },
   {
-   "t": 28017,
+   "t": 28265,
    "c": "+",
    "tag": "kill",
-   "m": "squashed memory_leak · +25 xp"
+   "m": "squashed heisenbug · +56 xp"
   },
   {
-   "t": 28023,
+   "t": 28266,
+   "c": "#",
+   "tag": "salvage",
+   "m": "scrapped a spare ebpf for 40 stars"
+  },
+  {
+   "t": 28279,
    "c": "+",
    "tag": "kill",
-   "m": "squashed segfault · +75 xp"
+   "m": "squashed race_condition · +34 xp"
   },
   {
-   "t": 28034,
+   "t": 28282,
+   "c": "#",
+   "tag": "salvage",
+   "m": "scrapped a spare ebpf for 40 stars"
+  },
+  {
+   "t": 28306,
+   "c": "@@",
+   "tag": "deploy",
+   "m": "deployed → depth 14 /dev/null/a708"
+  },
+  {
+   "t": 28316,
+   "c": "+",
+   "tag": "kill",
+   "m": "squashed null_pointer · +24 xp · critical"
+  },
+  {
+   "t": 28320,
+   "c": "+",
+   "tag": "kill",
+   "m": "squashed heisenbug · +59 xp"
+  },
+  {
+   "t": 28321,
    "c": "+",
    "tag": "loot",
-   "m": "collected 55 stars"
+   "m": "collected 84 stars"
+  },
+  {
+   "t": 28323,
+   "c": "+",
+   "tag": "loot",
+   "m": "applied a spare hotfix on the spot"
+  },
+  {
+   "t": 28326,
+   "c": "+",
+   "tag": "loot",
+   "m": "applied a spare hotfix on the spot"
+  },
+  {
+   "t": 28337,
+   "c": "+",
+   "tag": "kill",
+   "m": "squashed race_condition · +35 xp"
+  },
+  {
+   "t": 28339,
+   "c": "+",
+   "tag": "kill",
+   "m": "squashed null_pointer · +24 xp"
+  },
+  {
+   "t": 28339,
+   "c": "!",
+   "tag": "lvlup",
+   "m": "daemon reached lvl 14 · +9 max hp"
+  },
+  {
+   "t": 28344,
+   "c": "+",
+   "tag": "loot",
+   "m": "collected 84 stars"
+  },
+  {
+   "t": 28353,
+   "c": "+",
+   "tag": "kill",
+   "m": "squashed null_pointer · +24 xp"
+  },
+  {
+   "t": 28371,
+   "c": "+",
+   "tag": "kill",
+   "m": "squashed null_pointer · +24 xp"
+  },
+  {
+   "t": 28378,
+   "c": "#",
+   "tag": "salvage",
+   "m": "scrapped a spare ebpf for 40 stars"
+  },
+  {
+   "t": 28406,
+   "c": "+",
+   "tag": "kill",
+   "m": "squashed memory_leak · +30 xp"
+  },
+  {
+   "t": 28408,
+   "c": "+",
+   "tag": "loot",
+   "m": "collected 70 stars"
+  },
+  {
+   "t": 28424,
+   "c": "-",
+   "tag": "hit",
+   "m": "segfault hit for 24 · critical · hp 101/130"
+  },
+  {
+   "t": 28425,
+   "c": "-",
+   "tag": "hit",
+   "m": "segfault hit for 24 · critical · hp 77/130"
+  },
+  {
+   "t": 28427,
+   "c": "+",
+   "tag": "kill",
+   "m": "squashed segfault · +89 xp"
+  },
+  {
+   "t": 28430,
+   "c": "+",
+   "tag": "kill",
+   "m": "squashed zombie_process · +44 xp · critical"
+  },
+  {
+   "t": 28431,
+   "c": "+",
+   "tag": "kill",
+   "m": "squashed bug · +9 xp"
   }
  ],
  "graveyard": [
@@ -390,25 +402,25 @@
   "bestDepth": 20,
   "bestRun": 4,
   "deaths": 23,
-  "kills": 1399
+  "kills": 1429
  },
  "seen": [
   "00000000000000000000000000000000000000000000000000000",
-  "00000000000000000000000000000000000000000000000000000",
-  "00000000000000000000000000001111111110000000000000000",
-  "00000000000000000000000000001111111110000000000000000",
-  "00000000000000000000000000001111111110000000011111110",
-  "00000000111111111111100000001111111110011111111111110",
-  "00000000111111111111100000000000011111111111111111110",
-  "00000000111111111111100000000000011111111111111111110",
-  "00000000111111111111111111000000011111111100000000000",
-  "00000000111111111111111111111111111100011100000000000",
-  "00000000111111111111111111111111111100011111111000000",
-  "00000000000000000000000111111111111100011111111000000",
-  "00000000000000000000000000111111111100011111111000000",
-  "00000000000000000000000000111111111100011111111000000",
-  "00000000000000000000000000111111111100011111111000000",
-  "00000000000000000000000000111111111100000000000000000",
+  "00000000000000000000000000111111111111100000000000000",
+  "00000000000000000000000000111111111111100001111111000",
+  "00000000000111111111100000111111111111111111111111000",
+  "00000000111111111111100000111111111111111111111111000",
+  "00000000111111111111100000111111111111111111111111000",
+  "00000000111111111111100000111111111111111100000000000",
+  "00000000111000111000000000001110000011111100000000000",
+  "00000000111000111000000000001110000011111100000000000",
+  "00111111111100111000000000001110000011111000000000000",
+  "00111111111100111000000011111111100000111000000000000",
+  "00111111111100111111100011111111100000111111100000000",
+  "00111111111100111111111111111111100000111111100000000",
+  "00111111111100111111111111111111100000111111100000000",
+  "00111111111100111111111111111111100000111111100000000",
+  "00111111111100111111100000000000000000000000000000000",
   "00000000000000000000000000000000000000000000000000000"
  ]
 }
