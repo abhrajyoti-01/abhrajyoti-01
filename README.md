@@ -35,21 +35,21 @@ class Abhrajyoti:
 A **zero-player roguelike that lives inside this README.** Nobody controls it, not even me. Every 30 minutes a GitHub Action loads the world from [`game/state.json`](game/state.json), simulates 400 turns and records every one of them; the replay below auto-plays those real turns on loop until the next frame lands. The daemon `@` explores a procedurally generated filesystem, squashes bugs, picks up better debugging tools and goes deeper until something kills it. Then the next daemon is forked.
 
 <!-- DUNGEON:START -->
-<p align="center"><img src="https://raw.githubusercontent.com/abhrajyoti-01/abhrajyoti-01/output/dungeon.svg?frame=80" width="100%" alt="/dev/dungeon replay: daemon #24 at depth 19 /dev/null/be1e, turns 28840 to 29240" /></p>
+<p align="center"><img src="https://raw.githubusercontent.com/abhrajyoti-01/abhrajyoti-01/output/dungeon.svg?frame=81" width="100%" alt="/dev/dungeon replay: daemon #25 at depth 4 /var/log, turns 29240 to 29640" /></p>
 
-<p align="center"><sub>↻ auto-playing the <b>400 turns</b> simulated in frame <b>#80</b> · rendered 2026-11-16 07:14 UTC by GitHub Actions · a new frame every ~30 minutes</sub></p>
+<p align="center"><sub>↻ auto-playing the <b>400 turns</b> simulated in frame <b>#81</b> · rendered 2026-11-16 17:25 UTC by GitHub Actions · a new frame every ~30 minutes</sub></p>
 
 <details>
-<summary><b>Graveyard</b> · 23 daemons lost · 1,480 bugs squashed · deepest dive: depth 20 by daemon #4</summary>
+<summary><b>Graveyard</b> · 24 daemons lost · 1,505 bugs squashed · deepest dive: depth 20 by daemon #4</summary>
 <br />
 
 | daemon | reached | lvl | kills | killed by | uptime |
 | :-: | :-- | :-: | :-: | :-- | --: |
+| `#024` | depth 20 · `/dev/null/5c55` | 18 | 180 | `segfault` | 2,822 turns |
 | `#023` | depth 8 · `/boot` | 9 | 51 | `heisenbug` | 992 turns |
 | `#022` | depth 8 · `/boot` | 9 | 52 | `null_pointer` | 1,002 turns |
 | `#021` | depth 5 · `/proc` | 5 | 29 | `deadlock` | 769 turns |
 | `#020` | depth 8 · `/boot` | 9 | 53 | `heisenbug` | 931 turns |
-| `#019` | depth 7 · `/dev` | 8 | 48 | `segfault` | 971 turns |
 
 </details>
 
@@ -58,35 +58,35 @@ A **zero-player roguelike that lives inside this README.** Nobody controls it, n
 <br />
 
 ```diff
-@@ /dev/dungeon · daemon #024 · depth 19 /dev/null/be1e · turn 029240 @@
+@@ /dev/dungeon · daemon #025 · depth 04 /var/log · turn 029640 @@
  ┌─────────────────────────────────────────────────────┬──────────────────────┐
- │                                                     │ DAEMON #024   lvl 17 │
- │                                                     │ pid 19084  deploying │
- │   ┌───────────┐                       ┌───────────┐ │                      │
- │   │···········│                       │···········│ │ HP ███████░░ 115/157 │
- │   │···········│    ┌─────────┐        │···········│ │ XP ██████░░░     66% │
- │   │···········│    │·········│        │>··········│ │                      │
- │   │···········│    │·········│        └+──────────┘ │ atk 36        def 17 │
- │   │···········│    │·········+░░░░░░░░ ░            │ ) ebpf           +16 │
- │   └────+──────┘    └+────────┘       ░░░            │ [ formal_proof    +8 │
- │        ░            ░                 ░             │ ! hotfix          x0 │
- │        ░@░░░░░░░░   ░                 ░             │ * stars         2949 │
- │        ░        ░ ┌─+────┐           ┌+───────────┐ │                      │
- │ ┌──────+┐       ░░+······│           │············│ │ depth 19   kills 172 │
- │ │·······│         │······│           │············│ │                      │
- │ │·······│         └──────┘           └────────────┘ │ in view        clear │
- │ └───────┘                                           │                      │
+ │                                                     │ DAEMON #025   lvl 03 │
+ │                                                     │ pid 6923    fighting │
+ │                                                     │                      │
+ │                                                     │ HP ██████░░░   30/45 │
+ │                                                     │ XP ███████░░     80% │
+ │                                                     │                      │
+ │                             ┌────────┐              │ atk 10        def 04 │
+ │                             │···*····│              │ ) gdb             +4 │
+ │                             +···@····│              │ [ unit_tests      +2 │
+ │                             └───+────┘              │ ! hotfix          x2 │
+ │                                 ░                   │ * stars           96 │
+ │                                 ░                   │                      │
+ │                               ┌─+─────┐             │ depth 04   kills 017 │
+ │                               │·······+             │                      │
+ │                               │·······│             │ in view        clear │
+ │                               └───────┘             │                      │
  │                                                     │                      │
  ├─────────────────────────────────────────────────────┴──────────────────────┤
- │ /dev/null/be1e 100% mapped · record depth 20 by #004 · 23 daemons lost     │
+ │ /var/log 19% mapped · record depth 20 by #004 · 24 daemons lost            │
  └────────────────────────────────────────────────────────────────────────────┘
-- 029159  hit     segfault hit for 32 · critical · hp 41/157
-+ 029160  kill    squashed segfault · +111 xp
-+ 029163  kill    squashed memory_leak · +37 xp · critical
-+ 029174  loot    collected 171 stars
-# 029175  salvage scrapped a spare ebpf for 40 stars
-+ 029233  kill    squashed zombie_process · +55 xp
-+ 029235  kill    squashed null_pointer · +30 xp
+! 029613  equip   gdb (+4 atk) replaces printf
++ 029626  kill    squashed off_by_one · +7 xp
++ 029627  loot    collected 18 stars
+@@ 029632  deploy  deployed → depth 04 /var/log @@
+- 029638  hit     bug hit for 7 · critical · hp 35/45
++ 029639  kill    squashed bug · +4 xp
++ 029640  kill    squashed bug · +4 xp
 ```
 
 </details>
@@ -283,7 +283,7 @@ Telegram bot for Brainware University student self-service: attendance, fees, ma
 <sub>Regenerated every 30 minutes from the GitHub API by <a href=".github/scripts/update-readme.js"><code>update-readme.js</code></a>.</sub>
 
 <!-- GH:STATS:START -->
-<table align="center"><tr><td align="center" width="25%"><strong>33</strong><br /><sub>Repositories</sub></td><td align="center" width="25%"><strong>8</strong><br /><sub>Stars</sub></td><td align="center" width="25%"><strong>10</strong><br /><sub>Forks</sub></td><td align="center" width="25%"><strong>11</strong><br /><sub>Followers</sub></td></tr><tr><td align="center" width="25%"><strong>187</strong><br /><sub>Contributions (1y)</sub></td><td align="center" width="25%"><strong>141</strong><br /><sub>Commits (1y)</sub></td><td align="center" width="25%"><strong>2</strong><br /><sub>Pull requests</sub></td><td align="center" width="25%"><strong>0</strong><br /><sub>Issues opened</sub></td></tr></table>
+<table align="center"><tr><td align="center" width="25%"><strong>33</strong><br /><sub>Repositories</sub></td><td align="center" width="25%"><strong>9</strong><br /><sub>Stars</sub></td><td align="center" width="25%"><strong>10</strong><br /><sub>Forks</sub></td><td align="center" width="25%"><strong>11</strong><br /><sub>Followers</sub></td></tr><tr><td align="center" width="25%"><strong>187</strong><br /><sub>Contributions (1y)</sub></td><td align="center" width="25%"><strong>141</strong><br /><sub>Commits (1y)</sub></td><td align="center" width="25%"><strong>2</strong><br /><sub>Pull requests</sub></td><td align="center" width="25%"><strong>0</strong><br /><sub>Issues opened</sub></td></tr></table>
 <!-- GH:STATS:END -->
 
 <!-- GH:LANGUAGES:START -->
@@ -307,7 +307,7 @@ Telegram bot for Brainware University student self-service: attendance, fees, ma
 **Most starred**
 
 <!-- GH:TOP_REPOS:START -->
-<table><tr><td width="6%"><strong>01</strong></td><td><a href="https://github.com/abhrajyoti-01/arequest"><strong>arequest</strong></a><br /><sub>🚀 High-performance asynchronous HTTP client with a requests-compatible API — simpl…</sub></td><td align="right"><sub>★ 3 · forks 1 <code>Python</code></sub></td></tr><tr><td width="6%"><strong>02</strong></td><td><a href="https://github.com/abhrajyoti-01/AuthFlow"><strong>AuthFlow</strong></a><br /><sub>AuthFlow is a robust, full‑stack authentication system built with React (frontend)…</sub></td><td align="right"><sub>★ 1 · forks 3 <code>JavaScript</code></sub></td></tr><tr><td width="6%"><strong>03</strong></td><td><a href="https://github.com/abhrajyoti-01/LocalStore"><strong>LocalStore</strong></a><br /><sub>LocalStore is a modern e-commerce platform designed to connect customers with authe…</sub></td><td align="right"><sub>★ 1 · forks 2 <code>TypeScript</code></sub></td></tr><tr><td width="6%"><strong>04</strong></td><td><a href="https://github.com/abhrajyoti-01/employee-management-system"><strong>employee-management-system</strong></a><br /><sub>A modern full-stack web application for efficient employee record management</sub></td><td align="right"><sub>★ 1 · forks 2 <code>JavaScript</code></sub></td></tr><tr><td width="6%"><strong>05</strong></td><td><a href="https://github.com/abhrajyoti-01/typing-master"><strong>typing-master</strong></a><br /><sub>A platform where you can test your typing speed.</sub></td><td align="right"><sub>★ 1 · forks 0 <code>TypeScript</code></sub></td></tr><tr><td width="6%"><strong>06</strong></td><td><a href="https://github.com/abhrajyoti-01/rock_paper_game"><strong>rock_paper_game</strong></a><br /><sub>Simple Rock - Paper - Scissors Game using Node.js</sub></td><td align="right"><sub>★ 1 · forks 0 <code>JavaScript</code></sub></td></tr></table>
+<table><tr><td width="6%"><strong>01</strong></td><td><a href="https://github.com/abhrajyoti-01/arequest"><strong>arequest</strong></a><br /><sub>🚀 High-performance asynchronous HTTP client with a requests-compatible API — simpl…</sub></td><td align="right"><sub>★ 3 · forks 1 <code>Python</code></sub></td></tr><tr><td width="6%"><strong>02</strong></td><td><a href="https://github.com/abhrajyoti-01/AuthFlow"><strong>AuthFlow</strong></a><br /><sub>AuthFlow is a robust, full‑stack authentication system built with React (frontend)…</sub></td><td align="right"><sub>★ 1 · forks 3 <code>JavaScript</code></sub></td></tr><tr><td width="6%"><strong>03</strong></td><td><a href="https://github.com/abhrajyoti-01/LocalStore"><strong>LocalStore</strong></a><br /><sub>LocalStore is a modern e-commerce platform designed to connect customers with authe…</sub></td><td align="right"><sub>★ 1 · forks 2 <code>TypeScript</code></sub></td></tr><tr><td width="6%"><strong>04</strong></td><td><a href="https://github.com/abhrajyoti-01/employee-management-system"><strong>employee-management-system</strong></a><br /><sub>A modern full-stack web application for efficient employee record management</sub></td><td align="right"><sub>★ 1 · forks 2 <code>JavaScript</code></sub></td></tr><tr><td width="6%"><strong>05</strong></td><td><a href="https://github.com/abhrajyoti-01/ai-storyboarding"><strong>ai-storyboarding</strong></a><br /><sub>Turn one story idea into a cinematic storyboard: AI-written narrative beats plus a…</sub></td><td align="right"><sub>★ 1 · forks 0 <code>Python</code></sub></td></tr><tr><td width="6%"><strong>06</strong></td><td><a href="https://github.com/abhrajyoti-01/typing-master"><strong>typing-master</strong></a><br /><sub>A platform where you can test your typing speed.</sub></td><td align="right"><sub>★ 1 · forks 0 <code>TypeScript</code></sub></td></tr></table>
 <!-- GH:TOP_REPOS:END -->
 
 **Recently pushed**
