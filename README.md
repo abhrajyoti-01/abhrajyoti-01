@@ -35,12 +35,12 @@ class Abhrajyoti:
 A **zero-player roguelike that lives inside this README.** Nobody controls it, not even me. Every 30 minutes a GitHub Action loads the world from [`game/state.json`](game/state.json), simulates 400 turns and records every one of them; the replay below auto-plays those real turns on loop until the next frame lands. The daemon `@` explores a procedurally generated filesystem, squashes bugs, picks up better debugging tools and goes deeper until something kills it. Then the next daemon is forked.
 
 <!-- DUNGEON:START -->
-<p align="center"><img src="https://raw.githubusercontent.com/abhrajyoti-01/abhrajyoti-01/output/dungeon.svg?frame=86" width="100%" alt="/dev/dungeon replay: daemon #26 at depth 8 /boot, turns 31240 to 31640" /></p>
+<p align="center"><img src="https://raw.githubusercontent.com/abhrajyoti-01/abhrajyoti-01/output/dungeon.svg?frame=87" width="100%" alt="/dev/dungeon replay: daemon #26 at depth 11 /dev/null/cc62, turns 31640 to 32040" /></p>
 
-<p align="center"><sub>↻ auto-playing the <b>400 turns</b> simulated in frame <b>#86</b> · rendered 2026-11-18 09:04 UTC by GitHub Actions · a new frame every ~30 minutes</sub></p>
+<p align="center"><sub>↻ auto-playing the <b>400 turns</b> simulated in frame <b>#87</b> · rendered 2026-11-18 17:59 UTC by GitHub Actions · a new frame every ~30 minutes</sub></p>
 
 <details>
-<summary><b>Graveyard</b> · 25 daemons lost · 1,599 bugs squashed · deepest dive: depth 20 by daemon #4</summary>
+<summary><b>Graveyard</b> · 25 daemons lost · 1,629 bugs squashed · deepest dive: depth 20 by daemon #4</summary>
 <br />
 
 | daemon | reached | lvl | kills | killed by | uptime |
@@ -58,35 +58,35 @@ A **zero-player roguelike that lives inside this README.** Nobody controls it, n
 <br />
 
 ```diff
-@@ /dev/dungeon · daemon #026 · depth 08 /boot · turn 031640 @@
+@@ /dev/dungeon · daemon #026 · depth 11 /dev/null/cc62 · turn 032040 @@
  ┌─────────────────────────────────────────────────────┬──────────────────────┐
- │                                                     │ DAEMON #026   lvl 08 │
+ │                                                     │ DAEMON #026   lvl 11 │
  │                                                     │ pid 1150   exploring │
  │                                                     │                      │
- │                                                     │ HP █████████   88/88 │
- │                                                     │ XP █████░░░░     56% │
- │                                           ┌──────┐  │                      │
- │                            ┌──────────┐   │······│  │ atk 19        def 09 │
- │                            +··········+░░░+···@··│  │ ) valgrind        +8 │
- │                            │··········│   │······│  │ [ ci_pipeline     +4 │
- │                            │··········│   └──────┘  │ ! hotfix          x2 │
- │                            └──────────┘             │ * stars          585 │
- │                                                     │                      │
- │                                                     │ depth 08   kills 052 │
- │                                                     │                      │
- │                                                     │ in view        clear │
+ │            ┌───────┐    ┌───────┐                   │ HP ████████░ 100/110 │
+ │            │·······│    │·······│                   │ XP ████████░     87% │
+ │            │·······│    │·······│                   │                      │
+ │       ░@░░░+·······│ ░░░+·······│                   │ atk 30        def 10 │
+ │       ░    └─────+─┘ ░  └──────+┘                   │ ) ebpf           +16 │
+ │                  ░  ░░                              │ [ ci_pipeline     +4 │
+ │                  ░  ░                               │ ! hotfix          x0 │
+ │               ┌──+──+┐                              │ * stars          945 │
+ │               │······│                              │                      │
+ │               │······│                              │ depth 11   kills 082 │
+ │               │······│                              │                      │
+ │               └──────┘                              │ in view        clear │
  │                                                     │                      │
  │                                                     │                      │
  ├─────────────────────────────────────────────────────┴──────────────────────┤
- │ /boot 37% mapped · record depth 20 by #004 · 25 daemons lost               │
+ │ /dev/null/cc62 45% mapped · record depth 20 by #004 · 25 daemons lost      │
  └────────────────────────────────────────────────────────────────────────────┘
-+ 031561  kill    squashed zombie_process · +29 xp
-+ 031563  kill    squashed heisenbug · +38 xp
-@@ 031621  deploy  deployed → depth 08 /boot @@
-+ 031633  kill    squashed bug · +6 xp
-+ 031635  kill    squashed off_by_one · +10 xp · critical
-+ 031636  loot    collected 56 stars
-+ 031638  loot    collected 48 stars
+! 031982  heal    applied a hotfix · +49 hp
++ 031984  kill    squashed segfault · +70 xp
++ 031985  loot    collected 50 stars
+@@ 032000  deploy  deployed → depth 11 /dev/null/cc62 @@
+! 032001  equip   ebpf (+16 atk) replaces rr
+# 032006  salvage scrapped a spare ebpf for 40 stars
++ 032029  kill    squashed zombie_process · +38 xp
 ```
 
 </details>
