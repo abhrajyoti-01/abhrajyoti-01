@@ -35,12 +35,12 @@ class Abhrajyoti:
 A **zero-player roguelike that lives inside this README.** Nobody controls it, not even me. Every 30 minutes a GitHub Action loads the world from [`game/state.json`](game/state.json), simulates 400 turns and records every one of them; the replay below auto-plays those real turns on loop until the next frame lands. The daemon `@` explores a procedurally generated filesystem, squashes bugs, picks up better debugging tools and goes deeper until something kills it. Then the next daemon is forked.
 
 <!-- DUNGEON:START -->
-<p align="center"><img src="https://raw.githubusercontent.com/abhrajyoti-01/abhrajyoti-01/output/dungeon.svg?frame=89" width="100%" alt="/dev/dungeon replay: daemon #26 at depth 17 /dev/null/81af, turns 32440 to 32840" /></p>
+<p align="center"><img src="https://raw.githubusercontent.com/abhrajyoti-01/abhrajyoti-01/output/dungeon.svg?frame=90" width="100%" alt="/dev/dungeon replay: daemon #26 at depth 19 /dev/null/be1e, turns 32840 to 33240" /></p>
 
-<p align="center"><sub>↻ auto-playing the <b>400 turns</b> simulated in frame <b>#89</b> · rendered 2026-11-19 07:53 UTC by GitHub Actions · a new frame every ~30 minutes</sub></p>
+<p align="center"><sub>↻ auto-playing the <b>400 turns</b> simulated in frame <b>#90</b> · rendered 2026-11-19 17:19 UTC by GitHub Actions · a new frame every ~30 minutes</sub></p>
 
 <details>
-<summary><b>Graveyard</b> · 25 daemons lost · 1,689 bugs squashed · deepest dive: depth 20 by daemon #4</summary>
+<summary><b>Graveyard</b> · 25 daemons lost · 1,713 bugs squashed · deepest dive: depth 20 by daemon #4</summary>
 <br />
 
 | daemon | reached | lvl | kills | killed by | uptime |
@@ -58,35 +58,35 @@ A **zero-player roguelike that lives inside this README.** Nobody controls it, n
 <br />
 
 ```diff
-@@ /dev/dungeon · daemon #026 · depth 17 /dev/null/81af · turn 032840 @@
+@@ /dev/dungeon · daemon #026 · depth 19 /dev/null/be1e · turn 033240 @@
  ┌─────────────────────────────────────────────────────┬──────────────────────┐
- │                                                     │ DAEMON #026   lvl 15 │
- │ ┌────────────┐                                      │ pid 1150   exploring │
- │ │············│                                      │                      │
- │ │············│                                      │ HP ███████░░ 117/142 │
- │ │············│                                      │ XP ███████░░     75% │
- │ │············│                                      │                      │
- │ │·········@··│                                      │ atk 34        def 16 │
- │ └───────────+┘                                      │ ) ebpf           +16 │
- │                                                     │ [ formal_proof    +8 │
- │                                                     │ ! hotfix          x3 │
- │                                                     │ * stars         2235 │
- │                                                     │                      │
- │                                                     │ depth 17   kills 142 │
- │                                                     │                      │
- │                                                     │ in view        clear │
- │                                                     │                      │
+ │                                                     │ DAEMON #026   lvl 16 │
+ │                      ┌────────────┐                 │ pid 1150   exploring │
+ │                      │············│                 │                      │
+ │                      │············│                 │ HP ██████░░░  92/150 │
+ │                      │············│                 │ XP ███████░░     72% │
+ │                      └───+────────┘                 │                      │
+ │                          ░                          │ atk 35        def 17 │
+ │                          ░                          │ ) ebpf           +16 │
+ │                     ┌────+─┐                        │ [ formal_proof    +8 │
+ │                     │······│                        │ ! hotfix          x0 │
+ │                     │······│   ┌────────┐           │ * stars         2810 │
+ │                     +······+░░░+········│           │                      │
+ │                     └──────┘   │········+░@░        │ depth 19   kills 166 │
+ │                                │········│           │                      │
+ │                                │········│           │ in view        clear │
+ │                                └────────┘           │                      │
  │                                                     │                      │
  ├─────────────────────────────────────────────────────┴──────────────────────┤
- │ /dev/null/81af 25% mapped · record depth 20 by #004 · 25 daemons lost      │
+ │ /dev/null/be1e 53% mapped · record depth 20 by #004 · 25 daemons lost      │
  └────────────────────────────────────────────────────────────────────────────┘
-+ 032815  loot    applied a spare hotfix on the spot
-+ 032824  kill    squashed null_pointer · +26 xp
-+ 032826  kill    squashed null_pointer · +26 xp · critical
-+ 032828  kill    squashed null_pointer · +26 xp
-@@ 032832  deploy  deployed → depth 17 /dev/null/81af @@
-+ 032835  loot    collected 119 stars
-# 032838  salvage scrapped a spare formal_proof for 35 stars
+! 033220  heal    applied a hotfix · +65 hp
+# 033223  blink   heisenbug moved when observed
++ 033225  kill    squashed heisenbug · +74 xp
+! 033226  heal    applied a hotfix · +65 hp
++ 033228  kill    squashed race_condition · +44 xp · critical
++ 033229  loot    collected 171 stars
+# 033231  salvage scrapped a spare formal_proof for 35 stars
 ```
 
 </details>
