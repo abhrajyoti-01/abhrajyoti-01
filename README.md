@@ -35,21 +35,21 @@ class Abhrajyoti:
 A **zero-player roguelike that lives inside this README.** Nobody controls it, not even me. Every 30 minutes a GitHub Action loads the world from [`game/state.json`](game/state.json), simulates 400 turns and records every one of them; the replay below auto-plays those real turns on loop until the next frame lands. The daemon `@` explores a procedurally generated filesystem, squashes bugs, picks up better debugging tools and goes deeper until something kills it. Then the next daemon is forked.
 
 <!-- DUNGEON:START -->
-<p align="center"><img src="https://raw.githubusercontent.com/abhrajyoti-01/abhrajyoti-01/output/dungeon.svg?frame=92" width="100%" alt="/dev/dungeon replay: daemon #27 at depth 6 /sys, turns 33640 to 34040" /></p>
+<p align="center"><img src="https://raw.githubusercontent.com/abhrajyoti-01/abhrajyoti-01/output/dungeon.svg?frame=93" width="100%" alt="/dev/dungeon replay: daemon #28 at depth 3 /usr/lib, turns 34040 to 34440" /></p>
 
-<p align="center"><sub>↻ auto-playing the <b>400 turns</b> simulated in frame <b>#92</b> · rendered 2026-11-20 07:04 UTC by GitHub Actions · a new frame every ~30 minutes</sub></p>
+<p align="center"><sub>↻ auto-playing the <b>400 turns</b> simulated in frame <b>#93</b> · rendered 2026-11-20 16:04 UTC by GitHub Actions · a new frame every ~30 minutes</sub></p>
 
 <details>
-<summary><b>Graveyard</b> · 26 daemons lost · 1,751 bugs squashed · deepest dive: depth 20 by daemon #4</summary>
+<summary><b>Graveyard</b> · 27 daemons lost · 1,763 bugs squashed · deepest dive: depth 20 by daemon #4</summary>
 <br />
 
 | daemon | reached | lvl | kills | killed by | uptime |
 | :-: | :-- | :-: | :-: | :-- | --: |
+| `#027` | depth 6 · `/sys` | 7 | 37 | `segfault` | 746 turns |
 | `#026` | depth 19 · `/dev/null/be1e` | 16 | 170 | `segfault` | 2,863 turns |
 | `#025` | depth 8 · `/boot` | 9 | 59 | `heisenbug` | 1,099 turns |
 | `#024` | depth 20 · `/dev/null/5c55` | 18 | 180 | `segfault` | 2,822 turns |
 | `#023` | depth 8 · `/boot` | 9 | 51 | `heisenbug` | 992 turns |
-| `#022` | depth 8 · `/boot` | 9 | 52 | `null_pointer` | 1,002 turns |
 
 </details>
 
@@ -58,35 +58,35 @@ A **zero-player roguelike that lives inside this README.** Nobody controls it, n
 <br />
 
 ```diff
-@@ /dev/dungeon · daemon #027 · depth 06 /sys · turn 034040 @@
+@@ /dev/dungeon · daemon #028 · depth 03 /usr/lib · turn 034440 @@
  ┌─────────────────────────────────────────────────────┬──────────────────────┐
- │                                                     │ DAEMON #027   lvl 07 │
- │                                                     │ pid 7034    fighting │
+ │                                                     │ DAEMON #028   lvl 02 │
+ │                 ┌───────┐                           │ pid 18218   fighting │
+ │                 │·······│                           │                      │
+ │   ┌──────┐      │·······│                           │ HP █████████   38/38 │
+ │   │··x···│      │·······│                           │ XP ████████░     88% │
+ │   │·····@│ ░░░░░+·······│                           │                      │
+ │   └─────+┘ ░    └──────+┘                           │ atk 09        def 03 │
+ │         ░░░░                                        │ ) gdb             +4 │
+ │         ░                                           │ [ linter          +1 │
+ │                                                     │ ! hotfix          x3 │
+ │                                                     │ * stars           36 │
  │                                                     │                      │
- │                                                     │ HP ██████░░░   49/73 │
- │                               ┌───────┐             │ XP ████░░░░░     45% │
- │                   ┌───────┐   │·······│             │                      │
- │     ┌─────┐       │·······+░░░+··@lS··│             │ atk 18        def 07 │
- │     │·····│       │·······│   └──────+┘             │ ) valgrind        +8 │
- │     │·····│       │·······│                         │ [ type_system     +3 │
- │     │·····+░░░░░░░+·······│                         │ ! hotfix          x0 │
- │     │·····│       │·······│                         │ * stars          164 │
- │     │·····│       └───────┘                         │                      │
- │     └─────┘                                         │ depth 06   kills 034 │
+ │                                                     │ depth 03   kills 009 │
  │                                                     │                      │
- │                                                     │ in view            2 │
- │                                                     │ l memory_leak    ██░ │
- │                                                     │ S segfault       ███ │
+ │                                                     │ in view            1 │
+ │                                                     │ x off_by_one     ███ │
+ │                                                     │                      │
  ├─────────────────────────────────────────────────────┴──────────────────────┤
- │ /sys 54% mapped · record depth 20 by #004 · 26 daemons lost                │
+ │ /usr/lib 25% mapped · record depth 20 by #004 · 27 daemons lost            │
  └────────────────────────────────────────────────────────────────────────────┘
-@@ 033997  deploy  deployed → depth 06 /sys @@
-- 034013  hit     segfault hit for 16 · critical · hp 50/73
-- 034014  hit     segfault hit for 16 · critical · hp 34/73
-+ 034016  kill    squashed segfault · +53 xp
-! 034017  heal    applied a hotfix · +35 hp
-+ 034019  kill    squashed race_condition · +21 xp
-+ 034038  kill    squashed race_condition · +21 xp
+! 034315  equip   linter (+1 def) replaces no_tests
++ 034317  kill    squashed bug · +3 xp
++ 034318  loot    stashed a hotfix (3/3)
++ 034369  kill    squashed bug · +3 xp
+# 034370  salvage scrapped a spare grep for 10 stars
++ 034377  kill    squashed off_by_one · +6 xp
+@@ 034426  deploy  deployed → depth 03 /usr/lib @@
 ```
 
 </details>
@@ -283,7 +283,7 @@ Telegram bot for Brainware University student self-service: attendance, fees, ma
 <sub>Regenerated every 30 minutes from the GitHub API by <a href=".github/scripts/update-readme.js"><code>update-readme.js</code></a>.</sub>
 
 <!-- GH:STATS:START -->
-<table align="center"><tr><td align="center" width="25%"><strong>33</strong><br /><sub>Repositories</sub></td><td align="center" width="25%"><strong>9</strong><br /><sub>Stars</sub></td><td align="center" width="25%"><strong>10</strong><br /><sub>Forks</sub></td><td align="center" width="25%"><strong>11</strong><br /><sub>Followers</sub></td></tr><tr><td align="center" width="25%"><strong>187</strong><br /><sub>Contributions (1y)</sub></td><td align="center" width="25%"><strong>141</strong><br /><sub>Commits (1y)</sub></td><td align="center" width="25%"><strong>2</strong><br /><sub>Pull requests</sub></td><td align="center" width="25%"><strong>0</strong><br /><sub>Issues opened</sub></td></tr></table>
+<table align="center"><tr><td align="center" width="25%"><strong>33</strong><br /><sub>Repositories</sub></td><td align="center" width="25%"><strong>9</strong><br /><sub>Stars</sub></td><td align="center" width="25%"><strong>10</strong><br /><sub>Forks</sub></td><td align="center" width="25%"><strong>10</strong><br /><sub>Followers</sub></td></tr><tr><td align="center" width="25%"><strong>187</strong><br /><sub>Contributions (1y)</sub></td><td align="center" width="25%"><strong>141</strong><br /><sub>Commits (1y)</sub></td><td align="center" width="25%"><strong>2</strong><br /><sub>Pull requests</sub></td><td align="center" width="25%"><strong>0</strong><br /><sub>Issues opened</sub></td></tr></table>
 <!-- GH:STATS:END -->
 
 <!-- GH:LANGUAGES:START -->
