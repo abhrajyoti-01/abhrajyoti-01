@@ -35,21 +35,21 @@ class Abhrajyoti:
 A **zero-player roguelike that lives inside this README.** Nobody controls it, not even me. Every 30 minutes a GitHub Action loads the world from [`game/state.json`](game/state.json), simulates 400 turns and records every one of them; the replay below auto-plays those real turns on loop until the next frame lands. The daemon `@` explores a procedurally generated filesystem, squashes bugs, picks up better debugging tools and goes deeper until something kills it. Then the next daemon is forked.
 
 <!-- DUNGEON:START -->
-<p align="center"><img src="https://raw.githubusercontent.com/abhrajyoti-01/abhrajyoti-01/output/dungeon.svg?frame=99" width="100%" alt="/dev/dungeon replay: daemon #28 at depth 18 /dev/null/1fe6, turns 36440 to 36840" /></p>
+<p align="center"><img src="https://raw.githubusercontent.com/abhrajyoti-01/abhrajyoti-01/output/dungeon.svg?frame=100" width="100%" alt="/dev/dungeon replay: daemon #29 at depth 3 /usr/lib, turns 36840 to 37240" /></p>
 
-<p align="center"><sub>↻ auto-playing the <b>400 turns</b> simulated in frame <b>#99</b> · rendered 2026-11-22 06:37 UTC by GitHub Actions · a new frame every ~30 minutes</sub></p>
+<p align="center"><sub>↻ auto-playing the <b>400 turns</b> simulated in frame <b>#100</b> · rendered 2026-11-22 14:53 UTC by GitHub Actions · a new frame every ~30 minutes</sub></p>
 
 <details>
-<summary><b>Graveyard</b> · 27 daemons lost · 1,912 bugs squashed · deepest dive: depth 20 by daemon #4</summary>
+<summary><b>Graveyard</b> · 28 daemons lost · 1,932 bugs squashed · deepest dive: depth 20 by daemon #4</summary>
 <br />
 
 | daemon | reached | lvl | kills | killed by | uptime |
 | :-: | :-- | :-: | :-: | :-- | --: |
+| `#028` | depth 19 · `/dev/null/be1e` | 17 | 165 | `segfault` | 2,874 turns |
 | `#027` | depth 6 · `/sys` | 7 | 37 | `segfault` | 746 turns |
 | `#026` | depth 19 · `/dev/null/be1e` | 16 | 170 | `segfault` | 2,863 turns |
 | `#025` | depth 8 · `/boot` | 9 | 59 | `heisenbug` | 1,099 turns |
 | `#024` | depth 20 · `/dev/null/5c55` | 18 | 180 | `segfault` | 2,822 turns |
-| `#023` | depth 8 · `/boot` | 9 | 51 | `heisenbug` | 992 turns |
 
 </details>
 
@@ -58,35 +58,35 @@ A **zero-player roguelike that lives inside this README.** Nobody controls it, n
 <br />
 
 ```diff
-@@ /dev/dungeon · daemon #028 · depth 18 /dev/null/1fe6 · turn 036840 @@
+@@ /dev/dungeon · daemon #029 · depth 03 /usr/lib · turn 037240 @@
  ┌─────────────────────────────────────────────────────┬──────────────────────┐
- │                                                     │ DAEMON #028   lvl 17 │
- │                 ┌─────┐                             │ pid 18218   fighting │
- │   ┌────────┐    │·····│                             │                      │
- │   │······l·│    │·····│  ┌────────────┐             │ HP ███████░░ 116/149 │
- │   │·····>zn│    │·····+░░+············│  ┌──────┐   │ XP █░░░░░░░░      8% │
- │   └───────@┘    │·····│  │············│  │······│   │                      │
- │           ░ ░░░░+·····│  │············+░░+······│   │ atk 36        def 17 │
- │           ░░░   └─────┘  │············│  └────+─┘   │ ) ebpf           +16 │
- │           ░              │············│       ░     │ [ formal_proof    +8 │
- │                          └─────────+──┘       ░     │ ! hotfix          x3 │
- │                                    ░       ┌──+───┐ │ * stars         2206 │
- │                                    ░       │······│ │                      │
- │                             ┌──────+┐      │······│ │ depth 18   kills 158 │
- │                             │·······│      │······│ │                      │
- │                             │·······│      │······│ │ in view            3 │
- │                             └───────┘      └──────┘ │ n null_pointer   █░░ │
- │                                                     │ z zombie_process ███ │
+ │                                                     │ DAEMON #029   lvl 03 │
+ │                                     ┌─────────┐     │ pid 6014   exploring │
+ │                                     │·········│     │                      │
+ │                                     │·········│     │ HP █████████   48/48 │
+ │                                     +@········│     │ XP ████░░░░░     45% │
+ │                                     └─────+───┘     │                      │
+ │                                           ░         │ atk 10        def 04 │
+ │                                           ░         │ ) gdb             +4 │
+ │                                      ┌────+───┐     │ [ unit_tests      +2 │
+ │                                      │········│     │ ! hotfix          x3 │
+ │                                      │········│     │ * stars           77 │
+ │                                      └────────┘     │                      │
+ │                                                     │ depth 03   kills 013 │
+ │                                                     │                      │
+ │                                                     │ in view        clear │
+ │                                                     │                      │
+ │                                                     │                      │
  ├─────────────────────────────────────────────────────┴──────────────────────┤
- │ /dev/null/1fe6 86% mapped · record depth 20 by #004 · 27 daemons lost      │
+ │ /usr/lib 26% mapped · record depth 20 by #004 · 28 daemons lost            │
  └────────────────────────────────────────────────────────────────────────────┘
-+ 036759  kill    squashed memory_leak · +36 xp
-# 036762  salvage scrapped a spare ebpf for 40 stars
-+ 036790  kill    squashed bug · +11 xp
-# 036814  blink   heisenbug moved when observed
-+ 036821  kill    squashed heisenbug · +71 xp
-! 036826  docs    read the docs · +108 xp
-! 036826  lvlup   daemon reached lvl 17 · +7 max hp
+! 037221  equip   gdb (+4 atk) replaces grep
++ 037227  kill    squashed bug · +4 xp
++ 037229  kill    squashed bug · +4 xp · critical
++ 037231  kill    squashed off_by_one · +7 xp
++ 037233  kill    squashed off_by_one · +7 xp
++ 037234  loot    applied a spare hotfix on the spot
++ 037236  loot    collected 15 stars
 ```
 
 </details>
