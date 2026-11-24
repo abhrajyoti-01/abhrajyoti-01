@@ -35,12 +35,12 @@ class Abhrajyoti:
 A **zero-player roguelike that lives inside this README.** Nobody controls it, not even me. Every 30 minutes a GitHub Action loads the world from [`game/state.json`](game/state.json), simulates 400 turns and records every one of them; the replay below auto-plays those real turns on loop until the next frame lands. The daemon `@` explores a procedurally generated filesystem, squashes bugs, picks up better debugging tools and goes deeper until something kills it. Then the next daemon is forked.
 
 <!-- DUNGEON:START -->
-<p align="center"><img src="https://raw.githubusercontent.com/abhrajyoti-01/abhrajyoti-01/output/dungeon.svg?frame=105" width="100%" alt="/dev/dungeon replay: daemon #30 at depth 10 /root, turns 38840 to 39240" /></p>
+<p align="center"><img src="https://raw.githubusercontent.com/abhrajyoti-01/abhrajyoti-01/output/dungeon.svg?frame=106" width="100%" alt="/dev/dungeon replay: daemon #30 at depth 13 /dev/null/8d12, turns 39240 to 39640" /></p>
 
-<p align="center"><sub>↻ auto-playing the <b>400 turns</b> simulated in frame <b>#105</b> · rendered 2026-11-24 05:57 UTC by GitHub Actions · a new frame every ~30 minutes</sub></p>
+<p align="center"><sub>↻ auto-playing the <b>400 turns</b> simulated in frame <b>#106</b> · rendered 2026-11-24 17:34 UTC by GitHub Actions · a new frame every ~30 minutes</sub></p>
 
 <details>
-<summary><b>Graveyard</b> · 29 daemons lost · 2,046 bugs squashed · deepest dive: depth 20 by daemon #4</summary>
+<summary><b>Graveyard</b> · 29 daemons lost · 2,081 bugs squashed · deepest dive: depth 20 by daemon #4</summary>
 <br />
 
 | daemon | reached | lvl | kills | killed by | uptime |
@@ -58,35 +58,35 @@ A **zero-player roguelike that lives inside this README.** Nobody controls it, n
 <br />
 
 ```diff
-@@ /dev/dungeon · daemon #030 · depth 10 /root · turn 039240 @@
+@@ /dev/dungeon · daemon #030 · depth 13 /dev/null/8d12 · turn 039640 @@
  ┌─────────────────────────────────────────────────────┬──────────────────────┐
- │                                                     │ DAEMON #030   lvl 11 │
+ │                                                     │ DAEMON #030   lvl 13 │
  │                                                     │ pid 19968   fighting │
- │                                          ┌────────┐ │                      │
- │                          ┌──────┐        │········│ │ HP ███████░░  76/104 │
- │                          │······│        │········│ │ XP ░░░░░░░░░      1% │
- │                          │······│        │z·r·····│ │                      │
- │                 ░░░░░░░░░+······│        └@───────┘ │ atk 24        def 12 │
- │                 ░        └─────+┘         ░         │ ) perf           +10 │
- │         ┌──+────+┐             ░          ░         │ [ fuzzer          +6 │
- │         │········│             ░      ┌───+───┐     │ ! hotfix          x3 │
- │         │········│             ░░░░░░░+·······│     │ * stars          791 │
- │         │········│             ░      │·······│     │                      │
- │         │········│    ┌────────+───┐  │·······│     │ depth 10   kills 074 │
- │         │········+░░░░+············│  │·······│     │                      │
- │         └────────┘    │············│  └───────┘     │ in view            2 │
- │                       └────────────┘                │ z zombie_process ███ │
- │                                                     │ r race_condition ███ │
+ │                                                     │                      │
+ │                                                     │ HP ███████░░  89/119 │
+ │                                            ┌─────┐  │ XP ██░░░░░░░     25% │
+ │                                   ┌─────┐  │·····│  │                      │
+ │                                   │·····│  │·····│  │ atk 32        def 15 │
+ │                                   │·····│  │·····│  │ ) ebpf           +16 │
+ │                    ┌────+───┐ ░░░░+·····│  └+────┘  │ [ formal_proof    +8 │
+ │                    │····@···+░░   └────+┘   ░       │ ! hotfix          x3 │
+ │                    │········│          ░    ░       │ * stars         1397 │
+ │                    └────────┘          ░░   ░       │                      │
+ │                                         ░ ┌─+────┐  │ depth 13   kills 109 │
+ │                                         ░░+······│  │                      │
+ │                                           │······│  │ in view        clear │
+ │                                           └──────┘  │                      │
+ │                                                     │                      │
  ├─────────────────────────────────────────────────────┴──────────────────────┤
- │ /root 87% mapped · record depth 20 by #004 · 29 daemons lost               │
+ │ /dev/null/8d12 56% mapped · record depth 20 by #004 · 29 daemons lost      │
  └────────────────────────────────────────────────────────────────────────────┘
-# 039176  salvage scrapped a spare fuzzer for 30 stars
-+ 039193  kill    squashed memory_leak · +23 xp
-- 039211  hit     segfault hit for 19 · critical · hp 45/95
-+ 039212  kill    squashed segfault · +70 xp
-+ 039214  kill    squashed heisenbug · +47 xp
-+ 039240  kill    squashed heisenbug · +47 xp
-! 039240  lvlup   daemon reached lvl 11 · +9 max hp
++ 039597  loot    collected 52 stars
+# 039614  revive  zombie_process re-parented to init · back for more
++ 039616  kill    squashed zombie_process · +42 xp
++ 039618  kill    squashed race_condition · +34 xp
++ 039632  loot    collected 117 stars
++ 039636  kill    squashed bug · +8 xp
++ 039640  kill    squashed memory_leak · +28 xp · critical
 ```
 
 </details>
