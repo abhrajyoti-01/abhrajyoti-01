@@ -35,12 +35,12 @@ class Abhrajyoti:
 A **zero-player roguelike that lives inside this README.** Nobody controls it, not even me. Every 30 minutes a GitHub Action loads the world from [`game/state.json`](game/state.json), simulates 400 turns and records every one of them; the replay below auto-plays those real turns on loop until the next frame lands. The daemon `@` explores a procedurally generated filesystem, squashes bugs, picks up better debugging tools and goes deeper until something kills it. Then the next daemon is forked.
 
 <!-- DUNGEON:START -->
-<p align="center"><img src="https://raw.githubusercontent.com/abhrajyoti-01/abhrajyoti-01/output/dungeon.svg?frame=114" width="100%" alt="/dev/dungeon replay: daemon #31 at depth 20 /dev/null/5c55, turns 42440 to 42840" /></p>
+<p align="center"><img src="https://raw.githubusercontent.com/abhrajyoti-01/abhrajyoti-01/output/dungeon.svg?frame=115" width="100%" alt="/dev/dungeon replay: daemon #31 at depth 22 /dev/null/98c4, turns 42840 to 43240" /></p>
 
-<p align="center"><sub>↻ auto-playing the <b>400 turns</b> simulated in frame <b>#114</b> · rendered 2026-11-27 14:17 UTC by GitHub Actions · a new frame every ~30 minutes</sub></p>
+<p align="center"><sub>↻ auto-playing the <b>400 turns</b> simulated in frame <b>#115</b> · rendered 2026-11-27 22:54 UTC by GitHub Actions · a new frame every ~30 minutes</sub></p>
 
 <details>
-<summary><b>Graveyard</b> · 30 daemons lost · 2,281 bugs squashed · deepest dive: depth 20 by daemon #4</summary>
+<summary><b>Graveyard</b> · 30 daemons lost · 2,302 bugs squashed · deepest dive: depth 22 by daemon #31</summary>
 <br />
 
 | daemon | reached | lvl | kills | killed by | uptime |
@@ -58,35 +58,35 @@ A **zero-player roguelike that lives inside this README.** Nobody controls it, n
 <br />
 
 ```diff
-@@ /dev/dungeon · daemon #031 · depth 20 /dev/null/5c55 · turn 042840 @@
+@@ /dev/dungeon · daemon #031 · depth 22 /dev/null/98c4 · turn 043240 @@
  ┌─────────────────────────────────────────────────────┬──────────────────────┐
- │                                                     │ DAEMON #031   lvl 17 │
- │                 ┌──────┐                            │ pid 23336  exploring │
- │    ┌─────────┐  │······│                            │                      │
- │    │·········+░░+······│      ┌─────────┐           │ HP ████████░ 124/148 │
- │    │·········│  └─────+┘      │·········│           │ XP ████████░     83% │
- │    │·········│        ░░░░░░░░+·········│           │                      │
- │    └──────+──┘        ░       │·········│           │ atk 36        def 17 │
- │           ░      ┌────+───┐   └────────+┘           │ ) ebpf           +16 │
- │           ░      │········│            ░            │ [ formal_proof    +8 │
- │        ┌──+──┐   │········│            ░            │ ! hotfix          x0 │
- │        │·····│   │········│            ░            │ * stars         3110 │
- │        │·····│   │········│            ░            │                      │
- │        │·····│   └────────┘          ┌─+─────+┐     │ depth 20   kills 182 │
- │        │·····│                       │······@·│     │                      │
- │        │·····│                       │········│     │ in view        clear │
- │        └─────┘                       └────────┘     │                      │
+ │                                                     │ DAEMON #031   lvl 19 │
+ │   ┌──────────┐                                      │ pid 23336  deploying │
+ │   │··········│                                      │                      │
+ │   │··········│                                      │ HP █████████ 161/161 │
+ │   └─+────+───┘                                      │ XP ██░░░░░░░     23% │
+ │     ░    ░                                          │                      │
+ │     ░    ░                   ┌───────────┐          │ atk 38        def 18 │
+ │     ░░░░░░ ┌───────────┐     │···········│  ┌─────┐ │ ) ebpf           +16 │
+ │     ░    ░░+·@·········+░░░░░+···········│  │·····│ │ [ formal_proof    +8 │
+ │  ┌──+──┐   │···········│     │···········+░░+·····│ │ ! hotfix          x2 │
+ │  │·····│   │···········│     │···········│  │·····│ │ * stars         3386 │
+ │  │·····│   │···········│     └───────────┘  │·····│ │                      │
+ │  │·····│   └───────────┘                    │···>·│ │ depth 22   kills 203 │
+ │  └─────┘                                    └─────┘ │                      │
+ │                                                     │ in view        clear │
+ │                                                     │                      │
  │                                                     │                      │
  ├─────────────────────────────────────────────────────┴──────────────────────┤
- │ /dev/null/5c55 85% mapped · record depth 20 by #004 · 30 daemons lost      │
+ │ /dev/null/98c4 100% mapped · record depth 22 by #031 · 30 daemons lost     │
  └────────────────────────────────────────────────────────────────────────────┘
-+ 042800  kill    squashed heisenbug · +77 xp
-- 042819  hit     memory_leak hit for 24 · critical · hp 29/148
-! 042820  heal    applied a hotfix · +65 hp
-+ 042822  kill    squashed zombie_process · +58 xp
-+ 042826  kill    squashed memory_leak · +39 xp
-+ 042828  kill    squashed off_by_one · +19 xp
-! 042839  docs    read the docs · +120 xp
++ 043158  kill    squashed off_by_one · +21 xp · critical
++ 043163  kill    squashed zombie_process · +62 xp
++ 043179  kill    squashed off_by_one · +21 xp
+- 043180  hit     heisenbug hit for 36 · critical · hp 73/161
+! 043183  heal    applied a hotfix · +70 hp
++ 043184  kill    squashed heisenbug · +83 xp
++ 043189  kill    squashed zombie_process · +62 xp
 ```
 
 </details>
@@ -283,7 +283,7 @@ Telegram bot for Brainware University student self-service: attendance, fees, ma
 <sub>Regenerated every 30 minutes from the GitHub API by <a href=".github/scripts/update-readme.js"><code>update-readme.js</code></a>.</sub>
 
 <!-- GH:STATS:START -->
-<table align="center"><tr><td align="center" width="25%"><strong>33</strong><br /><sub>Repositories</sub></td><td align="center" width="25%"><strong>9</strong><br /><sub>Stars</sub></td><td align="center" width="25%"><strong>10</strong><br /><sub>Forks</sub></td><td align="center" width="25%"><strong>10</strong><br /><sub>Followers</sub></td></tr><tr><td align="center" width="25%"><strong>183</strong><br /><sub>Contributions (1y)</sub></td><td align="center" width="25%"><strong>137</strong><br /><sub>Commits (1y)</sub></td><td align="center" width="25%"><strong>2</strong><br /><sub>Pull requests</sub></td><td align="center" width="25%"><strong>0</strong><br /><sub>Issues opened</sub></td></tr></table>
+<table align="center"><tr><td align="center" width="25%"><strong>34</strong><br /><sub>Repositories</sub></td><td align="center" width="25%"><strong>9</strong><br /><sub>Stars</sub></td><td align="center" width="25%"><strong>10</strong><br /><sub>Forks</sub></td><td align="center" width="25%"><strong>10</strong><br /><sub>Followers</sub></td></tr><tr><td align="center" width="25%"><strong>184</strong><br /><sub>Contributions (1y)</sub></td><td align="center" width="25%"><strong>137</strong><br /><sub>Commits (1y)</sub></td><td align="center" width="25%"><strong>2</strong><br /><sub>Pull requests</sub></td><td align="center" width="25%"><strong>0</strong><br /><sub>Issues opened</sub></td></tr></table>
 <!-- GH:STATS:END -->
 
 <!-- GH:LANGUAGES:START -->
@@ -291,15 +291,15 @@ Telegram bot for Brainware University student self-service: attendance, fees, ma
 
 | Rank | Language | Share |
 | :-: | :-- | :-: |
-| **01** | `C` | **32.0%** |
-| **02** | `Python` | **22.3%** |
-| **03** | `TypeScript` | **19.9%** |
-| **04** | `JavaScript` | **17.7%** |
-| **05** | `Go` | **3.9%** |
-| **06** | `Rust` | **1.9%** |
-| **07** | `PHP` | **1.9%** |
+| **01** | `C` | **31.6%** |
+| **02** | `Python` | **21.9%** |
+| **03** | `TypeScript` | **19.6%** |
+| **04** | `JavaScript` | **17.4%** |
+| **05** | `Go` | **3.8%** |
+| **06** | `PHP` | **3.4%** |
+| **07** | `Rust` | **1.9%** |
 
-<img src="assets/lang-dist.svg" width="100%" alt="Byte-weighted language distribution — C 32.0%, Python 22.3%, TypeScript 19.9%, JavaScript 17.7%, Go 3.9%, Rust 1.9%, PHP 1.9%"/>
+<img src="assets/lang-dist.svg" width="100%" alt="Byte-weighted language distribution — C 31.6%, Python 21.9%, TypeScript 19.6%, JavaScript 17.4%, Go 3.8%, PHP 3.4%, Rust 1.9%"/>
 
 <sub>Plus 3 additional languages.</sub>
 <!-- GH:LANGUAGES:END -->
@@ -313,7 +313,7 @@ Telegram bot for Brainware University student self-service: attendance, fees, ma
 **Recently pushed**
 
 <!-- GH:RECENT:START -->
-<table><tr><td width="6%"><strong>01</strong></td><td><a href="https://github.com/abhrajyoti-01/arequest"><strong>arequest</strong></a><br /><sub>🚀 High-performance asynchronous HTTP client with a requests-compatible API — simpl…</sub></td><td align="right"><sub><code>Python</code> · 23 days ago</sub></td></tr><tr><td width="6%"><strong>02</strong></td><td><a href="https://github.com/abhrajyoti-01/ai-storyboarding"><strong>ai-storyboarding</strong></a><br /><sub>Turn one story idea into a cinematic storyboard: AI-written narrative beats plus a…</sub></td><td align="right"><sub><code>Python</code> · 25 days ago</sub></td></tr><tr><td width="6%"><strong>03</strong></td><td><a href="https://github.com/abhrajyoti-01/StorageCleaner"><strong>StorageCleaner</strong></a><br /><sub>AI-assisted Windows disk cleanup: caches, crash dumps, old Windows files + power-th…</sub></td><td align="right"><sub><code>Python</code> · 27 days ago</sub></td></tr><tr><td width="6%"><strong>04</strong></td><td><a href="https://github.com/abhrajyoti-01/QuizGame"><strong>QuizGame</strong></a><br /><sub>React 18 + Vite quiz app with 1,009 questions across 20 topics — Python standard-li…</sub></td><td align="right"><sub><code>Python</code> · 27 days ago</sub></td></tr><tr><td width="6%"><strong>05</strong></td><td><a href="https://github.com/abhrajyoti-01/dsa-in-c"><strong>dsa-in-c</strong></a><br /><sub>198 self-documented data structures and algorithms programs in C - fundamentals to…</sub></td><td align="right"><sub><code>C</code> · 1 month ago</sub></td></tr></table>
+<table><tr><td width="6%"><strong>01</strong></td><td><a href="https://github.com/abhrajyoti-01/curl-cuffi-php"><strong>curl-cuffi-php</strong></a></td><td align="right"><sub><code>PHP</code> · 1 hour ago</sub></td></tr><tr><td width="6%"><strong>02</strong></td><td><a href="https://github.com/abhrajyoti-01/arequest"><strong>arequest</strong></a><br /><sub>🚀 High-performance asynchronous HTTP client with a requests-compatible API — simpl…</sub></td><td align="right"><sub><code>Python</code> · 23 days ago</sub></td></tr><tr><td width="6%"><strong>03</strong></td><td><a href="https://github.com/abhrajyoti-01/ai-storyboarding"><strong>ai-storyboarding</strong></a><br /><sub>Turn one story idea into a cinematic storyboard: AI-written narrative beats plus a…</sub></td><td align="right"><sub><code>Python</code> · 25 days ago</sub></td></tr><tr><td width="6%"><strong>04</strong></td><td><a href="https://github.com/abhrajyoti-01/StorageCleaner"><strong>StorageCleaner</strong></a><br /><sub>AI-assisted Windows disk cleanup: caches, crash dumps, old Windows files + power-th…</sub></td><td align="right"><sub><code>Python</code> · 28 days ago</sub></td></tr><tr><td width="6%"><strong>05</strong></td><td><a href="https://github.com/abhrajyoti-01/QuizGame"><strong>QuizGame</strong></a><br /><sub>React 18 + Vite quiz app with 1,009 questions across 20 topics — Python standard-li…</sub></td><td align="right"><sub><code>Python</code> · 28 days ago</sub></td></tr></table>
 <!-- GH:RECENT:END -->
 
 <br />
@@ -325,7 +325,7 @@ Telegram bot for Brainware University student self-service: attendance, fees, ma
 
 **Languages & runtimes**
 
-<img src="https://skillicons.dev/icons?i=c,python,ts,js,go,rust,php&theme=dark" alt="c, python, ts, js, go, rust, php" />
+<img src="https://skillicons.dev/icons?i=c,python,ts,js,go,php,rust&theme=dark" alt="c, python, ts, js, go, php, rust" />
 
 **Frameworks & delivery**
 
